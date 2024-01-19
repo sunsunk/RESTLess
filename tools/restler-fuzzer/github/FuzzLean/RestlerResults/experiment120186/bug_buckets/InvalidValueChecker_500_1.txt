@@ -1,0 +1,21 @@
+################################################################################
+ InvalidValueChecker_500
+
+ Hash: InvalidValueChecker_500_982e0acf62de00eb9d4a4c3157a3f11326670e65
+
+ To attempt to reproduce this bug using restler, run restler with the command
+ line option of --replay_log <path_to_this_log>.
+ If an authentication token is required, you must also specify the token_refresh_cmd.
+
+ This log may contain specific values for IDs or names that were generated
+ during fuzzing, using the fuzzing dictionary. Such names will be re-played
+ without modification. You must update the replay log manually with any changes
+ required to execute the requests in your environment (for example, replacing
+ pre-created account, subscription, or other resource IDs, as needed).
+################################################################################
+
+-> GET /api/v3/issues?state=opened&labels=fuzzstring&milestone=IDHID0mevJfoOLn4SEWj8iUtyATy8Yi8hdn5UzwK&order_by=created_at&sort=asc&page=1&per_page=1 HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nAUTHORIZATION TOKEN\r\n\r\n
+! producer_timing_delay 0
+! max_async_wait_time 20
+PREVIOUS RESPONSE: 'HTTP/1.1 500 Internal Server Error\r\nDate: Fri, 07 Apr 2023 05:12:11 GMT\r\nContent-Type: text/html\r\nContent-Length: 186\r\nConnection: keep-alive\r\nCF-Cache-Status: MISS\r\nReport-To: {"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=LJDQZZHZK8YLzA0nveSUxCUFepmDuwcBOLYQy%2Fel5%2Bai2oE%2BnySUWVPkTASjsk3EDhWK7H5pDEChFGf31OIrxScTxAQIJsZBmNoP26m6FiBnBBK2yKMD%2B27JFPk%3D"}],"group":"cf-nel","max_age":604800}\r\nNEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}\r\nStrict-Transport-Security: max-age=31536000\r\nX-Content-Type-Options: nosniff\r\nSet-Cookie: _cfuvid=g7sUe8_bTFe7_lECWyPA_Yb4fOrMi.mmFQRl7i0WgVg-1680844331589-0-604800000; path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None\r\nServer: cloudflare\r\nCF-RAY: 7b3fc6305c56b44b-HKG\r\n\r\n<html>\r\n<head><title>500 Internal Server Error</title></head>\r\n<body bgcolor="white">\r\n<center><h1>500 Internal Server Error</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n'
+

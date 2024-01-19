@@ -1,0 +1,138 @@
+openapi: 3.0.1
+info:
+  title: Swagger CRUD
+  description: Swagger CRUD description
+  termsOfService: http://swagger.io/terms/
+  version: 1.0.0
+servers:
+- url: http://localhost:3000/
+tags:
+- name: Users
+  description: User actions
+paths:
+  /api/v1/users:
+    get:
+      tags:
+      - Users
+      description: List users
+      parameters:
+      - name: user_id
+        in: query
+        description: User ID
+        schema:
+          type: number
+      - name: profile_id
+        in: query
+        description: Profile ID (1 = ADMIN, 2 = CLIENT)
+        schema:
+          type: number
+      - name: name
+        in: query
+        description: User name
+        schema:
+          type: string
+      - name: is_active
+        in: query
+        description: Is the user active?
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Success
+          content: {}
+        400:
+          description: Business Exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/business_exception'
+    put:
+      tags:
+      - Users
+      description: Update user
+      requestBody:
+        content:
+          application/json: {}
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+        400:
+          description: Business Exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/business_exception'
+      x-codegen-request-body-name: vm
+    post:
+      tags:
+      - Users
+      description: Create user
+      requestBody:
+        content:
+          application/json: {}
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+        400:
+          description: Business Exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/business_exception'
+      x-codegen-request-body-name: vm
+    delete:
+      tags:
+      - Users
+      description: Delete user
+      parameters:
+      - name: user_id
+        in: query
+        description: User ID
+        required: true
+        schema:
+          type: number
+      responses:
+        200:
+          description: Success
+          content: {}
+        400:
+          description: Business Exception
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/business_exception'
+components:
+  schemas:
+    user_id:
+      type: number
+      description: User ID
+      example: 1
+    profile_id:
+      type: number
+      description: Profile ID (1 = ADMIN, 2 = CLIENT)
+      example: 1
+    name:
+      type: string
+      description: User name
+      example: LUCIANO
+    is_active:
+      type: boolean
+      description: Is the user active?
+      example: true
+    error:
+      type: object
+      properties:
+        msg:
+          type: string
+          description: Error message
+          example: User not found
+      description: Error data
+    business_exception:
+      type: array
+      description: Error array
+      items:
+        $ref: '#/components/schemas/error'

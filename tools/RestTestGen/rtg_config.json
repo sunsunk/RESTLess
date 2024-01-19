@@ -1,0 +1,7 @@
+{
+  "specificationFileName": "resources/gitea_after_change_api.json",
+  "authCommand": "python3 auth/gitea_auth.py",
+  "strategyName": "NominalAndErrorStrategy",
+  "testingSessionName": "customNameForTestingSession",
+  "outputPath": "output/gitea_after_change_api"
+}

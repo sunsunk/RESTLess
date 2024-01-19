@@ -1,0 +1,29 @@
+################################################################################
+ PayloadBodyChecker_500
+
+ StructMissing_/id/category{...}/photoUrls[...]/tags[...]/status
+{'name': 'doggie'}
+
+ Hash: PayloadBodyChecker_500_d95d1da45272a7ab113ca9e7f02278945e3c509c
+
+ To attempt to reproduce this bug using restler, run restler with the command
+ line option of --replay_log <path_to_this_log>.
+ If an authentication token is required, you must also specify the token_refresh_cmd.
+
+ This log may contain specific values for IDs or names that were generated
+ during fuzzing, using the fuzzing dictionary. Such names will be re-played
+ without modification. You must update the replay log manually with any changes
+ required to execute the requests in your environment (for example, replacing
+ pre-created account, subscription, or other resource IDs, as needed).
+################################################################################
+
+-> POST /api/v3/pet HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "name":"doggie",\n    "category":\n        {\n            "id":1,\n            "name":"Dogs"\n        }\n    ,\n    "photoUrls":\n    [\n        "fuzzstring"\n    ],\n    "tags":\n    [\n        {\n            "id":1,\n            "name":"fuzzstring"\n        }\n    ],\n    "status":"available"}\r\n
+! producer_timing_delay 0
+! max_async_wait_time 20
+PREVIOUS RESPONSE: 'HTTP/1.1 200 OK\r\nDate: Mon, 27 Mar 2023 02:16:00 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 145\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"id":10,"category":{"id":1,"name":"Dogs"},"name":"doggie","photoUrls":["fuzzstring"],"tags":[{"id":1,"name":"fuzzstring"}],"status":"available"}'
+
+-> PUT /api/v3/pet HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{"name":"doggie"}
+! producer_timing_delay 0
+! max_async_wait_time 0
+PREVIOUS RESPONSE: 'HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:16:00 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 9c0091ddead1a962)"}'
+

@@ -1,0 +1,106 @@
+This file contains the failing requests, ordered by the number of blocked dependent requests.
+To improve coverage, fix the failing requests in the order listed in this file.
+
+Note: some requests are labeled as 'sequence failure'.
+This means the request depends on another request that is failing intermittently.
+For example, a DELETE request for a resource may be skipped because the resource
+PUT request failed due to exceeding quota.  The same PUT request succeeded earlier (and may
+succeed later depending on the resource clean-up behavior in the service), so it is
+considered an intermittent failure.
+
+-----------------------------------------------
+Request: Put /users/v1/{username}/email
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> PUT /users/v1/fuzzstring/email HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\nContent-Type: application/json\r\n\r\n{\n    "email":"fuzzstring"}\r\n
+	< HTTP/1.1 401 UNAUTHORIZED\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:57:19 GMT\r\nContent-Type: application/json\r\nContent-Length: 47\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "Invalid token"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> PUT /users/v1/fuzzstring/email HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\nContent-Type: application/json\r\n\r\n{}
+	< HTTP/1.1 400 BAD REQUEST\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:57:25 GMT\r\nContent-Type: application/json\r\nContent-Length: 68\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "Please provide a proper JSON body."}
+
+
+-----------------------------------------------
+Request: Put /users/v1/{username}/password
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> PUT /users/v1/fuzzstring/password HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\nContent-Type: application/json\r\n\r\n{\n    "password":"fuzzstring"}\r\n
+	< HTTP/1.1 401 UNAUTHORIZED\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:57:28 GMT\r\nContent-Type: application/json\r\nContent-Length: 47\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "Invalid token"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> PUT /users/v1/fuzzstring/password HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\nContent-Type: application/json\r\n\r\n{}
+	< HTTP/1.1 401 UNAUTHORIZED\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:57:33 GMT\r\nContent-Type: application/json\r\nContent-Length: 47\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "Invalid token"}
+
+
+-----------------------------------------------
+Request: Post /books/v1
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /books/v1 HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\nContent-Type: application/json\r\n\r\n{\n    "book_title":"fuzzstring",\n    "secret":"fuzzstring"}\r\n
+	< HTTP/1.1 401 UNAUTHORIZED\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:57:56 GMT\r\nContent-Type: application/json\r\nContent-Length: 47\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "Invalid token"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /books/v1 HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\nContent-Type: application/json\r\n\r\n{}
+	< HTTP/1.1 400 BAD REQUEST\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:58:02 GMT\r\nContent-Type: application/json\r\nContent-Length: 68\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "Please provide a proper JSON body."}
+
+
+-----------------------------------------------
+Request: Delete /users/v1/{username}
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> DELETE /users/v1/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\n\r\n
+	< HTTP/1.1 401 UNAUTHORIZED\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:58:02 GMT\r\nContent-Type: application/json\r\nContent-Length: 47\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "Invalid token"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> DELETE /users/v1/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\n\r\n
+	< HTTP/1.1 401 UNAUTHORIZED\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:58:05 GMT\r\nContent-Type: application/json\r\nContent-Length: 47\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "Invalid token"}
+
+
+-----------------------------------------------
+Request: Get /users/v1/{username}
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /users/v1/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\n\r\n
+	< HTTP/1.1 404 NOT FOUND\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:58:05 GMT\r\nContent-Type: application/json\r\nContent-Length: 48\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "User not found"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /users/v1/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\n\r\n
+	< HTTP/1.1 404 NOT FOUND\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:58:09 GMT\r\nContent-Type: application/json\r\nContent-Length: 48\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "User not found"}
+
+
+-----------------------------------------------
+Request: Get /books/v1/{book_title}
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /books/v1/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\n\r\n
+	< HTTP/1.1 401 UNAUTHORIZED\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:58:09 GMT\r\nContent-Type: application/json\r\nContent-Length: 47\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "Invalid token"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /books/v1/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:5000\r\n\r\n
+	< HTTP/1.1 401 UNAUTHORIZED\r\nServer: Werkzeug/2.2.3 Python/3.7.16\r\nDate: Tue, 28 Mar 2023 07:58:12 GMT\r\nContent-Type: application/json\r\nContent-Length: 47\r\nConnection: close\r\n\r\n{ "status": "fail", "message": "Invalid token"}
+
+

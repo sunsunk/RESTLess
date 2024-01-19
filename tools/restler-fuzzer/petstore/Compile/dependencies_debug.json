@@ -1,0 +1,2752 @@
+[
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "category",
+            "fullPath": {
+              "path": [
+                "category"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "category",
+        "AccessPathParts": {
+          "path": [
+            "category"
+          ]
+        },
+        "ResourceName": "category",
+        "ProducerParameterName": "category",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "id",
+            "fullPath": {
+              "path": [
+                "category",
+                "id"
+              ]
+            }
+          }
+        },
+        "ContainerName": "category",
+        "BodyContainerName": "category",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "category"
+        ],
+        "AccessPath": "category/id",
+        "AccessPathParts": {
+          "path": [
+            "category",
+            "id"
+          ]
+        },
+        "ResourceName": "id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": true,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "name",
+            "fullPath": {
+              "path": [
+                "category",
+                "name"
+              ]
+            }
+          }
+        },
+        "ContainerName": "category",
+        "BodyContainerName": "category",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "category"
+        ],
+        "AccessPath": "category/name",
+        "AccessPathParts": {
+          "path": [
+            "category",
+            "name"
+          ]
+        },
+        "ResourceName": "name",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": true,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "id",
+            "fullPath": {
+              "path": [
+                "id"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "id",
+        "AccessPathParts": {
+          "path": [
+            "id"
+          ]
+        },
+        "ResourceName": "id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "name",
+            "fullPath": {
+              "path": [
+                "name"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "name",
+        "AccessPathParts": {
+          "path": [
+            "name"
+          ]
+        },
+        "ResourceName": "name",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "photoUrls",
+            "fullPath": {
+              "path": [
+                "photoUrls",
+                "[0]"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "photoUrls/[0]",
+        "AccessPathParts": {
+          "path": [
+            "photoUrls",
+            "[0]"
+          ]
+        },
+        "ResourceName": "photoUrls",
+        "ProducerParameterName": "urls",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "status",
+            "fullPath": {
+              "path": [
+                "status"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "status",
+        "AccessPathParts": {
+          "path": [
+            "status"
+          ]
+        },
+        "ResourceName": "status",
+        "ProducerParameterName": "status",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": {
+          "Enum": [
+            "status",
+            "String",
+            [
+              "available",
+              "pending",
+              "sold"
+            ],
+            null
+          ]
+        }
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "tags",
+            "fullPath": {
+              "path": [
+                "tags",
+                "[0]"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "tags/[0]",
+        "AccessPathParts": {
+          "path": [
+            "tags",
+            "[0]"
+          ]
+        },
+        "ResourceName": "tags",
+        "ProducerParameterName": "tags",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "id",
+            "fullPath": {
+              "path": [
+                "tags",
+                "[0]",
+                "id"
+              ]
+            }
+          }
+        },
+        "ContainerName": "tags",
+        "BodyContainerName": "tags",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "tag"
+        ],
+        "AccessPath": "tags/[0]/id",
+        "AccessPathParts": {
+          "path": [
+            "tags",
+            "[0]",
+            "id"
+          ]
+        },
+        "ResourceName": "id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": true,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "name",
+            "fullPath": {
+              "path": [
+                "tags",
+                "[0]",
+                "name"
+              ]
+            }
+          }
+        },
+        "ContainerName": "tags",
+        "BodyContainerName": "tags",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "tag"
+        ],
+        "AccessPath": "tags/[0]/name",
+        "AccessPathParts": {
+          "path": [
+            "tags",
+            "[0]",
+            "name"
+          ]
+        },
+        "ResourceName": "name",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": true,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "category",
+            "fullPath": {
+              "path": [
+                "category"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "category",
+        "AccessPathParts": {
+          "path": [
+            "category"
+          ]
+        },
+        "ResourceName": "category",
+        "ProducerParameterName": "category",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "id",
+            "fullPath": {
+              "path": [
+                "category",
+                "id"
+              ]
+            }
+          }
+        },
+        "ContainerName": "category",
+        "BodyContainerName": "category",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "category"
+        ],
+        "AccessPath": "category/id",
+        "AccessPathParts": {
+          "path": [
+            "category",
+            "id"
+          ]
+        },
+        "ResourceName": "id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": true,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "name",
+            "fullPath": {
+              "path": [
+                "category",
+                "name"
+              ]
+            }
+          }
+        },
+        "ContainerName": "category",
+        "BodyContainerName": "category",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "category"
+        ],
+        "AccessPath": "category/name",
+        "AccessPathParts": {
+          "path": [
+            "category",
+            "name"
+          ]
+        },
+        "ResourceName": "name",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": true,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "id",
+            "fullPath": {
+              "path": [
+                "id"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "id",
+        "AccessPathParts": {
+          "path": [
+            "id"
+          ]
+        },
+        "ResourceName": "id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    },
+    "producer": {
+      "ResponseObject": {
+        "id": {
+          "RequestId": {
+            "endpoint": "/pet",
+            "method": "Post"
+          },
+          "ResourceReference": {
+            "BodyResource": {
+              "name": "id",
+              "fullPath": {
+                "path": [
+                  "id"
+                ]
+              }
+            }
+          },
+          "ContainerName": "pet",
+          "PathContainerName": "pet",
+          "CandidateTypeNames": [
+            "pet"
+          ],
+          "AccessPath": "id",
+          "AccessPathParts": {
+            "path": [
+              "id"
+            ]
+          },
+          "ResourceName": "id",
+          "ProducerParameterName": "id",
+          "IsNestedBodyResource": false,
+          "PrimitiveType": "Int"
+        }
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "name",
+            "fullPath": {
+              "path": [
+                "name"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "name",
+        "AccessPathParts": {
+          "path": [
+            "name"
+          ]
+        },
+        "ResourceName": "name",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    },
+    "producer": {
+      "ResponseObject": {
+        "id": {
+          "RequestId": {
+            "endpoint": "/pet",
+            "method": "Post"
+          },
+          "ResourceReference": {
+            "BodyResource": {
+              "name": "name",
+              "fullPath": {
+                "path": [
+                  "name"
+                ]
+              }
+            }
+          },
+          "ContainerName": "pet",
+          "PathContainerName": "pet",
+          "CandidateTypeNames": [
+            "pet"
+          ],
+          "AccessPath": "name",
+          "AccessPathParts": {
+            "path": [
+              "name"
+            ]
+          },
+          "ResourceName": "name",
+          "ProducerParameterName": "name",
+          "IsNestedBodyResource": false,
+          "PrimitiveType": "String"
+        }
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "photoUrls",
+            "fullPath": {
+              "path": [
+                "photoUrls",
+                "[0]"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "photoUrls/[0]",
+        "AccessPathParts": {
+          "path": [
+            "photoUrls",
+            "[0]"
+          ]
+        },
+        "ResourceName": "photoUrls",
+        "ProducerParameterName": "urls",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    },
+    "producer": {
+      "ResponseObject": {
+        "id": {
+          "RequestId": {
+            "endpoint": "/pet",
+            "method": "Post"
+          },
+          "ResourceReference": {
+            "BodyResource": {
+              "name": "photoUrls",
+              "fullPath": {
+                "path": [
+                  "photoUrls",
+                  "[0]"
+                ]
+              }
+            }
+          },
+          "ContainerName": "pet",
+          "PathContainerName": "pet",
+          "CandidateTypeNames": [
+            "pet"
+          ],
+          "AccessPath": "photoUrls/[0]",
+          "AccessPathParts": {
+            "path": [
+              "photoUrls",
+              "[0]"
+            ]
+          },
+          "ResourceName": "photoUrls",
+          "ProducerParameterName": "urls",
+          "IsNestedBodyResource": false,
+          "PrimitiveType": "String"
+        }
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "status",
+            "fullPath": {
+              "path": [
+                "status"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "status",
+        "AccessPathParts": {
+          "path": [
+            "status"
+          ]
+        },
+        "ResourceName": "status",
+        "ProducerParameterName": "status",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": {
+          "Enum": [
+            "status",
+            "String",
+            [
+              "available",
+              "pending",
+              "sold"
+            ],
+            null
+          ]
+        }
+      },
+      "parameterKind": "Body"
+    },
+    "producer": {
+      "ResponseObject": {
+        "id": {
+          "RequestId": {
+            "endpoint": "/pet",
+            "method": "Post"
+          },
+          "ResourceReference": {
+            "BodyResource": {
+              "name": "status",
+              "fullPath": {
+                "path": [
+                  "status"
+                ]
+              }
+            }
+          },
+          "ContainerName": "pet",
+          "PathContainerName": "pet",
+          "CandidateTypeNames": [
+            "pet"
+          ],
+          "AccessPath": "status",
+          "AccessPathParts": {
+            "path": [
+              "status"
+            ]
+          },
+          "ResourceName": "status",
+          "ProducerParameterName": "status",
+          "IsNestedBodyResource": false,
+          "PrimitiveType": {
+            "Enum": [
+              "status",
+              "String",
+              [
+                "available",
+                "pending",
+                "sold"
+              ],
+              null
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "tags",
+            "fullPath": {
+              "path": [
+                "tags",
+                "[0]"
+              ]
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPath": "tags/[0]",
+        "AccessPathParts": {
+          "path": [
+            "tags",
+            "[0]"
+          ]
+        },
+        "ResourceName": "tags",
+        "ProducerParameterName": "tags",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "id",
+            "fullPath": {
+              "path": [
+                "tags",
+                "[0]",
+                "id"
+              ]
+            }
+          }
+        },
+        "ContainerName": "tags",
+        "BodyContainerName": "tags",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "tag"
+        ],
+        "AccessPath": "tags/[0]/id",
+        "AccessPathParts": {
+          "path": [
+            "tags",
+            "[0]",
+            "id"
+          ]
+        },
+        "ResourceName": "id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": true,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "name",
+            "fullPath": {
+              "path": [
+                "tags",
+                "[0]",
+                "name"
+              ]
+            }
+          }
+        },
+        "ContainerName": "tags",
+        "BodyContainerName": "tags",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "tag"
+        ],
+        "AccessPath": "tags/[0]/name",
+        "AccessPathParts": {
+          "path": [
+            "tags",
+            "[0]",
+            "name"
+          ]
+        },
+        "ResourceName": "name",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": true,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet/findByStatus",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "status"
+        },
+        "ContainerName": "findByStatus",
+        "PathContainerName": "findByStatus",
+        "CandidateTypeNames": [
+          "find__by__status"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "status",
+        "ProducerParameterName": "status",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet/findByTags",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "tags"
+        },
+        "ContainerName": "findByTags",
+        "PathContainerName": "findByTags",
+        "CandidateTypeNames": [
+          "find__by__tag"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "tags",
+        "ProducerParameterName": "tags",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet/{petId}",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "petId",
+            "pathToParameter": [
+              "pet"
+            ],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "petId",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    },
+    "producer": {
+      "ResponseObject": {
+        "id": {
+          "RequestId": {
+            "endpoint": "/pet",
+            "method": "Put"
+          },
+          "ResourceReference": {
+            "BodyResource": {
+              "name": "id",
+              "fullPath": {
+                "path": [
+                  "id"
+                ]
+              }
+            }
+          },
+          "ContainerName": "pet",
+          "PathContainerName": "pet",
+          "CandidateTypeNames": [
+            "pet"
+          ],
+          "AccessPath": "id",
+          "AccessPathParts": {
+            "path": [
+              "id"
+            ]
+          },
+          "ResourceName": "id",
+          "ProducerParameterName": "id",
+          "IsNestedBodyResource": false,
+          "PrimitiveType": "Int"
+        }
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet/{petId}",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "QueryResource": "name"
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "name",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet/{petId}",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "QueryResource": "status"
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "status",
+        "ProducerParameterName": "status",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet/{petId}",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "petId",
+            "pathToParameter": [
+              "pet"
+            ],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "petId",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    },
+    "producer": {
+      "ResponseObject": {
+        "id": {
+          "RequestId": {
+            "endpoint": "/pet",
+            "method": "Put"
+          },
+          "ResourceReference": {
+            "BodyResource": {
+              "name": "id",
+              "fullPath": {
+                "path": [
+                  "id"
+                ]
+              }
+            }
+          },
+          "ContainerName": "pet",
+          "PathContainerName": "pet",
+          "CandidateTypeNames": [
+            "pet"
+          ],
+          "AccessPath": "id",
+          "AccessPathParts": {
+            "path": [
+              "id"
+            ]
+          },
+          "ResourceName": "id",
+          "ProducerParameterName": "id",
+          "IsNestedBodyResource": false,
+          "PrimitiveType": "Int"
+        }
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet/{petId}",
+          "method": "Delete"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "petId",
+            "pathToParameter": [
+              "pet"
+            ],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "pet",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "petId",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    },
+    "producer": {
+      "ResponseObject": {
+        "id": {
+          "RequestId": {
+            "endpoint": "/pet",
+            "method": "Put"
+          },
+          "ResourceReference": {
+            "BodyResource": {
+              "name": "id",
+              "fullPath": {
+                "path": [
+                  "id"
+                ]
+              }
+            }
+          },
+          "ContainerName": "pet",
+          "PathContainerName": "pet",
+          "CandidateTypeNames": [
+            "pet"
+          ],
+          "AccessPath": "id",
+          "AccessPathParts": {
+            "path": [
+              "id"
+            ]
+          },
+          "ResourceName": "id",
+          "ProducerParameterName": "id",
+          "IsNestedBodyResource": false,
+          "PrimitiveType": "Int"
+        }
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet/{petId}/uploadImage",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "petId",
+            "pathToParameter": [
+              "pet"
+            ],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "ContainerName": "pet",
+        "PathContainerName": "uploadImage",
+        "CandidateTypeNames": [
+          "pet"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "petId",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    },
+    "producer": {
+      "ResponseObject": {
+        "id": {
+          "RequestId": {
+            "endpoint": "/pet",
+            "method": "Put"
+          },
+          "ResourceReference": {
+            "BodyResource": {
+              "name": "id",
+              "fullPath": {
+                "path": [
+                  "id"
+                ]
+              }
+            }
+          },
+          "ContainerName": "pet",
+          "PathContainerName": "pet",
+          "CandidateTypeNames": [
+            "pet"
+          ],
+          "AccessPath": "id",
+          "AccessPathParts": {
+            "path": [
+              "id"
+            ]
+          },
+          "ResourceName": "id",
+          "ProducerParameterName": "id",
+          "IsNestedBodyResource": false,
+          "PrimitiveType": "Int"
+        }
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/pet/{petId}/uploadImage",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "QueryResource": "additionalMetadata"
+        },
+        "ContainerName": "uploadImage",
+        "PathContainerName": "uploadImage",
+        "CandidateTypeNames": [
+          "upload__image"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "additionalMetadata",
+        "ProducerParameterName": "metadata",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/store/order",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "complete",
+            "fullPath": {
+              "path": [
+                "complete"
+              ]
+            }
+          }
+        },
+        "ContainerName": "order",
+        "PathContainerName": "order",
+        "CandidateTypeNames": [
+          "order"
+        ],
+        "AccessPath": "complete",
+        "AccessPathParts": {
+          "path": [
+            "complete"
+          ]
+        },
+        "ResourceName": "complete",
+        "ProducerParameterName": "complete",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Bool"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/store/order",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "id",
+            "fullPath": {
+              "path": [
+                "id"
+              ]
+            }
+          }
+        },
+        "ContainerName": "order",
+        "PathContainerName": "order",
+        "CandidateTypeNames": [
+          "order"
+        ],
+        "AccessPath": "id",
+        "AccessPathParts": {
+          "path": [
+            "id"
+          ]
+        },
+        "ResourceName": "id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/store/order",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "petId",
+            "fullPath": {
+              "path": [
+                "petId"
+              ]
+            }
+          }
+        },
+        "ContainerName": "order",
+        "PathContainerName": "order",
+        "CandidateTypeNames": [
+          "order"
+        ],
+        "AccessPath": "petId",
+        "AccessPathParts": {
+          "path": [
+            "petId"
+          ]
+        },
+        "ResourceName": "petId",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/store/order",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "quantity",
+            "fullPath": {
+              "path": [
+                "quantity"
+              ]
+            }
+          }
+        },
+        "ContainerName": "order",
+        "PathContainerName": "order",
+        "CandidateTypeNames": [
+          "order"
+        ],
+        "AccessPath": "quantity",
+        "AccessPathParts": {
+          "path": [
+            "quantity"
+          ]
+        },
+        "ResourceName": "quantity",
+        "ProducerParameterName": "quantity",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/store/order",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "shipDate",
+            "fullPath": {
+              "path": [
+                "shipDate"
+              ]
+            }
+          }
+        },
+        "ContainerName": "order",
+        "PathContainerName": "order",
+        "CandidateTypeNames": [
+          "order"
+        ],
+        "AccessPath": "shipDate",
+        "AccessPathParts": {
+          "path": [
+            "shipDate"
+          ]
+        },
+        "ResourceName": "shipDate",
+        "ProducerParameterName": "date",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "DateTime"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/store/order",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "status",
+            "fullPath": {
+              "path": [
+                "status"
+              ]
+            }
+          }
+        },
+        "ContainerName": "order",
+        "PathContainerName": "order",
+        "CandidateTypeNames": [
+          "order"
+        ],
+        "AccessPath": "status",
+        "AccessPathParts": {
+          "path": [
+            "status"
+          ]
+        },
+        "ResourceName": "status",
+        "ProducerParameterName": "status",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": {
+          "Enum": [
+            "status",
+            "String",
+            [
+              "placed",
+              "approved",
+              "delivered"
+            ],
+            null
+          ]
+        }
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/store/order/{orderId}",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "orderId",
+            "pathToParameter": [
+              "store",
+              "order"
+            ],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "ContainerName": "order",
+        "PathContainerName": "order",
+        "CandidateTypeNames": [
+          "order"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "orderId",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    },
+    "producer": {
+      "ResponseObject": {
+        "id": {
+          "RequestId": {
+            "endpoint": "/store/order",
+            "method": "Post"
+          },
+          "ResourceReference": {
+            "BodyResource": {
+              "name": "id",
+              "fullPath": {
+                "path": [
+                  "id"
+                ]
+              }
+            }
+          },
+          "ContainerName": "order",
+          "PathContainerName": "order",
+          "CandidateTypeNames": [
+            "order"
+          ],
+          "AccessPath": "id",
+          "AccessPathParts": {
+            "path": [
+              "id"
+            ]
+          },
+          "ResourceName": "id",
+          "ProducerParameterName": "id",
+          "IsNestedBodyResource": false,
+          "PrimitiveType": "Int"
+        }
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/store/order/{orderId}",
+          "method": "Delete"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "orderId",
+            "pathToParameter": [
+              "store",
+              "order"
+            ],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "ContainerName": "order",
+        "PathContainerName": "order",
+        "CandidateTypeNames": [
+          "order"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "orderId",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    },
+    "producer": {
+      "ResponseObject": {
+        "id": {
+          "RequestId": {
+            "endpoint": "/store/order",
+            "method": "Post"
+          },
+          "ResourceReference": {
+            "BodyResource": {
+              "name": "id",
+              "fullPath": {
+                "path": [
+                  "id"
+                ]
+              }
+            }
+          },
+          "ContainerName": "order",
+          "PathContainerName": "order",
+          "CandidateTypeNames": [
+            "order"
+          ],
+          "AccessPath": "id",
+          "AccessPathParts": {
+            "path": [
+              "id"
+            ]
+          },
+          "ResourceName": "id",
+          "ProducerParameterName": "id",
+          "IsNestedBodyResource": false,
+          "PrimitiveType": "Int"
+        }
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "email",
+            "fullPath": {
+              "path": [
+                "email"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "email",
+        "AccessPathParts": {
+          "path": [
+            "email"
+          ]
+        },
+        "ResourceName": "email",
+        "ProducerParameterName": "email",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "firstName",
+            "fullPath": {
+              "path": [
+                "firstName"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "firstName",
+        "AccessPathParts": {
+          "path": [
+            "firstName"
+          ]
+        },
+        "ResourceName": "firstName",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "id",
+            "fullPath": {
+              "path": [
+                "id"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "id",
+        "AccessPathParts": {
+          "path": [
+            "id"
+          ]
+        },
+        "ResourceName": "id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "lastName",
+            "fullPath": {
+              "path": [
+                "lastName"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "lastName",
+        "AccessPathParts": {
+          "path": [
+            "lastName"
+          ]
+        },
+        "ResourceName": "lastName",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "password",
+            "fullPath": {
+              "path": [
+                "password"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "password",
+        "AccessPathParts": {
+          "path": [
+            "password"
+          ]
+        },
+        "ResourceName": "password",
+        "ProducerParameterName": "password",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "phone",
+            "fullPath": {
+              "path": [
+                "phone"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "phone",
+        "AccessPathParts": {
+          "path": [
+            "phone"
+          ]
+        },
+        "ResourceName": "phone",
+        "ProducerParameterName": "phone",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "userStatus",
+            "fullPath": {
+              "path": [
+                "userStatus"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "userStatus",
+        "AccessPathParts": {
+          "path": [
+            "userStatus"
+          ]
+        },
+        "ResourceName": "userStatus",
+        "ProducerParameterName": "status",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "username",
+            "fullPath": {
+              "path": [
+                "username"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "username",
+        "AccessPathParts": {
+          "path": [
+            "username"
+          ]
+        },
+        "ResourceName": "username",
+        "ProducerParameterName": "username",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/createWithList",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "email",
+            "fullPath": {
+              "path": [
+                "[0]",
+                "email"
+              ]
+            }
+          }
+        },
+        "ContainerName": "createWithList",
+        "PathContainerName": "createWithList",
+        "CandidateTypeNames": [
+          "create__with__list"
+        ],
+        "AccessPath": "[0]/email",
+        "AccessPathParts": {
+          "path": [
+            "[0]",
+            "email"
+          ]
+        },
+        "ResourceName": "email",
+        "ProducerParameterName": "email",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/createWithList",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "firstName",
+            "fullPath": {
+              "path": [
+                "[0]",
+                "firstName"
+              ]
+            }
+          }
+        },
+        "ContainerName": "createWithList",
+        "PathContainerName": "createWithList",
+        "CandidateTypeNames": [
+          "create__with__list"
+        ],
+        "AccessPath": "[0]/firstName",
+        "AccessPathParts": {
+          "path": [
+            "[0]",
+            "firstName"
+          ]
+        },
+        "ResourceName": "firstName",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/createWithList",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "id",
+            "fullPath": {
+              "path": [
+                "[0]",
+                "id"
+              ]
+            }
+          }
+        },
+        "ContainerName": "createWithList",
+        "PathContainerName": "createWithList",
+        "CandidateTypeNames": [
+          "create__with__list"
+        ],
+        "AccessPath": "[0]/id",
+        "AccessPathParts": {
+          "path": [
+            "[0]",
+            "id"
+          ]
+        },
+        "ResourceName": "id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/createWithList",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "lastName",
+            "fullPath": {
+              "path": [
+                "[0]",
+                "lastName"
+              ]
+            }
+          }
+        },
+        "ContainerName": "createWithList",
+        "PathContainerName": "createWithList",
+        "CandidateTypeNames": [
+          "create__with__list"
+        ],
+        "AccessPath": "[0]/lastName",
+        "AccessPathParts": {
+          "path": [
+            "[0]",
+            "lastName"
+          ]
+        },
+        "ResourceName": "lastName",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/createWithList",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "password",
+            "fullPath": {
+              "path": [
+                "[0]",
+                "password"
+              ]
+            }
+          }
+        },
+        "ContainerName": "createWithList",
+        "PathContainerName": "createWithList",
+        "CandidateTypeNames": [
+          "create__with__list"
+        ],
+        "AccessPath": "[0]/password",
+        "AccessPathParts": {
+          "path": [
+            "[0]",
+            "password"
+          ]
+        },
+        "ResourceName": "password",
+        "ProducerParameterName": "password",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/createWithList",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "phone",
+            "fullPath": {
+              "path": [
+                "[0]",
+                "phone"
+              ]
+            }
+          }
+        },
+        "ContainerName": "createWithList",
+        "PathContainerName": "createWithList",
+        "CandidateTypeNames": [
+          "create__with__list"
+        ],
+        "AccessPath": "[0]/phone",
+        "AccessPathParts": {
+          "path": [
+            "[0]",
+            "phone"
+          ]
+        },
+        "ResourceName": "phone",
+        "ProducerParameterName": "phone",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/createWithList",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "userStatus",
+            "fullPath": {
+              "path": [
+                "[0]",
+                "userStatus"
+              ]
+            }
+          }
+        },
+        "ContainerName": "createWithList",
+        "PathContainerName": "createWithList",
+        "CandidateTypeNames": [
+          "create__with__list"
+        ],
+        "AccessPath": "[0]/userStatus",
+        "AccessPathParts": {
+          "path": [
+            "[0]",
+            "userStatus"
+          ]
+        },
+        "ResourceName": "userStatus",
+        "ProducerParameterName": "status",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/createWithList",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "username",
+            "fullPath": {
+              "path": [
+                "[0]",
+                "username"
+              ]
+            }
+          }
+        },
+        "ContainerName": "createWithList",
+        "PathContainerName": "createWithList",
+        "CandidateTypeNames": [
+          "create__with__list"
+        ],
+        "AccessPath": "[0]/username",
+        "AccessPathParts": {
+          "path": [
+            "[0]",
+            "username"
+          ]
+        },
+        "ResourceName": "username",
+        "ProducerParameterName": "username",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/login",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "username"
+        },
+        "ContainerName": "login",
+        "PathContainerName": "login",
+        "CandidateTypeNames": [
+          "login"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "username",
+        "ProducerParameterName": "username",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/login",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "password"
+        },
+        "ContainerName": "login",
+        "PathContainerName": "login",
+        "CandidateTypeNames": [
+          "login"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "password",
+        "ProducerParameterName": "password",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "username",
+            "pathToParameter": [
+              "user"
+            ],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "username",
+        "ProducerParameterName": "username",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "username",
+            "pathToParameter": [
+              "user"
+            ],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "username",
+        "ProducerParameterName": "username",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    },
+    "producer": {
+      "DictionaryPayload": {
+        "payloadType": "UuidSuffix",
+        "primitiveType": "String",
+        "name": "username",
+        "isObject": false
+      }
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "email",
+            "fullPath": {
+              "path": [
+                "email"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "email",
+        "AccessPathParts": {
+          "path": [
+            "email"
+          ]
+        },
+        "ResourceName": "email",
+        "ProducerParameterName": "email",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "firstName",
+            "fullPath": {
+              "path": [
+                "firstName"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "firstName",
+        "AccessPathParts": {
+          "path": [
+            "firstName"
+          ]
+        },
+        "ResourceName": "firstName",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "id",
+            "fullPath": {
+              "path": [
+                "id"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "id",
+        "AccessPathParts": {
+          "path": [
+            "id"
+          ]
+        },
+        "ResourceName": "id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "lastName",
+            "fullPath": {
+              "path": [
+                "lastName"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "lastName",
+        "AccessPathParts": {
+          "path": [
+            "lastName"
+          ]
+        },
+        "ResourceName": "lastName",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "password",
+            "fullPath": {
+              "path": [
+                "password"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "password",
+        "AccessPathParts": {
+          "path": [
+            "password"
+          ]
+        },
+        "ResourceName": "password",
+        "ProducerParameterName": "password",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "phone",
+            "fullPath": {
+              "path": [
+                "phone"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "phone",
+        "AccessPathParts": {
+          "path": [
+            "phone"
+          ]
+        },
+        "ResourceName": "phone",
+        "ProducerParameterName": "phone",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "userStatus",
+            "fullPath": {
+              "path": [
+                "userStatus"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "userStatus",
+        "AccessPathParts": {
+          "path": [
+            "userStatus"
+          ]
+        },
+        "ResourceName": "userStatus",
+        "ProducerParameterName": "status",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Put"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "username",
+            "fullPath": {
+              "path": [
+                "username"
+              ]
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPath": "username",
+        "AccessPathParts": {
+          "path": [
+            "username"
+          ]
+        },
+        "ResourceName": "username",
+        "ProducerParameterName": "username",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/user/{username}",
+          "method": "Delete"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "username",
+            "pathToParameter": [
+              "user"
+            ],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "ContainerName": "user",
+        "PathContainerName": "user",
+        "CandidateTypeNames": [
+          "user"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "username",
+        "ProducerParameterName": "username",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  }
+]

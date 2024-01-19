@@ -1,0 +1,21 @@
+################################################################################
+ InvalidValueChecker_500
+
+ Hash: InvalidValueChecker_500_60bf2be84d7ac37cb0d3b28f86a7b81c57d906e2
+
+ To attempt to reproduce this bug using restler, run restler with the command
+ line option of --replay_log <path_to_this_log>.
+ If an authentication token is required, you must also specify the token_refresh_cmd.
+
+ This log may contain specific values for IDs or names that were generated
+ during fuzzing, using the fuzzing dictionary. Such names will be re-played
+ without modification. You must update the replay log manually with any changes
+ required to execute the requests in your environment (for example, replacing
+ pre-created account, subscription, or other resource IDs, as needed).
+################################################################################
+
+-> PUT /api/v4/application/plan_limits HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nAUTHORIZATION TOKEN\r\n\r\n{\n    "plan_name":"gaF\x0cJ}%*{h",\n    "ci_pipeline_size":1,\n    "ci_active_jobs":1,\n    "ci_active_pipelines":1,\n    "ci_project_subscriptions":1,\n    "ci_pipeline_schedules":1,\n    "ci_needs_size_limit":1,\n    "ci_registered_group_runners":1,\n    "ci_registered_project_runners":1,\n    "conan_max_file_size":1,\n    "generic_packages_max_file_size":1,\n    "helm_max_file_size":1,\n    "maven_max_file_size":1,\n    "npm_max_file_size":1,\n    "nuget_max_file_size":1,\n    "pypi_max_file_size":1,\n    "terraform_module_max_file_size":1,\n    "storage_size_limit":1}\r\n
+! producer_timing_delay 0
+! max_async_wait_time 20
+PREVIOUS RESPONSE: 'HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 10 Apr 2023 19:06:57 GMT\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 75\r\nConnection: keep-alive\r\nStrict-Transport-Security: max-age=31536000\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nRateLimit-Observed: 116\r\nRateLimit-Remaining: 1884\r\nRateLimit-Reset: 1681153677\r\nRateLimit-ResetTime: Mon, 10 Apr 2023 19:07:57 GMT\r\nRateLimit-Limit: 2000\r\nGitLab-LB: fe-30-lb-gprd\r\nGitLab-SV: localhost\r\nCF-Cache-Status: DYNAMIC\r\nReport-To: {"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=JXkTXnCAMSFBL6h%2B160FOZjqEugIEowYAOkv3QcifkFImyZL3Fv%2BplHVY4TNiHQvWf8oX7j0AiKRpK6S1GZtog6FX4QNx8YPv0C2qHpu2bpACz%2F3ntaLMJKnsgw%3D"}],"group":"cf-nel","max_age":604800}\r\nNEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}\r\nX-Content-Type-Options: nosniff\r\nSet-Cookie: _cfuvid=uEywGx8cAUOfH1tPpkBu8dijIQ9GFIAdRw8MyvVS460-1681153617355-0-604800000; path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None\r\nServer: cloudflare\r\nCF-RAY: 7b5d451adfd704d7-HKG\r\n\r\nAn error has occurred and reported in the system\'s low-level error handler.'
+

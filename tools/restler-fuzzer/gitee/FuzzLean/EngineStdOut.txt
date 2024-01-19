@@ -1,0 +1,191 @@
+2023-04-25 04:05:31.285: Initializing: Garbage collection every 30 seconds.
+2023-04-25 04:05:31.430: Generation: 1 
+Invalid value generator random seed: 1682395532.016913
+Invalid value generator random seed: 1682395552.4396045
+Invalid value generator random seed: 1682395552.8161523
+Invalid value generator random seed: 1682395571.8034167
+Invalid value generator random seed: 1682395572.5804927
+Invalid value generator random seed: 1682395573.0027263
+Invalid value generator random seed: 1682395573.384352
+Invalid value generator random seed: 1682395574.1302063
+Invalid value generator random seed: 1682395574.3471706
+Invalid value generator random seed: 1682395574.5099056
+Invalid value generator random seed: 1682395597.3342443
+Invalid value generator random seed: 1682395597.5340219
+Invalid value generator random seed: 1682395618.898351
+Invalid value generator random seed: 1682395619.0857718
+Invalid value generator random seed: 1682395619.2801163
+Invalid value generator random seed: 1682395619.7991629
+Invalid value generator random seed: 1682395619.9943838
+Invalid value generator random seed: 1682395620.2182927
+Invalid value generator random seed: 1682395620.6928492
+Invalid value generator random seed: 1682395640.8984246
+Invalid value generator random seed: 1682395661.8412387
+Invalid value generator random seed: 1682395662.2303338
+Invalid value generator random seed: 1682395680.5549257
+Invalid value generator random seed: 1682395701.6886425
+Invalid value generator random seed: 1682395702.1260228
+Invalid value generator random seed: 1682395722.7791631
+Invalid value generator random seed: 1682395723.1850784
+Invalid value generator random seed: 1682395743.3174746
+Invalid value generator random seed: 1682395743.8472805
+Invalid value generator random seed: 1682395743.9792967
+Invalid value generator random seed: 1682395745.0580227
+Invalid value generator random seed: 1682395745.5297213
+Invalid value generator random seed: 1682395766.0470316
+Invalid value generator random seed: 1682395766.2192965
+Invalid value generator random seed: 1682395783.8129761
+Invalid value generator random seed: 1682395812.7808042
+Invalid value generator random seed: 1682395812.9257097
+Invalid value generator random seed: 1682395813.0945432
+Invalid value generator random seed: 1682395813.2954526
+Invalid value generator random seed: 1682395835.3308263
+Invalid value generator random seed: 1682395835.5666864
+Invalid value generator random seed: 1682395835.757199
+Invalid value generator random seed: 1682395836.1655154
+Invalid value generator random seed: 1682395856.512863
+Invalid value generator random seed: 1682395856.78007
+Invalid value generator random seed: 1682395875.2980325
+Invalid value generator random seed: 1682395901.1240058
+Invalid value generator random seed: 1682395922.8943017
+Invalid value generator random seed: 1682395923.0655782
+Invalid value generator random seed: 1682395940.8907473
+Invalid value generator random seed: 1682395959.9200006
+Invalid value generator random seed: 1682395980.9649332
+Invalid value generator random seed: 1682395981.6143997
+Invalid value generator random seed: 1682395981.8015082
+Invalid value generator random seed: 1682395981.9686828
+Invalid value generator random seed: 1682396005.2487018
+Invalid value generator random seed: 1682396006.6761482
+Invalid value generator random seed: 1682396006.846471
+Invalid value generator random seed: 1682396007.035
+Invalid value generator random seed: 1682396028.0806208
+Invalid value generator random seed: 1682396028.7354305
+Invalid value generator random seed: 1682396028.9475422
+Invalid value generator random seed: 1682396029.1881666
+Invalid value generator random seed: 1682396029.4437175
+Invalid value generator random seed: 1682396030.5092144
+Invalid value generator random seed: 1682396052.605638
+Invalid value generator random seed: 1682396053.054678
+Invalid value generator random seed: 1682396053.4372501
+Invalid value generator random seed: 1682396075.432788
+Invalid value generator random seed: 1682396094.3528445
+Invalid value generator random seed: 1682396115.3336945
+Invalid value generator random seed: 1682396136.5921147
+Invalid value generator random seed: 1682396157.7533436
+Invalid value generator random seed: 1682396181.017581
+Invalid value generator random seed: 1682396205.8677359
+Invalid value generator random seed: 1682396228.1366076
+Invalid value generator random seed: 1682396252.6319156
+Invalid value generator random seed: 1682396275.121453
+Invalid value generator random seed: 1682396303.4646788
+Invalid value generator random seed: 1682396325.706976
+Invalid value generator random seed: 1682396325.9074047
+Invalid value generator random seed: 1682396344.6211326
+Invalid value generator random seed: 1682396364.2633567
+Invalid value generator random seed: 1682396384.5462475
+Invalid value generator random seed: 1682396385.006507
+Invalid value generator random seed: 1682396385.167874
+Invalid value generator random seed: 1682396405.5756903
+Invalid value generator random seed: 1682396422.9991672
+Invalid value generator random seed: 1682396445.6172163
+Invalid value generator random seed: 1682396445.8355453
+Invalid value generator random seed: 1682396446.0185244
+Invalid value generator random seed: 1682396467.6647546
+Invalid value generator random seed: 1682396468.1617002
+Invalid value generator random seed: 1682396468.3539271
+Invalid value generator random seed: 1682396468.5472639
+Invalid value generator random seed: 1682396488.092919
+Invalid value generator random seed: 1682396488.6374013
+Invalid value generator random seed: 1682396507.3432505
+Invalid value generator random seed: 1682396507.4863453
+Invalid value generator random seed: 1682396524.8597522
+Invalid value generator random seed: 1682396541.0903535
+Invalid value generator random seed: 1682396559.3598604
+Invalid value generator random seed: 1682396577.109182
+Invalid value generator random seed: 1682396595.3053553
+Invalid value generator random seed: 1682396619.1061287
+Invalid value generator random seed: 1682396638.1247709
+Invalid value generator random seed: 1682396656.7901833
+Invalid value generator random seed: 1682396656.9836454
+Invalid value generator random seed: 1682396674.299847
+Invalid value generator random seed: 1682396694.7498271
+Invalid value generator random seed: 1682396716.9526267
+Invalid value generator random seed: 1682396717.376495
+Invalid value generator random seed: 1682396736.8567972
+Invalid value generator random seed: 1682396737.3209288
+Invalid value generator random seed: 1682396737.505234
+Invalid value generator random seed: 1682396737.6815705
+Invalid value generator random seed: 1682396757.2795556
+Invalid value generator random seed: 1682396757.4786096
+Invalid value generator random seed: 1682396776.8174639
+Invalid value generator random seed: 1682396801.286883
+Invalid value generator random seed: 1682396801.4170723
+Invalid value generator random seed: 1682396817.4155984
+Invalid value generator random seed: 1682396837.891638
+Invalid value generator random seed: 1682396838.0539405
+Invalid value generator random seed: 1682396856.005241
+Invalid value generator random seed: 1682396875.1329758
+Invalid value generator random seed: 1682396893.3993094
+Invalid value generator random seed: 1682396893.9018981
+Invalid value generator random seed: 1682396894.0884967
+Invalid value generator random seed: 1682396894.240091
+Invalid value generator random seed: 1682396894.6427243
+Invalid value generator random seed: 1682396894.785007
+Invalid value generator random seed: 1682396894.988578
+Invalid value generator random seed: 1682396895.3781652
+Invalid value generator random seed: 1682396895.5453603
+Invalid value generator random seed: 1682396895.7151034
+Invalid value generator random seed: 1682396896.0677667
+Invalid value generator random seed: 1682396914.4235463
+Invalid value generator random seed: 1682396933.224785
+Invalid value generator random seed: 1682396933.3761039
+Invalid value generator random seed: 1682396933.5916522
+Invalid value generator random seed: 1682396953.2288764
+Invalid value generator random seed: 1682396953.6471126
+Invalid value generator random seed: 1682396953.830204
+Invalid value generator random seed: 1682396954.0021791
+Invalid value generator random seed: 1682396972.247759
+Invalid value generator random seed: 1682396972.8006122
+Invalid value generator random seed: 1682396992.1612272
+Invalid value generator random seed: 1682396992.4054005
+Invalid value generator random seed: 1682396992.5955079
+Invalid value generator random seed: 1682397014.6921923
+Invalid value generator random seed: 1682397015.148758
+Invalid value generator random seed: 1682397015.3195574
+Invalid value generator random seed: 1682397015.5274594
+Invalid value generator random seed: 1682397034.2722523
+Invalid value generator random seed: 1682397034.7710533
+Invalid value generator random seed: 1682397034.9734545
+Invalid value generator random seed: 1682397035.1814797
+Invalid value generator random seed: 1682397054.1285741
+Invalid value generator random seed: 1682397054.6640222
+Invalid value generator random seed: 1682397054.8416605
+Invalid value generator random seed: 1682397055.0177538
+Invalid value generator random seed: 1682397074.7019694
+Invalid value generator random seed: 1682397075.1609466
+Exception 'utf-8' codec can't decode bytes in position 4094-4095: unexpected end of data applying checker <checkers.invalid_value_checker.InvalidValueChecker object at 0x7f18258e0c40>
+2023-04-25 04:31:21.382: Terminating garbage collection. Waiting for max 300 seconds. 
+Traceback (most recent call last):
+  File "/root/REST_Go/restler-fuzzer/restler_bin/engine/engine/core/fuzzer.py", line 43, in run
+    self._num_total_sequences = driver.generate_sequences(
+  File "/root/REST_Go/restler-fuzzer/restler_bin/engine/engine/core/driver.py", line 695, in generate_sequences
+    seq_collection = render_with_cache(seq_collection, fuzzing_pool, checkers,
+  File "/root/REST_Go/restler-fuzzer/restler_bin/engine/engine/core/driver.py", line 446, in render_with_cache
+    valid_renderings = render_one(prefix_seq_to_render, sequences_count, checkers, generation, global_lock, garbage_collector)
+  File "/root/REST_Go/restler-fuzzer/restler_bin/engine/engine/core/driver.py", line 217, in render_one
+    apply_checkers(checkers, renderings, global_lock)
+  File "/root/REST_Go/restler-fuzzer/restler_bin/engine/engine/core/driver.py", line 151, in apply_checkers
+    checker.apply(renderings, global_lock)
+  File "/root/REST_Go/restler-fuzzer/restler_bin/engine/checkers/invalid_value_checker.py", line 318, in apply
+    response = request_utilities.send_request_data(rendered_data)
+  File "/root/REST_Go/restler-fuzzer/restler_bin/engine/engine/core/request_utilities.py", line 377, in send_request_data
+    success, response = main_sock.sendRecv(rendered_data,
+  File "/root/REST_Go/restler-fuzzer/restler_bin/engine/engine/transport_layer/messaging.py", line 113, in sendRecv
+    received_response = self._recvResponse(req_timeout_sec, http_method_name)
+  File "/root/REST_Go/restler-fuzzer/restler_bin/engine/engine/transport_layer/messaging.py", line 273, in _recvResponse
+    data += decode_buf(buf)
+  File "/root/REST_Go/restler-fuzzer/restler_bin/engine/engine/transport_layer/messaging.py", line 251, in decode_buf
+    return buf.decode(UTF8)
+UnicodeDecodeError: 'utf-8' codec can't decode bytes in position 4094-4095: unexpected end of data
+

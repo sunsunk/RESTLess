@@ -1,0 +1,74 @@
+This file contains the failing requests, ordered by the number of blocked dependent requests.
+To improve coverage, fix the failing requests in the order listed in this file.
+
+Note: some requests are labeled as 'sequence failure'.
+This means the request depends on another request that is failing intermittently.
+For example, a DELETE request for a resource may be skipped because the resource
+PUT request failed due to exceeding quota.  The same PUT request succeeded earlier (and may
+succeed later depending on the resource clean-up behavior in the service), so it is
+considered an intermittent failure.
+
+-----------------------------------------------
+Request: Post /words/add
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /v2/words/add HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8010\r\n\r\n
+	< HTTP/1.1 400 Bad Request\r\nDate: Tue, 28 Mar 2023 05:25:11 GMT\r\nAccess-control-allow-origin: *\r\nContent-length: 37\r\n\r\nError: This end point needs a user id
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /v2/words/add HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8010\r\n\r\n
+	< HTTP/1.1 400 Bad Request\r\nDate: Tue, 28 Mar 2023 05:25:11 GMT\r\nAccess-control-allow-origin: *\r\nContent-length: 37\r\n\r\nError: This end point needs a user id
+
+
+-----------------------------------------------
+Request: Post /words/delete
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /v2/words/delete HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8010\r\n\r\n
+	< HTTP/1.1 400 Bad Request\r\nDate: Tue, 28 Mar 2023 05:25:12 GMT\r\nAccess-control-allow-origin: *\r\nContent-length: 37\r\n\r\nError: This end point needs a user id
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /v2/words/delete HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8010\r\n\r\n
+	< HTTP/1.1 400 Bad Request\r\nDate: Tue, 28 Mar 2023 05:25:12 GMT\r\nAccess-control-allow-origin: *\r\nContent-length: 37\r\n\r\nError: This end point needs a user id
+
+
+-----------------------------------------------
+Request: Get /words
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /v2/words?offset=1&limit=1&username=fuzzstring&apiKey=fuzzstring&dicts=fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8010\r\n\r\n
+	< HTTP/1.1 403 Forbidden\r\nDate: Tue, 28 Mar 2023 05:25:12 GMT\r\nAccess-control-allow-origin: *\r\nContent-length: 209\r\n\r\nError: org.languagetool.server.AuthException: This is the endpoint for the basic version of LanguageTool. When using 'username' and 'apiKey' to access the premium version, use api.languagetoolplus.com instead.
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /v2/words?username=fuzzstring&apiKey=fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8010\r\n\r\n
+	< HTTP/1.1 403 Forbidden\r\nDate: Tue, 28 Mar 2023 05:25:22 GMT\r\nAccess-control-allow-origin: *\r\nContent-length: 209\r\n\r\nError: org.languagetool.server.AuthException: This is the endpoint for the basic version of LanguageTool. When using 'username' and 'apiKey' to access the premium version, use api.languagetoolplus.com instead.
+
+
+-----------------------------------------------
+Request: Post /check
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /v2/check HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8010\r\n\r\n
+	< HTTP/1.1 400 Bad Request\r\nDate: Tue, 28 Mar 2023 05:25:25 GMT\r\nAccess-control-allow-origin: *\r\nContent-length: 41\r\n\r\nError: Missing 'text' or 'data' parameter
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /v2/check HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8010\r\n\r\n
+	< HTTP/1.1 400 Bad Request\r\nDate: Tue, 28 Mar 2023 05:25:25 GMT\r\nAccess-control-allow-origin: *\r\nContent-length: 41\r\n\r\nError: Missing 'text' or 'data' parameter
+
+

@@ -1,0 +1,21 @@
+################################################################################
+ InvalidValueChecker_500
+
+ Hash: InvalidValueChecker_500_ce82c7b8616353460594737c266e5b813c80d059
+
+ To attempt to reproduce this bug using restler, run restler with the command
+ line option of --replay_log <path_to_this_log>.
+ If an authentication token is required, you must also specify the token_refresh_cmd.
+
+ This log may contain specific values for IDs or names that were generated
+ during fuzzing, using the fuzzing dictionary. Such names will be re-played
+ without modification. You must update the replay log manually with any changes
+ required to execute the requests in your environment (for example, replacing
+ pre-created account, subscription, or other resource IDs, as needed).
+################################################################################
+
+-> PUT /api/v4/projects/integrations/confluence HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nAUTHORIZATION TOKEN\r\n\r\n{\n    "confluence_url":"[gkevdk"3AK"}\r\n
+! producer_timing_delay 0
+! max_async_wait_time 20
+PREVIOUS RESPONSE: 'HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 10 Apr 2023 17:58:49 GMT\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 75\r\nConnection: keep-alive\r\nStrict-Transport-Security: max-age=31536000\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nRateLimit-Observed: 134\r\nRateLimit-Remaining: 1866\r\nRateLimit-Reset: 1681149589\r\nRateLimit-ResetTime: Mon, 10 Apr 2023 17:59:49 GMT\r\nRateLimit-Limit: 2000\r\nGitLab-LB: fe-13-lb-gprd\r\nGitLab-SV: localhost\r\nCF-Cache-Status: DYNAMIC\r\nReport-To: {"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=xnzyl%2BZXmmzSnp%2FdjuXJn%2Fq40Gz0cQtgrW11%2BI9rpKb1rx8syWLv35FO6WVvUNXCyYCVjdIPfnwRlgVrrs8jCf2q6ja16ahOIcvVKoLbAzkoPSe9UunhN8CFOzA%3D"}],"group":"cf-nel","max_age":604800}\r\nNEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}\r\nX-Content-Type-Options: nosniff\r\nSet-Cookie: _cfuvid=vkTeL9w5uWM6Dd0v1DlFGygMgCQEDQBkGLO9W5USDAM-1681149529445-0-604800000; path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None\r\nServer: cloudflare\r\nCF-RAY: 7b5ce14d6c6c04db-HKG\r\n\r\nAn error has occurred and reported in the system\'s low-level error handler.'
+

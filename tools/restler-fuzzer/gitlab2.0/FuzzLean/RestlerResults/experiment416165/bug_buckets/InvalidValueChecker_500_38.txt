@@ -1,0 +1,21 @@
+################################################################################
+ InvalidValueChecker_500
+
+ Hash: InvalidValueChecker_500_031bb5b99b15e113dc5fec68e8bca938936fe979
+
+ To attempt to reproduce this bug using restler, run restler with the command
+ line option of --replay_log <path_to_this_log>.
+ If an authentication token is required, you must also specify the token_refresh_cmd.
+
+ This log may contain specific values for IDs or names that were generated
+ during fuzzing, using the fuzzing dictionary. Such names will be re-played
+ without modification. You must update the replay log manually with any changes
+ required to execute the requests in your environment (for example, replacing
+ pre-created account, subscription, or other resource IDs, as needed).
+################################################################################
+
+-> PUT /api/v4/projects/integrations/hangouts-chat HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nAUTHORIZATION TOKEN\r\n\r\n{\n    "webhook":"+>amUaWD\\D<",\n    "notify_only_broken_pipelines":true,\n    "notify_only_default_branch":true,\n    "branches_to_be_notified":"fuzzstring",\n    "push_events":true,\n    "issues_events":true,\n    "confidential_issues_events":true,\n    "merge_requests_events":true,\n    "tag_push_events":true,\n    "note_events":true,\n    "confidential_note_events":true,\n    "pipeline_events":true,\n    "wiki_page_events":true}\r\n
+! producer_timing_delay 0
+! max_async_wait_time 20
+PREVIOUS RESPONSE: 'HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 10 Apr 2023 16:36:42 GMT\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 46\r\nConnection: keep-alive\r\nX-Request-Id: 29a0bb1645aafc136f62d17a37eab6e4\r\nX-Runtime: 0.717900\r\nStrict-Transport-Security: max-age=31536000\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nRateLimit-Observed: 132\r\nRateLimit-Remaining: 1866\r\nRateLimit-Reset: 1681144662\r\nRateLimit-ResetTime: Mon, 10 Apr 2023 16:37:42 GMT\r\nRateLimit-Limit: 2000\r\nGitLab-LB: fe-05-lb-gprd\r\nGitLab-SV: localhost\r\nCF-Cache-Status: DYNAMIC\r\nReport-To: {"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=xIKgfFq9We5amBcVcmrSR1xptOt3Wf3ZQrI7suGHdcjqgvtfxhltCElNv9EiDFh4ZTisGbY%2BU%2FjFzItH%2F9nbVZDMj2MdhScputd9yVBMdCueBLkgYuMlmBO%2FtIQ%3D"}],"group":"cf-nel","max_age":604800}\r\nNEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}\r\nX-Content-Type-Options: nosniff\r\nSet-Cookie: _cfuvid=1Jchsny5OkihpasaMoAImCDu4FLVfDA72IVUlq6J2Js-1681144602773-0-604800000; path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None\r\nServer: cloudflare\r\nCF-RAY: 7b5c69012c41105f-HKG\r\n\r\n{"status":500,"error":"Internal Server Error"}'
+

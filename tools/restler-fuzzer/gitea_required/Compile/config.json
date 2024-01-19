@@ -1,0 +1,23 @@
+{
+  "SwaggerSpecFilePath": [
+    "/root/REST_Go/services/gitea/gitea_required.json"
+  ],
+  "GrammarOutputDirectoryPath": "/root/REST_Go/restler-fuzzer/gitea_required/Compile",
+  "CustomDictionaryFilePath": "/root/REST_Go/restler-fuzzer/gitea_required/Compile/defaultDict.json",
+  "IncludeOptionalParameters": true,
+  "UseHeaderExamples": true,
+  "UsePathExamples": false,
+  "UseQueryExamples": true,
+  "UseBodyExamples": true,
+  "UseAllExamplePayloads": false,
+  "DiscoverExamples": false,
+  "ExamplesDirectory": "",
+  "DataFuzzing": true,
+  "ReadOnlyFuzz": false,
+  "ResolveQueryDependencies": true,
+  "ResolveBodyDependencies": true,
+  "ResolveHeaderDependencies": false,
+  "UseRefreshableToken": true,
+  "AllowGetProducers": false,
+  "TrackFuzzedParameterNames": false
+}

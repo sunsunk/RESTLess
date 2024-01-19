@@ -1,0 +1,6376 @@
+openapi: 3.0.0
+tags:
+  - name: metadata
+    description: Metadata of the GitLab instance
+  - name: version
+    description: Version
+  - name: access_requests
+    description: Access requests for projects and groups
+  - name: access_tokens
+    description: Access tokens for projects
+info:
+  description: |
+    An OpenAPI definition for the GitLab REST API.
+    Few API resources or endpoints are currently included.
+    The intent is to expand this to match the entire Markdown documentation of the API:
+    <https://docs.gitlab.com/ee/api/>. Contributions are welcome.
+
+    When viewing this on gitlab.com, you can test API calls directly from the browser
+    against the `gitlab.com` instance, if you are logged in.
+    The feature uses the current [GitLab session cookie](https://docs.gitlab.com/ee/api/index.html#session-cookie),
+    so each request is made using your account.
+
+    Instructions for using this tool can be found in [Interactive API Documentation](https://docs.gitlab.com/ee/api/openapi/openapi_interactive.html).
+
+  version: v4
+  title: GitLab API
+  termsOfService: 'https://about.gitlab.com/terms/'
+  license:
+    name: CC BY-SA 4.0
+    url: 'https://gitlab.com/gitlab-org/gitlab/-/blob/master/LICENSE'
+servers:
+  - url: 'http://10.0.24.1:81'
+paths:
+  /api/v4/metadata:
+    get:
+      tags:
+        - metadata
+      summary: 'Retrieve metadata information for this GitLab instance.'
+      operationId: 'getMetadata'
+      responses:
+        '401':
+          description: 'unauthorized operation'
+        '200':
+          description: 'successful operation'
+          content:
+            'application/json':
+              schema:
+                title: 'MetadataResponse'
+                type: 'object'
+                properties:
+                  version:
+                    type: 'string'
+                  revision:
+                    type: 'string'
+                  kas:
+                    type: 'object'
+                    properties:
+                      enabled:
+                        type: 'boolean'
+                      externalUrl:
+                        type: 'string'
+                        nullable: true
+                      version:
+                        type: 'string'
+                        nullable: true
+              examples:
+                Example:
+                  value:
+                    version: '15.0-pre'
+                    revision: 'c401a659d0c'
+                    kas:
+                      enabled: true
+                      externalUrl: 'grpc://gitlab.example.com:8150'
+                      version: '15.0.0'
+  /api/v4/version:
+    get:
+      tags:
+        - version
+      summary: 'Retrieve version information for this GitLab instance.'
+      operationId: 'getVersion'
+      responses:
+        '401':
+          description: 'unauthorized operation'
+        '200':
+          description: 'successful operation'
+          content:
+            'application/json':
+              schema:
+                title: 'VersionResponse'
+                type: 'object'
+                properties:
+                  version:
+                    type: 'string'
+                  revision:
+                    type: 'string'
+              examples:
+                Example:
+                  value:
+                    version: '13.3.0-pre'
+                    revision: 'f2b05afebb0'
+  /projects:
+    get:
+      description: |
+        List all projects. 
+        Get a list of all visible projects across GitLab for the authenticated user. 
+        When accessed without authentication, only public projects with simple fields are returned.
+        https://docs.gitlab.com/ee/api/projects.html
+      summary: List all projects. 
+      parameters:
+        - name: tags
+          in: query
+          description: tags to filter by
+          required: false
+          style: form
+          schema:
+            type: array
+            items:
+              type: string
+        - name: limit
+          in: query
+          description: maximum number of results to return
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: archived
+          in: query
+          description: No  Limit by archived status.
+          required: false
+          schema:
+            type: boolean
+        - name: id_after
+          in: query
+          description: No Limit results to projects with IDs greater than the specified ID.
+          required: false
+          schema:
+            type: integer
+        - name: id_before
+          in: query
+          description: No  Limit results to projects with IDs less than the specified ID.
+          required: false
+          schema:
+            type: integer
+        - name: last_activity_after
+          in: query
+          description: No  Limit results to projects with last_activity after specified time. Format ISO8601 YYYY-MM-DDTHH:MM:SSZ
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: last_activity_before
+          in: query
+          description: No  Limit results to projects with last_activity before specified time. Format ISO 8601 YYYY-MM-DDTHH:MM:SSZ
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - name: membership
+          in: query
+          description: No  Limit by projects that the current user is a member of.
+          required: false
+          schema:
+            type: boolean
+        - name: min_access_level
+          in: query
+          description: No  Limit by current user minimal access level.
+          required: false
+          schema:
+            type: integer
+        - name: order_by
+          in: query
+          description: No  Return projects ordered by id, name, path, created_at, updated_at, or last_activity_at fields. repository_size, storage_size, packages_size or wiki_size fields are only allowed for admins. Default is created_at.
+          required: false
+          schema:
+            type: string
+        - name: owned
+          in: query
+          description: No  Limit by projects explicitly owned by the current user.
+          required: false
+          schema:
+            type: boolean
+        - name: repository_checksum_failed
+          in: query
+          description: No  Limit projects where the repository checksum calculation has failed (Introduced in GitLab Premium 11.2).
+          required: false
+          schema:
+            type: boolean
+        - name: repository_storage
+          in: query
+          description: No  Limit results to projects stored on repository_storage. (admins only)
+          required: false
+          schema:
+            type: string     
+        - name: search_namespaces
+          in: query
+          description: No  Include ancestor namespaces when matching search criteria. Default is false.
+          required: false
+          schema:
+            type: boolean
+        - name: search
+          in: query
+          description: No  Return list of projects matching the search criteria.
+          required: false
+          schema:
+            type: string
+            format: int32
+        - name: simple
+          in: query
+          description: No  Return only limited fields for each project. This is a no-op without authentication as then only simple fields are returned.
+          required: false
+          schema:
+            type: boolean
+            format: int32
+        - name: sort
+          in: query
+          description: No  Return projects sorted in asc or desc order. Default is desc.
+          required: false
+          schema:
+            type: string
+        - name: starred
+          in: query
+          description: No  Limit by projects starred by the current user.
+          required: false
+          schema:
+            type: boolean
+        - name: statistics
+          in: query
+          description: No  Include project statistics.
+          required: false
+          schema:
+            type: boolean
+        - name: visibility
+          in: query
+          description: No  Limit by visibility public, internal, or private.
+          required: false
+          schema:
+            type: string
+        - name: wiki_checksum_failed
+          in: query
+          description: No  Limit projects where the wiki checksum calculation has failed (Introduced in GitLab Premium 11.2).
+          required: false
+          schema:
+            type: boolean
+        - name: with_custom_attributes
+          in: query
+          description: No  Include custom attributes in response. (admins only)
+          required: false
+          schema:
+            type: boolean
+        - name: with_issues_enabled
+          in: query
+          description: No  Limit by enabled issues feature.
+          required: false
+          schema:
+            type: boolean
+        - name: with_merge_requests_enabled
+          in: query
+          description: No  Limit by enabled merge requests feature.
+          required: false
+          schema:
+            type: boolean
+        - name: with_programming_language
+          in: query
+          description: No  Limit by projects which use the given programming language.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of projects found.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - projects     
+  /projects/{projectId}:
+    get:
+      description: |
+        Get a specific project. This endpoint can be accessed without authentication if the project is publicly accessible.
+      summary: Get a specific project.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          description: The ID or URL-encoded path of the project.
+          schema:
+            type: string
+        - name: license
+          description: Include project license data.
+          in: query
+          schema:
+            type: boolean
+        - name: statistics
+          in: query
+          description: Include project statistics.
+          schema:
+            type: boolean
+        - name: with_custom_attributes
+          in: query
+          description: Include custom attributes in response. (admins only)
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      tags:
+        - projects
+  /projects/user/{user_id}:
+    post:
+      summary: Creates a new project owned by the specified user. 
+      description: |
+        Creates a new project owned by the authenticated user.
+        Available only for admins.
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project_to_create'
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: The user ID of the project owner.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      tags:
+        - projects                
+  /projects/{project_id}:
+    put:
+      summary : Upload a project avatar
+      description: |
+        Uploads an avatar to the specified project.
+      requestBody:
+        content: 
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                avatar:
+                  description: The file to be uploaded.
+                  type: string
+                  format: binary
+                  required:
+                    - avatar
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: The ID or URL-encoded path of the project.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      tags:
+        - projects
+  /projects/{project_id}/repository/commits:
+    get:
+      description: |
+        Get a list of repository commits in a project.
+        https://docs.gitlab.com/ee/api/projects.html https://docs.gitlab.com/ee/api/commits.html#list-repository-commits
+      summary: Get a list of repository commits in a project.
+      parameters:
+        - name: project_id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: ref_name
+          in: query
+          schema:
+            type: string  
+          required: false 
+          description: The name of a repository branch, tag or revision range, or if not given the default branch
+        - name: since
+          in: query
+          schema:
+            type: string  
+            format: date-time
+          required: false 
+          description: Only commits after or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ
+        - name: until
+          in: query
+          schema:
+            type: string
+            format: date-time
+          required: false
+          description: Only commits before or on this date will be returned in ISO 8601 format YYYY-MM-DDTHH:MM:SSZ
+        - name: path
+          in: query
+          schema:
+            type: string  
+          required: false
+          description: The file path
+        - name: all
+          in: query
+          schema:
+            type: boolean 
+          required: false
+          description: Retrieve every commit from the repository
+        - name: with_stats
+          in: query
+          schema:
+            type: boolean 
+          required: false
+          description: Stats about each commit will be added to the response
+        - name: first_parent
+          in: query
+          schema:
+            type: boolean 
+          required: false
+          description: Follow only the first parent commit upon seeing a merge commit
+        - name: order
+          in: query
+          schema:
+            type: string
+          required: false
+          description: | 
+            List commits in order. Possible values: default, topo. Defaults to default, the commits are shown in reverse chronological order.
+      responses:
+        '200':
+          description: List of projects found.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Commit'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      description: |
+        Create a commit with multiple files and actions
+      summary: Create a commit by posting a JSON payload
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Commit_to_create'
+      parameters:
+        - name: project_id
+          in: path
+          required: true
+          description: The ID or URL-encoded path of the project.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref:  '#/components/schemas/Commit'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      tags:
+        - projects                
+  /projects/{projectId}/repository/tags:
+    get:
+      description: |
+        List project repository tags. 
+        Get a list of repository tags from a project, sorted by name in reverse alphabetical order. This endpoint can be accessed without authentication if the repository is publicly accessible.
+        https://docs.gitlab.com/ee/api/tags.html
+      summary: List project repository TAGs. 
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          schema:
+            type: string      
+        - name: order_by
+          in: query
+          description: Return tags ordered by name or updated fields. Default is updated
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Return tags sorted in asc or desc order. Default is desc
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: Return list of tags matching the search criteria. You can use ^term and term$ to find tags that begin and end with term respectively.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of projects found.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create a new tag
+      description: |
+        Creates a new tag in the repository that points to the supplied ref.
+      requestBody:
+        content: 
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Tag_to_create'
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tag"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      tags:
+        - projects
+  /projects/{projectId}/repository/tags/{tag_name}:
+    get:
+      description: |
+        Get a specific repository tag determined by its name. This endpoint can be accessed without authentication if the repository is publicly accessible.
+      summary: Get a single repository tag 
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          schema:
+            type: string      
+        - name: tag_name
+          in: path
+          description: The name of the tag
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of projects found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete a tag
+      description: |
+        Deletes a tag of a repository with given name.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          schema:
+            type: string
+        - name: tag_name
+          in: path
+          required: true
+          description: The name of a tag
+          schema:
+            type: string            
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Tag"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+      tags:
+        - projects  
+  /issues:
+    get:
+      summary: List issues
+      description: >-
+        Get all issues the authenticated user has access to. By default it returns only issues created by the current
+        user. To get all issues, use parameter scope=all.
+      operationId: listIssues
+      parameters:
+        - name: assignee_id
+          in: query
+          description: >-
+            Return issues assigned to the given user id. Mutually exclusive with assignee_username. None returns
+            unassigned issues. Any returns issues with an assignee.
+          required: false
+          schema:
+            type: integer
+        - name: assignee_username
+          in: query
+          description: >-
+            Return issues assigned to the given username. Similar to assignee_id and mutually exclusive with
+            assignee_id. In GitLab CE, the assignee_username array should only contain a single value. Otherwise, an
+            invalid parameter error is returned.
+          required: false
+          schema:
+            type: string
+        - name: author_id
+          in: query
+          description: >-
+            Return issues created by the given user id. Mutually exclusive with author_username. Combine with scope=all
+            or scope=assigned_to_me.
+          required: false
+          schema:
+            type: integer
+        - name: author_username
+          in: query
+          description: Return issues created by the given username. Similar to author_id and mutually exclusive with author_id.
+          required: false
+          schema:
+            type: string
+        - name: confidential
+          in: query
+          description: Filter confidential or public issues.
+          required: false
+          schema:
+            type: string
+        - name: created_after
+          in: query
+          description: 'Return issues created on or after the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: created_before
+          in: query
+          description: 'Return issues created on or before the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: due_date
+          in: query
+          description: >-
+            Return issues that have no due date, are overdue, or whose due date is this week, this month, or between two
+            weeks ago and next month. Accepts: 0 (no due date), any, today, tomorrow, overdue, week, month,
+            next_month_and_previous_two_weeks.
+          required: false
+          schema:
+            type: string
+        - name: epic_id
+          in: query
+          description: >-
+            Return issues associated with the given epic ID. None returns issues that are not associated with an epic.
+            Any returns issues that are associated with an epic. (Introduced in GitLab 13.6)
+          required: false
+          schema:
+            type: integer
+        - name: 'iids[]'
+          in: query
+          description: Return only the issues having the given iid
+          required: false
+          schema:
+            type: string
+        - name: in
+          in: query
+          description: >-
+            Modify the scope of the search attribute. title, description, or a string joining them with comma. Default
+            is title,description
+          required: false
+          schema:
+            type: string
+        - name: issue_type
+          in: query
+          description: 'Filter to a given type of issue. One of issue, incident, or test_case. (Introduced in GitLab 13.12)'
+          required: false
+          schema:
+            type: string
+        - name: iteration_id
+          in: query
+          description: >-
+            Return issues assigned to the given iteration ID. None returns issues that do not belong to an iteration.
+            Any returns issues that belong to an iteration. Mutually exclusive with iteration_title. (Introduced in
+            GitLab 13.6)
+          required: false
+          schema:
+            type: integer
+        - name: iteration_title
+          in: query
+          description: >-
+            Return issues assigned to the iteration with the given title. Similar to iteration_id and mutually exclusive
+            with iteration_id. (Introduced in GitLab 13.6)
+          required: false
+          schema:
+            type: string
+        - name: labels
+          in: query
+          description: >-
+            Comma-separated list of label names, issues must have all labels to be returned. None lists all issues with
+            no labels. Any lists all issues with at least one label. No+Label (Deprecated) lists all issues with no
+            labels. Predefined names are case-insensitive.
+          required: false
+          schema:
+            type: string
+        - name: milestone
+          in: query
+          description: >-
+            The milestone title. None lists all issues with no milestone. Any lists all issues that have an assigned
+            milestone. Using None or Any will be deprecated in the future. Please use milestone_id attribute instead.
+            milestone and milestone_id are mutually exclusive.
+          required: false
+          schema:
+            type: string
+        - name: milestone_id
+          in: query
+          description: >-
+            Returns issues assigned to milestones with a given timebox value (None, Any, Upcoming, and Started). None
+            lists all issues with no milestone. Any lists all issues that have an assigned milestone. Upcoming lists all
+            issues assigned to milestones due in the future. Started lists all issues assigned to open, started
+            milestones. milestone and milestone_id are mutually exclusive. (Introduced in GitLab 14.3)
+          required: false
+          schema:
+            type: string
+        - name: my_reaction_emoji
+          in: query
+          description: >-
+            Return issues reacted by the authenticated user by the given emoji. None returns issues not given a
+            reaction. Any returns issues given at least one reaction.
+          required: false
+          schema:
+            type: string
+        - name: non_archived
+          in: query
+          description: >-
+            Return issues only from non-archived projects. If false, the response returns issues from both archived and
+            non-archived projects. Default is true. (Introduced in GitLab 13.0)
+          required: false
+          schema:
+            type: string
+        - name: not
+          in: query
+          description: >-
+            Return issues that do not match the parameters supplied. Accepts: assignee_id, assignee_username, author_id,
+            author_username, iids, iteration_id, iteration_title, labels, milestone, milestone_id and weight.
+          required: false
+          schema:
+            type: string
+        - name: order_by
+          in: query
+          description: >-
+            Return issues ordered by created_at, due_date, label_priority, milestone_due, popularity, priority,
+            relative_position, title, updated_at, or weight fields. Default is created_at.
+          required: false
+          schema:
+            type: string
+        - name: scope
+          in: query
+          description: 'Return issues for the given scope: created_by_me, assigned_to_me or all. Defaults to created_by_me.'
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: Search issues against their title and description
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Return issues sorted in asc or desc order. Default is desc
+          required: false
+          schema:
+            type: string
+        - name: state
+          in: query
+          description: Return all issues or just those that are opened or closed
+          required: false
+          schema:
+            type: string
+        - name: updated_after
+          in: query
+          description: 'Return issues updated on or after the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: updated_before
+          in: query
+          description: 'Return issues updated on or before the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: weight
+          in: query
+          description: >-
+            Return issues with the specified weight. None returns issues with no weight assigned. Any returns issues
+            with a weight assigned.
+          required: false
+          schema:
+            type: integer
+        - name: with_labels_details
+          in: query
+          description: >-
+            If true, the response returns more details for each label in labels field: :name, :color, :description,
+            :description_html, :text_color. Default is false. The description_html attribute was introduced in GitLab
+            12.7
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listIssuesResponse'
+      tags:
+        - issues
+  '/groups/{id}/issues':
+    get:
+      summary: List group issues
+      description: Get a list of a group’s issues.
+      operationId: listGroupIssues
+      parameters:
+        - name: assignee_id
+          in: query
+          description: >-
+            Return issues assigned to the given user id. Mutually exclusive with assignee_username. None returns
+            unassigned issues. Any returns issues with an assignee.
+          required: false
+          schema:
+            type: integer
+        - name: assignee_username
+          in: query
+          description: >-
+            Return issues assigned to the given username. Similar to assignee_id and mutually exclusive with
+            assignee_id. In GitLab CE, the assignee_username array should only contain a single value. Otherwise, an
+            invalid parameter error is returned.
+          required: false
+          schema:
+            type: string
+        - name: author_id
+          in: query
+          description: >-
+            Return issues created by the given user id. Mutually exclusive with author_username. Combine with scope=all
+            or scope=assigned_to_me.
+          required: false
+          schema:
+            type: integer
+        - name: author_username
+          in: query
+          description: Return issues created by the given username. Similar to author_id and mutually exclusive with author_id.
+          required: false
+          schema:
+            type: string
+        - name: confidential
+          in: query
+          description: Filter confidential or public issues.
+          required: false
+          schema:
+            type: string
+        - name: created_after
+          in: query
+          description: 'Return issues created on or after the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: created_before
+          in: query
+          description: 'Return issues created on or before the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: due_date
+          in: query
+          description: >-
+            Return issues that have no due date, are overdue, or whose due date is this week, this month, or between two
+            weeks ago and next month. Accepts: 0 (no due date), any, today, tomorrow, overdue, week, month,
+            next_month_and_previous_two_weeks.
+          required: false
+          schema:
+            type: string
+        - name: epic_id
+          in: query
+          description: >-
+            Return issues associated with the given epic ID. None returns issues that are not associated with an epic.
+            Any returns issues that are associated with an epic. (Introduced in GitLab 13.6)
+          required: false
+          schema:
+            type: integer
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: 'iids[]'
+          in: query
+          description: Return only the issues having the given iid
+          required: false
+          schema:
+            type: string
+        - name: issue_type
+          in: query
+          description: 'Filter to a given type of issue. One of issue, incident, or test_case. (Introduced in GitLab 13.12)'
+          required: false
+          schema:
+            type: string
+        - name: iteration_id
+          in: query
+          description: >-
+            Return issues assigned to the given iteration ID. None returns issues that do not belong to an iteration.
+            Any returns issues that belong to an iteration. Mutually exclusive with iteration_title. (Introduced in
+            GitLab 13.6)
+          required: false
+          schema:
+            type: integer
+        - name: iteration_title
+          in: query
+          description: >-
+            Return issues assigned to the iteration with the given title. Similar to iteration_id and mutually exclusive
+            with iteration_id. (Introduced in GitLab 13.6)
+          required: false
+          schema:
+            type: string
+        - name: labels
+          in: query
+          description: >-
+            Comma-separated list of label names, issues must have all labels to be returned. None lists all issues with
+            no labels. Any lists all issues with at least one label. No+Label (Deprecated) lists all issues with no
+            labels. Predefined names are case-insensitive.
+          required: false
+          schema:
+            type: string
+        - name: milestone
+          in: query
+          description: >-
+            The milestone title. None lists all issues with no milestone. Any lists all issues that have an assigned
+            milestone.
+          required: false
+          schema:
+            type: string
+        - name: my_reaction_emoji
+          in: query
+          description: >-
+            Return issues reacted by the authenticated user by the given emoji. None returns issues not given a
+            reaction. Any returns issues given at least one reaction.
+          required: false
+          schema:
+            type: string
+        - name: non_archived
+          in: query
+          description: Return issues from non archived projects. Default is true. (Introduced in GitLab 12.8)
+          required: false
+          schema:
+            type: string
+        - name: not
+          in: query
+          description: >-
+            Return issues that do not match the parameters supplied. Accepts: labels, milestone, author_id,
+            author_username, assignee_id, assignee_username, my_reaction_emoji, search, in
+          required: false
+          schema:
+            type: string
+        - name: order_by
+          in: query
+          description: >-
+            Return issues ordered by created_at, updated_at, priority, due_date, relative_position, label_priority,
+            milestone_due, popularity, weight fields. Default is created_at
+          required: false
+          schema:
+            type: string
+        - name: scope
+          in: query
+          description: 'Return issues for the given scope: created_by_me, assigned_to_me or all. Defaults to all.'
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: Search group issues against their title and description
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Return issues sorted in asc or desc order. Default is desc
+          required: false
+          schema:
+            type: string
+        - name: state
+          in: query
+          description: Return all issues or just those that are opened or closed
+          required: false
+          schema:
+            type: string
+        - name: updated_after
+          in: query
+          description: 'Return issues updated on or after the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: updated_before
+          in: query
+          description: 'Return issues updated on or before the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: weight
+          in: query
+          description: >-
+            Return issues with the specified weight. None returns issues with no weight assigned. Any returns issues
+            with a weight assigned.
+          required: false
+          schema:
+            type: integer
+        - name: with_labels_details
+          in: query
+          description: >-
+            If true, the response returns more details for each label in labels field: :name, :color, :description,
+            :description_html, :text_color. Default is false. The description_html attribute was introduced in GitLab
+            12.7
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listGroupIssuesResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues':
+    get:
+      summary: List project issues
+      description: Get a list of a project’s issues.
+      operationId: listProjectIssues
+      parameters:
+        - name: assignee_id
+          in: query
+          description: >-
+            Return issues assigned to the given user id. Mutually exclusive with assignee_username. None returns
+            unassigned issues. Any returns issues with an assignee.
+          required: false
+          schema:
+            type: integer
+        - name: assignee_username
+          in: query
+          description: >-
+            Return issues assigned to the given username. Similar to assignee_id and mutually exclusive with
+            assignee_id. In GitLab CE, the assignee_username array should only contain a single value. Otherwise, an
+            invalid parameter error is returned.
+          required: false
+          schema:
+            type: string
+        - name: author_id
+          in: query
+          description: >-
+            Return issues created by the given user id. Mutually exclusive with author_username. Combine with scope=all
+            or scope=assigned_to_me.
+          required: false
+          schema:
+            type: integer
+        - name: author_username
+          in: query
+          description: Return issues created by the given username. Similar to author_id and mutually exclusive with author_id.
+          required: false
+          schema:
+            type: string
+        - name: confidential
+          in: query
+          description: Filter confidential or public issues.
+          required: false
+          schema:
+            type: string
+        - name: created_after
+          in: query
+          description: 'Return issues created on or after the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: created_before
+          in: query
+          description: 'Return issues created on or before the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: due_date
+          in: query
+          description: >-
+            Return issues that have no due date, are overdue, or whose due date is this week, this month, or between two
+            weeks ago and next month. Accepts: 0 (no due date), any, today, tomorrow, overdue, week, month,
+            next_month_and_previous_two_weeks.
+          required: false
+          schema:
+            type: string
+        - name: epic_id
+          in: query
+          description: >-
+            Return issues associated with the given epic ID. None returns issues that are not associated with an epic.
+            Any returns issues that are associated with an epic. (Introduced in GitLab 13.6)
+          required: false
+          schema:
+            type: integer
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: 'iids[]'
+          in: query
+          description: Return only the issues having the given iid
+          required: false
+          schema:
+            type: string
+        - name: issue_type
+          in: query
+          description: 'Filter to a given type of issue. One of issue, incident, or test_case. (Introduced in GitLab 13.12)'
+          required: false
+          schema:
+            type: string
+        - name: iteration_id
+          in: query
+          description: >-
+            Return issues assigned to the given iteration ID. None returns issues that do not belong to an iteration.
+            Any returns issues that belong to an iteration. Mutually exclusive with iteration_title. (Introduced in
+            GitLab 13.6)
+          required: false
+          schema:
+            type: integer
+        - name: iteration_title
+          in: query
+          description: >-
+            Return issues assigned to the iteration with the given title. Similar to iteration_id and mutually exclusive
+            with iteration_id. (Introduced in GitLab 13.6)
+          required: false
+          schema:
+            type: string
+        - name: labels
+          in: query
+          description: >-
+            Comma-separated list of label names, issues must have all labels to be returned. None lists all issues with
+            no labels. Any lists all issues with at least one label. No+Label (Deprecated) lists all issues with no
+            labels. Predefined names are case-insensitive.
+          required: false
+          schema:
+            type: string
+        - name: milestone
+          in: query
+          description: >-
+            The milestone title. None lists all issues with no milestone. Any lists all issues that have an assigned
+            milestone.
+          required: false
+          schema:
+            type: string
+        - name: my_reaction_emoji
+          in: query
+          description: >-
+            Return issues reacted by the authenticated user by the given emoji. None returns issues not given a
+            reaction. Any returns issues given at least one reaction.
+          required: false
+          schema:
+            type: string
+        - name: not
+          in: query
+          description: >-
+            Return issues that do not match the parameters supplied. Accepts: labels, milestone, author_id,
+            author_username, assignee_id, assignee_username, my_reaction_emoji, search, in
+          required: false
+          schema:
+            type: string
+        - name: order_by
+          in: query
+          description: >-
+            Return issues ordered by created_at, updated_at, priority, due_date, relative_position, label_priority,
+            milestone_due, popularity, weight fields. Default is created_at
+          required: false
+          schema:
+            type: string
+        - name: scope
+          in: query
+          description: 'Return issues for the given scope: created_by_me, assigned_to_me or all. Defaults to all.'
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: Search project issues against their title and description
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Return issues sorted in asc or desc order. Default is desc
+          required: false
+          schema:
+            type: string
+        - name: state
+          in: query
+          description: Return all issues or just those that are opened or closed
+          required: false
+          schema:
+            type: string
+        - name: updated_after
+          in: query
+          description: 'Return issues updated on or after the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: updated_before
+          in: query
+          description: 'Return issues updated on or before the given time. Expected in ISO 8601 format (2019-03-15T08:00:00Z)'
+          required: false
+          schema:
+            type: string
+        - name: weight
+          in: query
+          description: >-
+            Return issues with the specified weight. None returns issues with no weight assigned. Any returns issues
+            with a weight assigned.
+          required: false
+          schema:
+            type: integer
+        - name: with_labels_details
+          in: query
+          description: >-
+            If true, the response returns more details for each label in labels field: :name, :color, :description,
+            :description_html, :text_color. Default is false. description_html was introduced in GitLab 12.7
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listGroupIssuesResponse'
+      tags:
+        - issues
+    post:
+      summary: New issue
+      description: Creates a new project issue.
+      operationId: newIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/singleProjectIssueResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newIssueRequest'
+      tags:
+        - issues
+  '/issues/{id}':
+    get:
+      summary: Single issue
+      description: Only for administrators. Get a single issue.
+      operationId: singleIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/singleIssueResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}':
+    get:
+      summary: Single project issue
+      description: Get a single project issue.
+      operationId: singleProjectIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/singleProjectIssueResponse'
+      tags:
+        - issues
+    put:
+      summary: Edit issue
+      description: Updates an existing project issue. This call is also used to mark an issue as closed.
+      operationId: editIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/editIssueResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/editIssueRequest'
+      tags:
+        - issues
+    delete:
+      summary: Delete an issue
+      description: Only for administrators and project owners. Deletes an issue.
+      operationId: deleteAnIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/reorder':
+    put:
+      summary: Reorder an issue
+      description: 'Reorders an issue, you can see the results when sorting issues manually'
+      operationId: reorderAnIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of the project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reorderAnIssueRequest'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/move':
+    post:
+      summary: Move an issue
+      description: >-
+        Moves an issue to a different project. If the target project is the source project or the user has insufficient
+        permissions, an error message with status code 400 is returned.
+      operationId: moveAnIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/moveAnIssueResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/moveAnIssueRequest'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/clone':
+    post:
+      summary: Clone an issue
+      description: >-
+        Clone the issue to given project. If the user has insufficient permissions, an error message with status code
+        400 is returned.
+      operationId: cloneAnIssue
+      parameters:
+        - name: id
+          in: path
+          description: ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: Internal ID of a project’s issue.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cloneAnIssueResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/cloneAnIssueRequest'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/subscribe':
+    post:
+      summary: Subscribe to an issue
+      description: >-
+        Subscribes the authenticated user to an issue to receive notifications. If the user is already subscribed to the
+        issue, the status code 304 is returned.
+      operationId: subscribeToAnIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/moveAnIssueResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/unsubscribe':
+    post:
+      summary: Unsubscribe from an issue
+      description: >-
+        Unsubscribes the authenticated user from the issue to not receive notifications from it. If the user is not
+        subscribed to the issue, the status code 304 is returned.
+      operationId: unsubscribeFromAnIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unsubscribeFromAnIssueResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/todo':
+    post:
+      summary: Create a to-do item
+      description: >-
+        Manually creates a to-do item for the current user on an issue. If there already exists a to-do item for the
+        user on that issue, status code 304 is returned.
+      operationId: createAToDoItem
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/createAToDoItemResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/notes':
+    get:
+      summary: List project issue notes
+      description: Gets a list of all notes for a single issue.
+      operationId: listProjectIssueNotes
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The IID of an issue
+          required: true
+          schema:
+            type: integer
+        - name: sort
+          in: query
+          description: Return issue notes sorted in asc or desc order. Default is desc
+          required: false
+          schema:
+            type: string
+        - name: order_by
+          in: query
+          description: Return issue notes ordered by created_at or updated_at fields. Default is created_at
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listProjectIssueNotesResponse'
+      tags:
+        - notes
+    post:
+      summary: Create new issue note
+      description: Creates a new note to a single project issue.
+      operationId: createNewIssueNote
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project.
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The IID of an issue.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createNewIssueNoteRequest'
+      tags:
+        - notes
+  '/projects/{id}/issues/{issue_iid}/time_estimate':
+    post:
+      summary: Set a time estimate for an issue
+      description: Sets an estimated time of work for this issue.
+      operationId: setATimeEstimateForAnIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/setATimeEstimateForAnIssueResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/setATimeEstimateForAnIssueRequest'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/reset_time_estimate':
+    post:
+      summary: Reset the time estimate for an issue
+      description: Resets the estimated time for this issue to 0 seconds.
+      operationId: resetTheTimeEstimateForAnIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/setATimeEstimateForAnIssueResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/add_spent_time':
+    post:
+      summary: Add spent time for an issue
+      description: Adds spent time for this issue
+      operationId: addSpentTimeForAnIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/setATimeEstimateForAnIssueResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addSpentTimeForAnIssueRequest'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/reset_spent_time':
+    post:
+      summary: Reset spent time for an issue
+      description: Resets the total spent time for this issue to 0 seconds.
+      operationId: resetSpentTimeForAnIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/setATimeEstimateForAnIssueResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/time_stats':
+    get:
+      summary: Get time tracking stats
+      description: >-
+        If the project is private or the issue is confidential, you need to provide credentials to authorize. The
+        preferred way to do this, is by using personal access tokens.
+      operationId: getTimeTrackingStats
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/setATimeEstimateForAnIssueResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/related_merge_requests':
+    get:
+      summary: List merge requests related to issue
+      description: Get all the merge requests that are related to the issue.
+      operationId: listMergeRequestsRelatedToIssue
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listMergeRequestsRelatedToIssueResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/closed_by':
+    get:
+      summary: List merge requests that close a particular issue on merge
+      description: Get all merge requests that close a particular issue when merged.
+      operationId: listMergeRequestsThatCloseAParticularIssueOnMerge
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listMergeRequestsThatCloseAParticularIssueOnMergeResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/participants':
+    get:
+      summary: Participants on issues
+      description: >-
+        If the project is private or the issue is confidential, you need to provide credentials to authorize. The
+        preferred way to do this, is by using personal access tokens.
+      operationId: participantsOnIssues
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/participantsOnIssuesResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/user_agent_detail':
+    get:
+      summary: Get user agent details
+      description: Available only for administrators.
+      operationId: getUserAgentDetails
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getUserAgentDetailsResponse'
+      tags:
+        - issues
+  '/projects/{id}/issues/{issue_iid}/metric_images':
+    post:
+      summary: Upload metric image
+      description: Available only for Incident issues.
+      operationId: uploadMetricImage
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/uploadMetricImageResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/uploadMetricImageRequest'
+      tags:
+        - issues
+    get:
+      summary: List metric images
+      description: Available only for Incident issues.
+      operationId: listMetricImages
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the project owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: issue_iid
+          in: path
+          description: The internal ID of a project’s issue
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listMetricImagesResponse'
+      tags:
+        - issues
+  /groups:
+    get:
+      summary: Search for group
+      description: Get all groups that match your string in their name or path.
+      operationId: searchForGroup
+      parameters: []
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/searchForGroupResponse'
+      tags:
+        - groups
+    post:
+      summary: New group
+      description: Creates a new project group. Available only for users who can create groups.
+      operationId: newGroup
+      parameters: []
+      responses:
+        '200':
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/newGroupRequest'
+      tags:
+        - groups
+  '/groups/{id}/subgroups':
+    get:
+      summary: List a group’s subgroups
+      description: >-
+        Get a list of visible direct subgroups in this group. When accessed without authentication, only public groups
+        are returned.
+      operationId: listAGroupSubgroups
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group of the immediate parent group
+          required: true
+          schema:
+            type: string
+        - name: skip_groups
+          in: query
+          description: Skip the group IDs passed
+          required: false
+          schema:
+            type: string
+        - name: all_available
+          in: query
+          description: >-
+            Show all the groups you have access to (defaults to false for authenticated users, true for administrators);
+            Attributes owned and min_access_level have precedence
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: >-
+            Return the list of authorized groups matching the search criteria. Only subgroup short paths are searched
+            (not full paths)
+          required: false
+          schema:
+            type: string
+        - name: order_by
+          in: query
+          description: 'Order groups by name, path or id. Default is name'
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Order groups in asc or desc order. Default is asc
+          required: false
+          schema:
+            type: string
+        - name: statistics
+          in: query
+          description: Include group statistics (administrators only)
+          required: false
+          schema:
+            type: string
+        - name: with_custom_attributes
+          in: query
+          description: Include custom attributes in response (administrators only)
+          required: false
+          schema:
+            type: string
+        - name: owned
+          in: query
+          description: Limit to groups explicitly owned by the current user
+          required: false
+          schema:
+            type: string
+        - name: min_access_level
+          in: query
+          description: Limit to groups where current user has at least this access level
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listAGroupSubgroupsResponse'
+      tags:
+        - groups
+  '/groups/{id}/descendant_groups':
+    get:
+      summary: List a group’s descendant groups
+      description: >-
+        Get a list of visible descendant groups of this group. When accessed without authentication, only public groups
+        are returned.
+      operationId: listAGroupDescendantGroups
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group of the immediate parent group
+          required: true
+          schema:
+            type: string
+        - name: skip_groups
+          in: query
+          description: Skip the group IDs passed
+          required: false
+          schema:
+            type: string
+        - name: all_available
+          in: query
+          description: >-
+            Show all the groups you have access to (defaults to false for authenticated users, true for administrators).
+            Attributes owned and min_access_level have precedence
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: >-
+            Return the list of authorized groups matching the search criteria. Only descendant group short paths are
+            searched (not full paths)
+          required: false
+          schema:
+            type: string
+        - name: order_by
+          in: query
+          description: 'Order groups by name, path, or id. Default is name'
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Order groups in asc or desc order. Default is asc
+          required: false
+          schema:
+            type: string
+        - name: statistics
+          in: query
+          description: Include group statistics (administrators only)
+          required: false
+          schema:
+            type: string
+        - name: with_custom_attributes
+          in: query
+          description: Include custom attributes in response (administrators only)
+          required: false
+          schema:
+            type: string
+        - name: owned
+          in: query
+          description: Limit to groups explicitly owned by the current user
+          required: false
+          schema:
+            type: string
+        - name: min_access_level
+          in: query
+          description: Limit to groups where current user has at least this access level
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listAGroupSubgroupsResponse'
+      tags:
+        - groups
+  '/groups/{id}/projects':
+    get:
+      summary: List a group’s projects
+      description: 'Get a list of projects in this group. When accessed without authentication, only public projects are returned.'
+      operationId: listAGroupProjects
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: archived
+          in: query
+          description: Limit by archived status
+          required: false
+          schema:
+            type: string
+        - name: visibility
+          in: query
+          description: 'Limit by visibility public, internal, or private'
+          required: false
+          schema:
+            type: string
+        - name: order_by
+          in: query
+          description: >-
+            Return projects ordered by id, name, path, created_at, updated_at, similarity (1), or last_activity_at
+            fields. Default is created_at
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Return projects sorted in asc or desc order. Default is desc
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: Return list of authorized projects matching the search criteria
+          required: false
+          schema:
+            type: string
+        - name: simple
+          in: query
+          description: 'Return only the ID, URL, name, and path of each project'
+          required: false
+          schema:
+            type: string
+        - name: owned
+          in: query
+          description: Limit by projects owned by the current user
+          required: false
+          schema:
+            type: string
+        - name: starred
+          in: query
+          description: Limit by projects starred by the current user
+          required: false
+          schema:
+            type: string
+        - name: with_issues_enabled
+          in: query
+          description: Limit by projects with issues feature enabled. Default is false
+          required: false
+          schema:
+            type: string
+        - name: with_merge_requests_enabled
+          in: query
+          description: Limit by projects with merge requests feature enabled. Default is false
+          required: false
+          schema:
+            type: string
+        - name: with_shared
+          in: query
+          description: Include projects shared to this group. Default is true
+          required: false
+          schema:
+            type: string
+        - name: include_subgroups
+          in: query
+          description: Include projects in subgroups of this group. Default is false
+          required: false
+          schema:
+            type: string
+        - name: min_access_level
+          in: query
+          description: Limit to projects where current user has at least this access level
+          required: false
+          schema:
+            type: integer
+        - name: with_custom_attributes
+          in: query
+          description: Include custom attributes in response (administrators only)
+          required: false
+          schema:
+            type: string
+        - name: with_security_reports
+          in: query
+          description: >-
+            Return only projects that have security reports artifacts present in any of their builds. This means
+            “projects with security reports enabled”. Default is false
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listAGroupProjectsResponse'
+      tags:
+        - groups
+  '/groups/{id}/projects/shared':
+    get:
+      summary: List a group’s shared projects
+      description: >-
+        Get a list of projects shared to this group. When accessed without authentication, only public shared projects
+        are returned.
+      operationId: listAGroupSharedProjects
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group owned by the authenticated user
+          required: true
+          schema:
+            type: string
+        - name: archived
+          in: query
+          description: Limit by archived status
+          required: false
+          schema:
+            type: string
+        - name: visibility
+          in: query
+          description: 'Limit by visibility public, internal, or private'
+          required: false
+          schema:
+            type: string
+        - name: order_by
+          in: query
+          description: >-
+            Return projects ordered by id, name, path, created_at, updated_at, or last_activity_at fields. Default is
+            created_at
+          required: false
+          schema:
+            type: string
+        - name: sort
+          in: query
+          description: Return projects sorted in asc or desc order. Default is desc
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: Return list of authorized projects matching the search criteria
+          required: false
+          schema:
+            type: string
+        - name: simple
+          in: query
+          description: 'Return only the ID, URL, name, and path of each project'
+          required: false
+          schema:
+            type: string
+        - name: starred
+          in: query
+          description: Limit by projects starred by the current user
+          required: false
+          schema:
+            type: string
+        - name: with_issues_enabled
+          in: query
+          description: Limit by projects with issues feature enabled. Default is false
+          required: false
+          schema:
+            type: string
+        - name: with_merge_requests_enabled
+          in: query
+          description: Limit by projects with merge requests feature enabled. Default is false
+          required: false
+          schema:
+            type: string
+        - name: min_access_level
+          in: query
+          description: Limit to projects where current user has at least this access level
+          required: false
+          schema:
+            type: integer
+        - name: with_custom_attributes
+          in: query
+          description: Include custom attributes in response (administrators only)
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listAGroupSharedProjectsResponse'
+      tags:
+        - groups
+  '/groups/{id}':
+    get:
+      summary: Details of a group
+      description: >-
+        Get all details of a group. This endpoint can be accessed without authentication if the group is publicly
+        accessible. In case the user that requests is an administrator if the group is publicly accessible. With
+        authentication, it returns the runners_token for the group too, if the user is an administrator or group owner.
+      operationId: detailsOfAGroup
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group owned by the authenticated user.
+          required: true
+          schema:
+            type: string
+        - name: with_custom_attributes
+          in: query
+          description: Include custom attributes in response (administrators only).
+          required: false
+          schema:
+            type: string
+        - name: with_projects
+          in: query
+          description: >-
+            Include details from projects that belong to the specified group (defaults to true). (Deprecated, scheduled
+            for removal in API v5. To get the details of all projects within a group, use the list a group’s projects
+            endpoint.)
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/detailsOfAGroupResponse'
+      tags:
+        - groups
+    put:
+      summary: Update group
+      description: Updates the project group. Only available to group owners and administrators.
+      operationId: updateGroup
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the group.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/updateGroupResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/updateGroupRequest'
+      tags:
+        - groups
+    delete:
+      summary: Remove group
+      description: Only available to group owners and administrators.
+      operationId: removeGroup
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+  '/groups/{id}/avatar':
+    get:
+      summary: Download a Group avatar
+      description: Get a group avatar. This endpoint can be accessed without authentication if the group is publicly accessible.
+      operationId: downloadAGroupAvatar
+      parameters:
+        - name: id
+          in: path
+          description: ID of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+  '/groups/{id}/projects/{project_id}':
+    post:
+      summary: Transfer project to group
+      description: >-
+        Transfer a project to the Group namespace. Available only to instance administrators, although an alternative
+        API endpoint is available which does not require administrator access on the instance. Transferring projects may
+        fail when tagged packages exist in the project’s repository.
+      operationId: transferProjectToGroup
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the target group
+          required: true
+          schema:
+            type: string
+        - name: project_id
+          in: path
+          description: The ID or URL-encoded path of the project
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+  '/groups/{id}/transfer':
+    post:
+      summary: Transfer a group to a new parent group / Turn a subgroup to a top-level group
+      description: >-
+        Transfer a group to a new parent group or turn a subgroup to a top-level group. Available to administrators and
+        users:
+      operationId: transferAGroupToANewParentGroupTurnASubgroupToATopLevelGroup
+      parameters:
+        - name: id
+          in: path
+          description: ID of the group to transfer.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/transferAGroupToANewParentGroupTurnASubgroupToATopLevelGroupRequest'
+      tags:
+        - groups
+  '/groups/{id}/restore':
+    post:
+      summary: Restore group marked for deletion
+      description: Restores a group marked for deletion.
+      operationId: restoreGroupMarkedForDeletion
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+  '/groups/{id}/provisioned_users':
+    get:
+      summary: List provisioned users
+      description: Get a list of users provisioned by a given group. Does not include users provisioned by subgroups.
+      operationId: listProvisionedUsers
+      parameters:
+        - name: id
+          in: path
+          description: ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+        - name: username
+          in: query
+          description: Return single user with a specific username
+          required: false
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: 'Search users by name, email, username'
+          required: false
+          schema:
+            type: string
+        - name: active
+          in: query
+          description: Return only active users
+          required: false
+          schema:
+            type: string
+        - name: blocked
+          in: query
+          description: Return only blocked users
+          required: false
+          schema:
+            type: string
+        - name: created_after
+          in: query
+          description: Return users created after the specified time
+          required: false
+          schema:
+            type: string
+        - name: created_before
+          in: query
+          description: Return users created before the specified time
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listProvisionedUsersResponse'
+      tags:
+        - groups
+  '/groups/{id}/hooks':
+    get:
+      summary: List group hooks
+      description: Get a list of group hooks
+      operationId: listGroupHooks
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+    post:
+      summary: Add group hook
+      description: Adds a hook to a specified group.
+      operationId: addGroupHook
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addGroupHookRequest'
+      tags:
+        - groups
+  '/groups/{id}/hooks/{hook_id}':
+    get:
+      summary: Get group hook
+      description: Get a specific hook for a group.
+      operationId: getGroupHook
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+        - name: hook_id
+          in: path
+          description: The ID of a group hook
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getGroupHookResponse'
+      tags:
+        - groups
+    put:
+      summary: Edit group hook
+      description: Edits a hook for a specified group.
+      operationId: editGroupHook
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+        - name: hook_id
+          in: path
+          description: The ID of the group hook
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addGroupHookRequest'
+      tags:
+        - groups
+    delete:
+      summary: Delete group hook
+      description: >-
+        Removes a hook from a group. This is an idempotent method and can be called multiple times. Either the hook is
+        available or not.
+      operationId: deleteGroupHook
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+        - name: hook_id
+          in: path
+          description: The ID of the group hook.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+  '/groups/{id}/ldap_sync':
+    post:
+      summary: Sync group with LDAP
+      description: Syncs the group with its linked LDAP group. Only available to group owners and administrators.
+      operationId: syncGroupWithLdap
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+  '/groups/{id}/ldap_group_links':
+    get:
+      summary: List LDAP group links
+      description: Lists LDAP group links.
+      operationId: listLdapGroupLinks
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+    post:
+      summary: Add LDAP group link with CN or filter
+      description: >-
+        Adds an LDAP group link using a CN or filter. Adding a group link by filter is only supported in the Premium
+        tier and above.
+      operationId: addLdapGroupLinkWithCnOrFilter
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addLdapGroupLinkWithCnOrFilterRequest'
+      tags:
+        - groups
+    delete:
+      summary: Delete LDAP group link with CN or filter
+      description: >-
+        Deletes an LDAP group link using a CN or filter. Deleting by filter is only supported in the Premium tier and
+        above.
+      operationId: deleteLdapGroupLinkWithCnOrFilter
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+        - name: cn
+          in: query
+          description: The CN of an LDAP group
+          required: false
+          schema:
+            type: string
+        - name: filter
+          in: query
+          description: The LDAP filter for the group
+          required: false
+          schema:
+            type: string
+        - name: provider
+          in: query
+          description: LDAP provider for the LDAP group link
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+  '/groups/{id}/ldap_group_links/{cn}':
+    delete:
+      summary: Delete LDAP group link
+      description: Deletes an LDAP group link. Deprecated. Scheduled for removal in a future release.
+      operationId: deleteLdapGroupLink
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+        - name: cn
+          in: path
+          description: The CN of an LDAP group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+  '/groups/{id}/share':
+    post:
+      summary: Create a link to share a group with another group
+      description: Share group with another group. Returns 200 and the group details on success.
+      operationId: createALinkToShareAGroupWithAnotherGroup
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createALinkToShareAGroupWithAnotherGroupRequest'
+      tags:
+        - groups
+  '/groups/{id}/share/{group_id}':
+    delete:
+      summary: Delete link sharing group with another group
+      description: Unshare the group from another group. Returns 204 and no content on success.
+      operationId: deleteLinkSharingGroupWithAnotherGroup
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+        - name: group_id
+          in: path
+          description: The ID of the group to share with
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+  '/groups/{id}/push_rule':
+    get:
+      summary: Get group push rules
+      description: Get the push rules of a group.
+      operationId: getGroupPushRules
+      parameters:
+        - name: id
+          in: path
+          description: The ID of the group or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getGroupPushRulesResponse'
+      tags:
+        - groups
+    post:
+      summary: Add group push rule
+      description: Adds push rules to the specified group.
+      operationId: addGroupPushRule
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/addGroupPushRuleResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addGroupPushRuleRequest'
+      tags:
+        - groups
+    put:
+      summary: Edit group push rule
+      description: Edit push rules for a specified group.
+      operationId: editGroupPushRule
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/addGroupPushRuleResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addGroupPushRuleRequest'
+      tags:
+        - groups
+    delete:
+      summary: Delete group push rule
+      description: Deletes the push rules of a group.
+      operationId: deleteGroupPushRule
+      parameters:
+        - name: id
+          in: path
+          description: The ID or URL-encoded path of the group
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - groups
+  '/projects/{id}/repository/branches':
+    get:
+      summary: List repository branches
+      description: 'Get a list of repository branches from a project, sorted by name alphabetically.'
+      operationId: listRepositoryBranches
+      parameters:
+        - name: id
+          in: path
+          description: ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+          schema:
+            type: string
+        - name: search
+          in: query
+          description: >-
+            Return list of branches containing the search string. You can use ^term and term$ to find branches that
+            begin and end with term respectively.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listRepositoryBranchesResponse'
+      tags:
+        - branches
+    post:
+      summary: Create repository branch
+      description: Create a new branch in the repository.
+      operationId: createRepositoryBranch
+      parameters:
+        - name: id
+          in: path
+          description: ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getSingleRepositoryBranchResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createRepositoryBranchRequest'
+      tags:
+        - branches
+  '/projects/{id}/repository/branches/{branch}':
+    get:
+      summary: Get single repository branch
+      description: Get a single project repository branch.
+      operationId: getSingleRepositoryBranch
+      parameters:
+        - name: id
+          in: path
+          description: ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+          schema:
+            type: string
+        - name: branch
+          in: path
+          description: Name of the branch.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getSingleRepositoryBranchResponse'
+      tags:
+        - branches
+    delete:
+      summary: Delete repository branch
+      description: Delete a branch from the repository.
+      operationId: deleteRepositoryBranch
+      parameters:
+        - name: id
+          in: path
+          description: ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+          schema:
+            type: string
+        - name: branch
+          in: path
+          description: Name of the branch.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - branches
+  '/projects/{id}/repository/merged_branches':
+    delete:
+      summary: Delete merged branches
+      description: Deletes all branches that are merged into the project’s default branch.
+      operationId: deleteMergedBranches
+      parameters:
+        - name: id
+          in: path
+          description: ID or URL-encoded path of the project owned by the authenticated user.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+      tags:
+        - branches
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+    Tag_to_create:
+      type: object
+      properties:
+        tag_name:
+          type: string
+          description: The name of a tag
+        ref:
+          type: string
+          description: Create tag using commit SHA, another tag name, or branch name
+        message:
+          type: string
+          description: Creates annotated tag
+        release_description:
+          type: string
+          description:  Add release notes to the Git tag and store it in the GitLab database
+      required:
+        - tag_name
+        - ref
+    Tag:
+      type: object
+      properties:
+        commit:
+          type: object
+          properties:
+            id::
+              type: string
+            short_id:
+              type: string
+            title:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            parent_ids:
+              type: array
+              items: 
+                type: string
+            message:
+              type: string
+            author_name:
+              type: string
+            author_email:
+              type: string
+            authored_date:
+              type: string
+              format: date-time
+            committer_name:
+              type: string
+            committer_email:
+              type: string
+            committed_date:
+              type: string
+              format: date-time
+        release:
+            type: object
+            properties:
+              tag_name:
+                type: string
+              description:
+                type: string
+        name:
+          type: string
+        target:
+          type: string
+        message:
+          type: string
+        protected:
+          type: boolean
+    Commit_to_create:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID or URL-encoded path of the project
+        branch:
+          type: string
+          description: Name of the branch to commit into. To create a new branch, also provide either start_branch or start_sha, and optionally start_project.
+        commit_message:
+          type: string
+          description: Commit message
+        start_branch:
+          type: string
+          description: Name of the branch to start the new branch from
+        start_sha:
+          type: string
+          description: SHA of the commit to start the new branch from
+        start_project:
+          type: string
+          description: The project ID or URL-encoded path of the project to start the new branch from. Defaults to the value of id.
+        actions:
+          type: array
+          items:
+              $ref : "#/components/schemas/Commit_Action"
+          description: An array of action hashes to commit as a batch. See the next table for what attributes it can take.
+        author_email:
+          type: string
+          description: Specify the commit author’s email address
+        author_name:
+          type: string
+          description: Specify the commit author’s name
+        stats:
+          type: boolean
+          description: Include commit stats. Default is true
+        force:
+          type: boolean
+          description: When true overwrites the target branch with a new commit based on the start_branch or start_sha
+      required:
+        - id
+        - branch
+        - commit_message
+    Commit_Action:
+      type: object
+      properties:
+        action:
+          type: string
+          description:  The action to perform, create, delete, move, update, chmod
+        file_path:
+          type: string
+          description:  Full path to the file. Ex. lib/class.rb
+        previous_path:
+          type: string
+          description:  Original full path to the file being moved. Ex. lib/class1.rb. Only considered for move action.
+        content:
+          type: string
+          description:  File content, required for all except delete, chmod, and move. Move actions that do not specify content will preserve the existing file content, and any other value of content will overwrite the file content.
+        encoding:
+          type: string
+          description:  text or base64. text is default.
+        last_commit_id:
+          type: string
+          description:  Last known file commit ID. Will be only considered in update, move, and delete actions.
+        execute_filemode:
+          type: boolean
+          description:  When true/false enables/disables the execute flag on the file. Only considered for chmod action.
+      required:
+        - action
+        - file_path
+    Commit:
+      type: object
+      properties:
+        id:
+          type: string
+        short_id:
+          type: string
+        title:
+          type: string
+        author_name:
+          type: string
+        author_email:
+          type: string
+        authored_date:
+          type: string
+          format: date-time
+        committed_date:
+          type: string
+          format: date-time
+        committer_name:
+          type: string
+        committer_email:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        message:
+          type: string
+        parent_ids:
+          type: array
+          items:
+            type: string
+        stats:
+          type: object
+          properties:
+            additions:
+              type: integer
+            deletions:
+              type: integer
+            total:
+              type: integer
+        status:
+          type: string
+          description: pending, running, success, failed, canceled
+        web_url:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    Namespace:
+      type: object
+      properties:
+        id:
+          type: integer
+        name: 
+          type: string
+        path: 
+          type: string
+        kind: 
+          type: string
+        full_path: 
+          type: string
+    Statistics:
+      type: object
+      properties:
+        commit_count:
+          type: integer
+        storage_size:
+          type: integer
+        repository_size:
+          type: integer
+        wiki_size:
+          type: integer
+        lfs_objects_size:
+          type: integer
+        job_artifacts_size:
+          type: integer
+        packages_size:
+          type: integer
+        snippets_size:
+          type: integer
+    RelatedLinks:
+      type: object
+      properties:
+        self:
+          type: string
+          format: uri
+        issues:
+          type: string
+          format: uri
+        merge_requests:
+          type: string
+          description: dd
+          format: uri
+        repo_branches:
+          type: string
+          format: uri
+        labels:
+          type: string
+          format: uri
+        events:
+          type: string
+          format: uri
+        members:
+          type: string
+          format: uri
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+        description: 
+          type: string
+        default_branch:
+          type: string
+        visibility:
+          type: string
+        ssh_url_to_repo:
+          type: string
+          format: uri
+        http_url_to_repo:
+          type: string
+          format: uri
+        web_url:
+          type: string
+          format: uri
+        readme_url:
+          type: string
+          format: uri
+        tag_list:
+          type: array
+          items:
+            type: string
+        owner:
+          $ref: '#/components/schemas/User'
+        name:
+          type: string
+        name_with_namespace:
+          type: string
+        path:
+          type: string
+        path_with_namespace:
+          type: string
+        issues_enabled:
+          type: boolean
+        open_issues_count:
+          type: integer
+        merge_requests_enabled:
+          type: boolean
+        jobs_enabled:
+          type: boolean
+        wiki_enabled:
+          type: boolean
+        snippets_enabled:
+          type: boolean
+        can_create_merge_request_in:
+          type: boolean
+        resolve_outdated_diff_discussions:
+          type: boolean
+        container_registry_enabled:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        last_activity_at:
+          type: string
+          format: date-time
+        creator_id:
+          type: integer
+        namespace:
+          $ref: '#/components/schemas/Namespace'
+        import_status:
+          type: string
+        archived:
+          type: boolean
+        avatar_url:
+          type: string
+          format: uri
+        shared_runners_enabled:
+          type: boolean
+        forks_count:
+          type: integer
+        star_count:
+          type: integer
+        runners_token:
+          type: string
+        ci_default_git_depth:
+          type: integer
+        ci_forward_deployment_enabled:
+          type: boolean
+        public_jobs:
+          type: boolean
+        shared_with_groups:
+          type: array
+          items: 
+            type: string
+        only_allow_merge_if_pipeline_succeeds:
+          type: boolean
+        allow_merge_on_skipped_pipeline:
+          type: boolean
+        only_allow_merge_if_all_discussions_are_resolved:
+          type: boolean
+        remove_source_branch_after_merge:
+          type: boolean
+        request_access_enabled:
+          type: boolean
+        merge_method:
+          type: string
+        autoclose_referenced_issues:
+          type: boolean
+        suggestion_commit_message:
+          type: string
+        marked_for_deletion_on:
+          type: string
+          format: date-time
+        statistics:
+          $ref: '#/components/schemas/Statistics'
+        _links:
+          $ref: '#/components/schemas/RelatedLinks'
+    Project_to_create:
+      type: object
+      properties:
+        # avatar: excluded for the moment, don,'t know how to mix json body and file upload
+        allow_merge_on_skipped_pipeline:
+          type: boolean
+          description: Set whether or not merge requests can be merged with skipped jobs.
+        analytics_access_level:
+          type: string
+          description: One of disabled, private or enabled
+        approvals_before_merge :
+          type: integer
+          description: How many approvers should approve merge requests by default.
+        auto_cancel_pending_pipelines:
+          type: string
+          description: Auto-cancel pending pipelines. This isn’t a boolean, but enabled/disabled.
+        auto_devops_deploy_strategy:
+          type: string
+          description: Auto Deploy strategy (continuous, manual or timed_incremental).
+        auto_devops_enabled:
+          type: boolean
+          description: Enable Auto DevOps for this project.
+        autoclose_referenced_issues:
+          type: boolean
+          description: Set whether auto-closing referenced issues on default branch.
+        build_coverage_regex:
+          type: string
+          description: Test coverage parsing.
+        build_git_strategy:
+          type: string
+          description: The Git strategy. Defaults to fetch.
+        build_timeout:
+          type: integer
+          description: The maximum amount of time in minutes that a job is able run (in seconds).
+        builds_access_level:
+          type: string
+          description: One of disabled, private, or enabled.
+        ci_config_path:
+          type: string
+          description: The path to CI configuration file.
+        container_expiration_policy_attributes:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              cadence:
+                type: string
+              keep_n:
+                type: integer
+              older_than:
+                type: string
+              name_regex:
+                type: string
+              name_regex_delete:
+                type: string
+              name_regex_keep:
+                type: string
+              enabled:
+                type: boolean
+          description: Update the image cleanup policy for this project. Accepts  cadence (string), keep_n (integer), older_than (string), name_regex (string), name_regex_delete (string), name_regex_keep (string), enabled (boolean).
+        container_registry_enabled:
+          type: boolean
+          description: Enable container registry for this project.
+        default_branch:
+          type: string
+          description: master by default.
+        description:
+          type: string
+          description: Short project description.
+        emails_disabled:
+          type: boolean
+          description: Disable email notifications.
+        external_authorization_classification_label :
+          type: string
+          description: The classification label for the project.
+        forking_access_level:
+          type: string
+          description: One of disabled, private, or enabled.
+        group_with_project_templates_id :
+          type: integer
+          description: For group-level custom templates, specifies ID of group from which all the custom project templates are sourced. Leave empty for instance-level templates. Requires use_custom_template to be true.
+        import_url:
+          type: string
+          description: URL to import repository from.
+        initialize_with_readme:
+          type: boolean
+          description: false by default.
+        issues_access_level:
+          type: string
+          description: One of disabled, private, or enabled.
+        lfs_enabled:
+          type: boolean
+          description: Enable LFS.
+        merge_method:
+          type: string
+          description: Set the merge method used.
+        merge_requests_access_level:
+          type: string
+          description: One of disabled, private, or enabled.
+        mirror_trigger_builds :
+          type: boolean
+          description: Pull mirroring triggers builds.
+        mirror :
+          type: boolean
+          description: Enables pull mirroring in a project.
+        name:
+          type: string
+          description: The name of the new project. Equals path if not provided.
+        namespace_id:
+          type: integer
+          description: Namespace for the new project (defaults to the current user’s namespace).
+        operations_access_level:
+          type: string
+          description: One of disabled, private, or enabled.
+        only_allow_merge_if_all_discussions_are_resolved:
+          type: boolean
+          description: Set whether merge requests can only be merged when all the discussions are resolved.
+        only_allow_merge_if_pipeline_succeeds:
+          type: boolean
+          description: Set whether merge requests can only be merged with successful jobs.
+        packages_enabled:
+          type: boolean
+          description: Enable or disable packages repository feature.
+        pages_access_level:
+          type: string
+          description: One of disabled, private, enabled, or public.
+        requirements_access_level:
+          type: string
+          description: One of disabled, private, enabled or public
+        path:
+          type: string
+          description: Repository name for new project. Generated based on name if not provided (generated as lowercase with dashes).
+        printing_merge_request_link_enabled:
+          type: boolean
+          description: Show link to create/view merge request when pushing from the command line.
+        public_builds:
+          type: boolean
+          description: If true, jobs can be viewed by non-project members.
+        remove_source_branch_after_merge:
+          type: boolean
+          description: Enable Delete source branch option by default for all new merge requests.
+        repository_access_level:
+          type: string
+          description: One of disabled, private, or enabled.
+        repository_storage:
+          type: string
+          description: Which storage shard the repository is on. (admins only)
+        request_access_enabled:
+          type: boolean
+          description: Allow users to request member access.
+        resolve_outdated_diff_discussions:
+          type: boolean
+          description: Automatically resolve merge request diffs discussions on lines changed with a push.
+        shared_runners_enabled:
+          type: boolean
+          description: Enable shared runners for this project.
+        show_default_award_emojis:
+          type: boolean
+          description: Show default award emojis.
+        snippets_access_level:
+          type: string
+          description: One of disabled, private, or enabled.
+        tag_list:
+          type: array
+          items:
+              type: string
+          description: The list of tags for a project; put array of tags, that should be finally assigned to a project.
+        template_name:
+          type: string
+          description: When used without use_custom_template, name of a built-in project template. When used with use_custom_template, name of a custom project template.
+        template_project_id :
+          type: integer
+          description: When used with use_custom_template, project ID of a custom project template. This is preferable to using template_name since template_name may be ambiguous.
+        use_custom_template :
+          type: boolean
+          description: Use either custom instance or group (with group_with_project_templates_id) project template.
+        visibility:
+          type: string
+          description: See project visibility level.
+        wiki_access_level:
+          type: string
+          description: One of disabled, private, or enabled.
+      oneOf:
+        - required: [name]
+        - required: [path]
+    listIssuesResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          state:
+            type: string
+          description:
+            type: string
+          health_status:
+            type: string        
+    listGroupIssuesResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          project_id:
+            type: integer
+          description:
+            type: string
+          health_status:
+            type: string
+    singleProjectIssueResponse:
+      type: object
+      properties:
+        project_id:
+          type: integer
+        description:
+          type: string
+        epic_iid:
+          type: integer
+        epic:
+          type: object
+          properties:
+            id:
+              type: integer
+            iid:
+              type: integer
+            title:
+              type: string
+            url:
+              type: string
+            group_id:
+              type: integer
+    newIssueRequest:
+      type: object
+      properties:
+        assignee_id:
+          type: integer
+        assignee_ids:
+          type: array
+          items:
+            type: integer
+        confidential:
+          type: boolean
+        created_at:
+          type: string
+        description:
+          type: string
+        discussion_to_resolve:
+          type: string
+        due_date:
+          type: string
+        epic_id:
+          type: integer
+        epic_iid:
+          type: integer
+        iid:
+          oneOf:
+            - type: integer
+            - type: string
+        issue_type:
+          type: string
+        labels:
+          type: string
+        merge_request_to_resolve_discussions_of:
+          type: integer
+        milestone_id:
+          type: integer
+        title:
+          type: string
+        weight:
+          type: integer
+      required:
+        - title  
+    singleIssueResponse:
+      type: object
+      properties:
+        project_id:
+          type: integer
+        description:
+          type: string
+        weight:
+          type: string
+        id:
+          type: integer
+        milestone:
+          type: object
+          properties:
+            due_date:
+              type: string
+            project_id:
+              type: integer
+            state:
+              type: string
+            description:
+              type: string
+            iid:
+              type: integer
+            id:
+              type: integer
+            title:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            updated_at:
+              type: string
+              format: date-time
+            closed_at:
+              type: string
+              format: date-time
+        author:
+          type: object
+          properties:
+            state:
+              type: string
+            web_url:
+              type: string
+            avatar_url:
+              type: string
+            username:
+              type: string
+            id:
+              type: integer
+            name:
+              type: string
+        state:
+          type: string
+        iid:
+          type: integer
+        assignees:
+          type: array
+          items:
+            type: object
+            properties:
+              avatar_url:
+                type: string
+              web_url:
+                type: string
+              state:
+                type: string
+              username:
+                type: string
+              id:
+                type: integer
+              name:
+                type: string
+        assignee:
+          type: object
+          properties:
+            avatar_url:
+              type: string
+            web_url:
+              type: string
+            state:
+              type: string
+            username:
+              type: string
+            id:
+              type: integer
+            name:
+              type: string
+        type:
+          type: string
+        labels:
+          type: array
+          items: {}
+        upvotes:
+          type: integer
+        downvotes:
+          type: integer
+        merge_requests_count:
+          type: integer
+        title:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        closed_at:
+          type: string
+        closed_by:
+          type: string
+        subscribed:
+          type: boolean
+        user_notes_count:
+          type: integer
+        due_date:
+          type: string
+        web_url:
+          type: string
+        references:
+          type: object
+          properties:
+            short:
+              type: string
+            relative:
+              type: string
+            full:
+              type: string
+        time_stats:
+          type: object
+          properties:
+            time_estimate:
+              type: integer
+            total_time_spent:
+              type: integer
+            human_time_estimate:
+              type: string
+            human_total_time_spent:
+              type: string
+        confidential:
+          type: boolean
+        discussion_locked:
+          type: boolean
+        issue_type:
+          type: string
+        severity:
+          type: string
+        task_completion_status:
+          type: object
+          properties:
+            count:
+              type: integer
+            completed_count:
+              type: integer
+        has_tasks:
+          type: boolean
+        _links:
+          type: object
+          properties:
+            self:
+              type: string
+            notes:
+              type: string
+            award_emoji:
+              type: string
+            project:
+              type: string
+        moved_to_id:
+          type: string
+        service_desk_reply_to:
+          type: string                    
+    editIssueResponse:
+      type: object
+      properties:
+        project_id:
+          type: integer
+        description:
+          type: string
+        epic_iid:
+          type: integer
+        epic:
+          type: object
+          properties:
+            id:
+              type: integer
+            iid:
+              type: integer
+            title:
+              type: string
+            url:
+              type: string
+            group_id:
+              type: integer
+        weight:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        author:
+          type: object
+          properties:
+            name:
+              type: string
+            avatar_url:
+              type: string
+            username:
+              type: string
+            id:
+              type: integer
+            state:
+              type: string
+            web_url:
+              type: string
+        state:
+          type: string
+        title:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+        closed_at:
+          type: string
+          format: date-time
+        closed_by:
+          type: object
+          properties:
+            state:
+              type: string
+            web_url:
+              type: string
+            avatar_url:
+              type: string
+            username:
+              type: string
+            id:
+              type: integer
+            name:
+              type: string
+        iid:
+          type: integer
+        labels:
+          type: array
+          items:
+            type: string
+        upvotes:
+          type: integer
+        downvotes:
+          type: integer
+        merge_requests_count:
+          type: integer
+        id:
+          type: integer
+        assignees:
+          type: array
+          items: {}
+        assignee:
+          type: string
+        milestone:
+          type: string
+        subscribed:
+          type: boolean
+        user_notes_count:
+          type: integer
+        due_date:
+          type: string
+        web_url:
+          type: string
+        references:
+          type: object
+          properties:
+            short:
+              type: string
+            relative:
+              type: string
+            full:
+              type: string
+        time_stats:
+          type: object
+          properties:
+            time_estimate:
+              type: integer
+            total_time_spent:
+              type: integer
+            human_time_estimate:
+              type: string
+            human_total_time_spent:
+              type: string
+        confidential:
+          type: boolean
+        discussion_locked:
+          type: boolean
+        issue_type:
+          type: string
+        severity:
+          type: string
+        _links:
+          type: object
+          properties:
+            self:
+              type: string
+            notes:
+              type: string
+            award_emoji:
+              type: string
+            project:
+              type: string
+        task_completion_status:
+          type: object
+          properties:
+            count:
+              type: integer
+            completed_count:
+              type: integer          
+    editIssueRequest:
+      type: object
+      properties:
+        add_labels:
+          type: string
+        assignee_ids:
+          type: array
+          items:
+            type: integer
+        confidential:
+          type: boolean
+        description:
+          type: string
+        discussion_locked:
+          type: boolean
+        due_date:
+          type: string
+        epic_id:
+          type: integer
+        epic_iid:
+          type: integer
+        issue_type:
+          type: string
+        labels:
+          type: string
+        milestone_id:
+          type: integer
+        remove_labels:
+          type: string
+        state_event:
+          type: string
+        title:
+          type: string
+        updated_at:
+          type: string
+        weight:
+          type: integer
+    reorderAnIssueRequest:
+      type: object
+      properties:
+        move_after_id:
+          type: integer
+        move_before_id:
+          type: integer   
+    moveAnIssueRequest:
+      type: object
+      properties:
+        to_project_id:
+          type: integer
+      required:
+        - to_project_id
+    moveAnIssueResponse:
+      type: object
+      properties:
+        project_id:
+          type: integer
+        description:
+          type: string
+        epic_iid:
+          type: integer
+        epic:
+          type: object
+          properties:
+            id:
+              type: integer
+            iid:
+              type: integer
+            title:
+              type: string
+            url:
+              type: string
+            group_id:
+              type: integer
+        weight:
+          type: string
+        id:
+          type: integer
+        iid:
+          type: integer
+        title:
+          type: string
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        closed_at:
+          type: string
+        closed_by:
+          type: string
+        labels:
+          type: array
+          items: {}
+        upvotes:
+          type: integer
+        downvotes:
+          type: integer
+        merge_requests_count:
+          type: integer
+        milestone:
+          type: string
+        assignees:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              username:
+                type: string
+              id:
+                type: integer
+              state:
+                type: string
+              avatar_url:
+                type: string
+              web_url:
+                type: string
+        assignee:
+          type: object
+          properties:
+            name:
+              type: string
+            username:
+              type: string
+            id:
+              type: integer
+            state:
+              type: string
+            avatar_url:
+              type: string
+            web_url:
+              type: string
+        type:
+          type: string
+        author:
+          type: object
+          properties:
+            name:
+              type: string
+            username:
+              type: string
+            id:
+              type: integer
+            state:
+              type: string
+            avatar_url:
+              type: string
+            web_url:
+              type: string
+        due_date:
+          type: string
+        web_url:
+          type: string
+        references:
+          type: object
+          properties:
+            short:
+              type: string
+            relative:
+              type: string
+            full:
+              type: string
+        time_stats:
+          type: object
+          properties:
+            time_estimate:
+              type: integer
+            total_time_spent:
+              type: integer
+            human_time_estimate:
+              type: string
+            human_total_time_spent:
+              type: string
+        confidential:
+          type: boolean
+        discussion_locked:
+          type: boolean
+        issue_type:
+          type: string
+        severity:
+          type: string
+        _links:
+          type: object
+          properties:
+            self:
+              type: string
+            notes:
+              type: string
+            award_emoji:
+              type: string
+            project:
+              type: string
+        task_completion_status:
+          type: object
+          properties:
+            count:
+              type: integer
+            completed_count:
+              type: integer  
+    cloneAnIssueRequest:
+      type: object
+      properties:
+        to_project_id:
+          type: integer
+        with_notes:
+          type: boolean
+    cloneAnIssueResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        iid:
+          type: integer
+        project_id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        closed_at:
+          type: string
+        closed_by:
+          type: string
+        labels:
+          type: array
+          items: {}
+        milestone:
+          type: string
+        assignees:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              username:
+                type: string
+              state:
+                type: string
+              avatar_url:
+                type: string
+              web_url:
+                type: string
+        author:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            username:
+              type: string
+            state:
+              type: string
+            avatar_url:
+              type: string
+            web_url:
+              type: string
+        type:
+          type: string
+        assignee:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            username:
+              type: string
+            state:
+              type: string
+            avatar_url:
+              type: string
+            web_url:
+              type: string
+        user_notes_count:
+          type: integer
+        merge_requests_count:
+          type: integer
+        upvotes:
+          type: integer
+        downvotes:
+          type: integer
+        due_date:
+          type: string
+        confidential:
+          type: boolean
+        discussion_locked:
+          type: string
+        issue_type:
+          type: string
+        severity:
+          type: string
+        web_url:
+          type: string
+        time_stats:
+          type: object
+          properties:
+            time_estimate:
+              type: integer
+            total_time_spent:
+              type: integer
+            human_time_estimate:
+              type: string
+            human_total_time_spent:
+              type: string
+        task_completion_status:
+          type: object
+          properties:
+            count:
+              type: integer
+            completed_count:
+              type: integer
+        blocking_issues_count:
+          type: integer
+        has_tasks:
+          type: boolean
+        _links:
+          type: object
+          properties:
+            self:
+              type: string
+            notes:
+              type: string
+            award_emoji:
+              type: string
+            project:
+              type: string
+        references:
+          type: object
+          properties:
+            short:
+              type: string
+            relative:
+              type: string
+            full:
+              type: string
+        subscribed:
+          type: boolean
+        moved_to_id:
+          type: string
+        service_desk_reply_to:
+          type: string                             
+    unsubscribeFromAnIssueResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        iid:
+          type: integer
+        project_id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        labels:
+          type: array
+          items: {}
+        upvotes:
+          type: integer
+        downvotes:
+          type: integer
+        merge_requests_count:
+          type: integer
+        milestone:
+          type: string
+        assignee:
+          type: object
+          properties:
+            name:
+              type: string
+            username:
+              type: string
+            id:
+              type: integer
+            state:
+              type: string
+            avatar_url:
+              type: string
+            web_url:
+              type: string
+        type:
+          type: string
+        closed_at:
+          type: string
+        closed_by:
+          type: string
+        author:
+          type: object
+          properties:
+            name:
+              type: string
+            username:
+              type: string
+            id:
+              type: integer
+            state:
+              type: string
+            avatar_url:
+              type: string
+            web_url:
+              type: string
+        subscribed:
+          type: boolean
+        due_date:
+          type: string
+        web_url:
+          type: string
+        references:
+          type: object
+          properties:
+            short:
+              type: string
+            relative:
+              type: string
+            full:
+              type: string
+        confidential:
+          type: boolean
+        discussion_locked:
+          type: boolean
+        issue_type:
+          type: string
+        severity:
+          type: string
+        task_completion_status:
+          type: object
+          properties:
+            count:
+              type: integer
+            completed_count:
+              type: integer
+    createAToDoItemResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        project:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+            name_with_namespace:
+              type: string
+            path:
+              type: string
+            path_with_namespace:
+              type: string
+        author:
+          type: object
+          properties:
+            name:
+              type: string
+            username:
+              type: string
+            id:
+              type: integer
+            state:
+              type: string
+            avatar_url:
+              type: string
+            web_url:
+              type: string
+        action_name:
+          type: string
+        target_type:
+          type: string
+        target:
+          type: object
+          properties:
+            id:
+              type: integer
+            iid:
+              type: integer
+            project_id:
+              type: integer
+            title:
+              type: string
+            description:
+              type: string
+            state:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            updated_at:
+              type: string
+              format: date-time
+            target_branch:
+              type: string
+            source_branch:
+              type: string
+            upvotes:
+              type: integer
+            downvotes:
+              type: integer
+            author:
+              type: object
+              properties:
+                name:
+                  type: string
+                username:
+                  type: string
+                id:
+                  type: integer
+                state:
+                  type: string
+                avatar_url:
+                  type: string
+                web_url:
+                  type: string
+                discussion_locked:
+                  type: boolean
+            assignee:
+              type: object
+              properties:
+                name:
+                  type: string
+                username:
+                  type: string
+                id:
+                  type: integer
+                state:
+                  type: string
+                avatar_url:
+                  type: string
+                web_url:
+                  type: string
+            assignees:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  username:
+                    type: string
+                  id:
+                    type: integer
+                  state:
+                    type: string
+                  avatar_url:
+                    type: string
+                  web_url:
+                    type: string
+            reviewers:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  username:
+                    type: string
+                  id:
+                    type: integer
+                  state:
+                    type: string
+                  avatar_url:
+                    type: string
+                  web_url:
+                    type: string
+            source_project_id:
+              type: integer
+            target_project_id:
+              type: integer
+            labels:
+              type: array
+              items: {}
+            draft:
+              type: boolean
+            work_in_progress:
+              type: boolean
+            milestone:
+              type: object
+              properties:
+                id:
+                  type: integer
+                iid:
+                  type: integer
+                project_id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                state:
+                  type: string
+                created_at:
+                  type: string
+                  format: date-time
+                updated_at:
+                  type: string
+                  format: date-time
+                due_date:
+                  type: string
+            merge_when_pipeline_succeeds:
+              type: boolean
+            merge_status:
+              type: string
+            subscribed:
+              type: boolean
+            sha:
+              type: string
+            merge_commit_sha:
+              type: string
+            squash_commit_sha:
+              type: string
+            user_notes_count:
+              type: integer
+            changes_count:
+              type: string
+            should_remove_source_branch:
+              type: boolean
+            force_remove_source_branch:
+              type: boolean
+            squash:
+              type: boolean
+            web_url:
+              type: string
+            references:
+              type: object
+              properties:
+                short:
+                  type: string
+                relative:
+                  type: string
+                full:
+                  type: string
+        target_url:
+          type: string
+        body:
+          type: string
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time    
+    listProjectIssueNotesResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/getSingleMergeRequestNoteResponse'
+    getSingleMergeRequestNoteResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        body:
+          type: string
+        attachment:
+          type: string
+        author:
+          type: object
+          properties:
+            id:
+              type: integer
+            username:
+              type: string
+            email:
+              type: string
+            name:
+              type: string
+            state:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        system:
+          type: boolean
+        noteable_id:
+          type: integer
+        noteable_type:
+          type: string
+        noteable_iid:
+          type: integer
+        resolvable:
+          type: boolean
+        confidential:
+          type: boolean
+    setATimeEstimateForAnIssueRequest:
+      type: object
+      properties:
+        duration:
+          type: string
+      required:
+        - duration
+    setATimeEstimateForAnIssueResponse:
+      type: object
+      properties:
+        human_time_estimate:
+          type: string
+        human_total_time_spent:
+          type: string
+        time_estimate:
+          type: integer
+        total_time_spent:
+          type: integer  
+    addSpentTimeForAnIssueRequest:
+      type: object
+      properties:
+        duration:
+          type: string
+        summary:
+          type: string
+      required:
+        - duration     
+    listMergeRequestsRelatedToIssueResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          iid:
+            type: integer
+          project_id:
+            type: integer
+          title:
+            type: string
+          description:
+            type: string
+          state:
+            type: string
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+          closed_by:
+            type: string
+          closed_at:
+            type: string
+          target_branch:
+            type: string
+          source_branch:
+            type: string
+          user_notes_count:
+            type: integer
+          upvotes:
+            type: integer
+          downvotes:
+            type: integer
+          author:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              username:
+                type: string
+              state:
+                type: string
+              avatar_url:
+                type: string
+              web_url:
+                type: string
+          assignee:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              username:
+                type: string
+              state:
+                type: string
+              avatar_url:
+                type: string
+              web_url:
+                type: string
+          source_project_id:
+            type: integer
+          target_project_id:
+            type: integer
+          labels:
+            type: array
+            items: {}
+          draft:
+            type: boolean
+          work_in_progress:
+            type: boolean
+          milestone:
+            type: object
+            properties:
+              id:
+                type: integer
+              iid:
+                type: integer
+              project_id:
+                type: integer
+              title:
+                type: string
+              description:
+                type: string
+              state:
+                type: string
+              created_at:
+                type: string
+                format: date-time
+              updated_at:
+                type: string
+                format: date-time
+              due_date:
+                type: string
+              start_date:
+                type: string
+              web_url:
+                type: string
+          merge_when_pipeline_succeeds:
+            type: boolean
+          merge_status:
+            type: string
+          sha:
+            type: string
+          merge_commit_sha:
+            type: string
+          squash_commit_sha:
+            type: string
+          discussion_locked:
+            type: string
+          should_remove_source_branch:
+            type: string
+          force_remove_source_branch:
+            type: boolean
+          reference:
+            type: string
+          web_url:
+            type: string
+          references:
+            type: object
+            properties:
+              short:
+                type: string
+              relative:
+                type: string
+              full:
+                type: string
+          time_stats:
+            type: object
+            properties:
+              time_estimate:
+                type: integer
+              total_time_spent:
+                type: integer
+              human_time_estimate:
+                type: string
+              human_total_time_spent:
+                type: string
+          squash:
+            type: boolean
+          task_completion_status:
+            type: object
+            properties:
+              count:
+                type: integer
+              completed_count:
+                type: integer
+          changes_count:
+            type: string
+          latest_build_started_at:
+            type: string
+            format: date-time
+          latest_build_finished_at:
+            type: string
+            format: date-time
+          first_deployed_to_production_at:
+            type: string
+          pipeline:
+            type: object
+            properties:
+              id:
+                type: integer
+              sha:
+                type: string
+              ref:
+                type: string
+              status:
+                type: string
+              web_url:
+                type: string
+          head_pipeline:
+            type: object
+            properties:
+              id:
+                type: integer
+              sha:
+                type: string
+              ref:
+                type: string
+              status:
+                type: string
+              web_url:
+                type: string
+              before_sha:
+                type: string
+              tag:
+                type: boolean
+              yaml_errors:
+                type: string
+              user:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  username:
+                    type: string
+                  state:
+                    type: string
+                  avatar_url:
+                    type: string
+                  web_url:
+                    type: string
+              created_at:
+                type: string
+                format: date-time
+              updated_at:
+                type: string
+                format: date-time
+              started_at:
+                type: string
+                format: date-time
+              finished_at:
+                type: string
+                format: date-time
+              committed_at:
+                type: string
+              duration:
+                type: integer
+              coverage:
+                type: string
+              detailed_status:
+                type: object
+                properties:
+                  icon:
+                    type: string
+                  text:
+                    type: string
+                  label:
+                    type: string
+                  group:
+                    type: string
+                  tooltip:
+                    type: string
+                  has_details:
+                    type: boolean
+                  details_path:
+                    type: string
+                  illustration:
+                    type: string
+                  favicon:
+                    type: string
+          diff_refs:
+            type: object
+            properties:
+              base_sha:
+                type: string
+              head_sha:
+                type: string
+              start_sha:
+                type: string
+          merge_error:
+            type: string
+          user:
+            type: object
+            properties:
+              can_merge:
+                type: boolean
+    listMergeRequestsThatCloseAParticularIssueOnMergeResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          iid:
+            type: integer
+          project_id:
+            type: integer
+          title:
+            type: string
+          description:
+            type: string
+          state:
+            type: string
+          created_at:
+            type: string
+            format: date-time
+          updated_at:
+            type: string
+            format: date-time
+          target_branch:
+            type: string
+          source_branch:
+            type: string
+          upvotes:
+            type: integer
+          downvotes:
+            type: integer
+          author:
+            type: object
+            properties:
+              name:
+                type: string
+              username:
+                type: string
+              id:
+                type: integer
+              state:
+                type: string
+              avatar_url:
+                type: string
+              web_url:
+                type: string
+          assignee:
+            type: string
+          source_project_id:
+            type: integer
+          target_project_id:
+            type: integer
+          closed_at:
+            type: string
+          closed_by:
+            type: string
+          labels:
+            type: array
+            items: {}
+          draft:
+            type: boolean
+          work_in_progress:
+            type: boolean
+          milestone:
+            type: string
+          merge_when_pipeline_succeeds:
+            type: boolean
+          merge_status:
+            type: string
+          sha:
+            type: string
+          merge_commit_sha:
+            type: string
+          squash_commit_sha:
+            type: string
+          user_notes_count:
+            type: integer
+          should_remove_source_branch:
+            type: string
+          force_remove_source_branch:
+            type: boolean
+          web_url:
+            type: string
+          reference:
+            type: string
+          references:
+            type: object
+            properties:
+              short:
+                type: string
+              relative:
+                type: string
+              full:
+                type: string
+          time_stats:
+            type: object
+            properties:
+              time_estimate:
+                type: integer
+              total_time_spent:
+                type: integer
+              human_time_estimate:
+                type: string
+              human_total_time_spent:
+                type: string    
+    participantsOnIssuesResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/followAndUnfollowUsersResponse'
+    followAndUnfollowUsersResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        name:
+          type: string
+        state:
+          type: string
+        avatar_url:
+          type: string
+        web_url:
+          type: string 
+    getUserAgentDetailsResponse:
+      type: object
+      properties:
+        user_agent:
+          type: string
+        ip_address:
+          type: string
+        akismet_submitted:
+          type: boolean 
+    uploadMetricImageRequest:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+        url:
+          type: string
+        url_text:
+          type: string
+      required:
+        - file
+    uploadMetricImageResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        filename:
+          type: string
+        file_path:
+          type: string
+        url:
+          type: string
+        url_text:
+          type: string    
+    listMetricImagesResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          created_at:
+            type: string
+            format: date-time
+          filename:
+            type: string
+          file_path:
+            type: string
+          url:
+            type: string
+    updateMetricImageRequest:
+      type: object
+      properties:
+        url:
+          type: string
+        url_text:
+          type: string   
+    searchForGroupResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+          path:
+            type: string
+          description:
+            type: string  
+    newGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        path:
+          type: string
+        auto_devops_enabled:
+          type: boolean
+        default_branch_protection:
+          type: integer
+        description:
+          type: string
+        emails_disabled:
+          type: boolean
+        lfs_enabled:
+          type: boolean
+        mentions_disabled:
+          type: boolean
+        parent_id:
+          type: integer
+        project_creation_level:
+          type: string
+        request_access_enabled:
+          type: boolean
+        require_two_factor_authentication:
+          type: boolean
+        share_with_group_lock:
+          type: boolean
+        subgroup_creation_level:
+          type: string
+        two_factor_grace_period:
+          type: integer
+        visibility:
+          type: string
+        membership_lock:
+          type: boolean
+        extra_shared_runners_minutes_limit:
+          type: integer
+        shared_runners_minutes_limit:
+          type: integer
+      required:
+        - name
+        - path  
+    listAGroupSubgroupsResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+          path:
+            type: string
+          description:
+            type: string
+          visibility:
+            type: string
+          share_with_group_lock:
+            type: boolean
+          require_two_factor_authentication:
+            type: boolean
+          two_factor_grace_period:
+            type: integer
+          project_creation_level:
+            type: string
+          auto_devops_enabled:
+            type: string
+          subgroup_creation_level:
+            type: string
+          emails_disabled:
+            type: string
+          mentions_disabled:
+            type: string
+          lfs_enabled:
+            type: boolean
+          default_branch_protection:
+            type: integer
+          avatar_url:
+            type: string
+          web_url:
+            type: string
+          request_access_enabled:
+            type: boolean
+          full_name:
+            type: string
+          full_path:
+            type: string
+          file_template_project_id:
+            type: integer
+          parent_id:
+            type: integer
+          created_at:
+            type: string
+            format: date-time  
+    listAGroupProjectsResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          description:
+            type: string
+          default_branch:
+            type: string
+          tag_list:
+            type: array
+            items: {}
+          topics:
+            type: array
+            items: {}
+          archived:
+            type: boolean
+          visibility:
+            type: string
+          ssh_url_to_repo:
+            type: string
+          http_url_to_repo:
+            type: string
+          web_url:
+            type: string
+          name:
+            type: string
+          name_with_namespace:
+            type: string
+          path:
+            type: string
+          path_with_namespace:
+            type: string
+          issues_enabled:
+            type: boolean
+          merge_requests_enabled:
+            type: boolean
+          wiki_enabled:
+            type: boolean
+          jobs_enabled:
+            type: boolean
+          snippets_enabled:
+            type: boolean
+          created_at:
+            type: string
+            format: date-time
+          last_activity_at:
+            type: string
+            format: date-time
+          shared_runners_enabled:
+            type: boolean
+          creator_id:
+            type: integer
+          namespace:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              path:
+                type: string
+              kind:
+                type: string
+          avatar_url:
+            type: string
+          star_count:
+            type: integer
+          forks_count:
+            type: integer
+          open_issues_count:
+            type: integer
+          public_jobs:
+            type: boolean
+          shared_with_groups:
+            type: array
+            items: {}
+          request_access_enabled:
+            type: boolean 
+    listAGroupSharedProjectsResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          description:
+            type: string
+          name:
+            type: string
+          name_with_namespace:
+            type: string
+          path:
+            type: string
+          path_with_namespace:
+            type: string
+          created_at:
+            type: string
+            format: date-time
+          default_branch:
+            type: string
+          tag_list:
+            type: array
+            items: {}
+          topics:
+            type: array
+            items: {}
+          ssh_url_to_repo:
+            type: string
+          http_url_to_repo:
+            type: string
+          web_url:
+            type: string
+          readme_url:
+            type: string
+          avatar_url:
+            type: string
+          star_count:
+            type: integer
+          forks_count:
+            type: integer
+          last_activity_at:
+            type: string
+            format: date-time
+          namespace:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              path:
+                type: string
+              kind:
+                type: string
+              full_path:
+                type: string
+              parent_id:
+                type: string
+              avatar_url:
+                type: string
+              web_url:
+                type: string
+          _links:
+            type: object
+            properties:
+              self:
+                type: string
+              issues:
+                type: string
+              merge_requests:
+                type: string
+              repo_branches:
+                type: string
+              labels:
+                type: string
+              events:
+                type: string
+              members:
+                type: string
+          empty_repo:
+            type: boolean
+          archived:
+            type: boolean
+          visibility:
+            type: string
+          resolve_outdated_diff_discussions:
+            type: boolean
+          container_registry_enabled:
+            type: boolean
+          container_expiration_policy:
+            type: object
+            properties:
+              cadence:
+                type: string
+              enabled:
+                type: boolean
+              keep_n:
+                type: string
+              older_than:
+                type: string
+              name_regex:
+                type: string
+              name_regex_keep:
+                type: string
+              next_run_at:
+                type: string
+                format: date-time
+          issues_enabled:
+            type: boolean
+          merge_requests_enabled:
+            type: boolean
+          wiki_enabled:
+            type: boolean
+          jobs_enabled:
+            type: boolean
+          snippets_enabled:
+            type: boolean
+          can_create_merge_request_in:
+            type: boolean
+          issues_access_level:
+            type: string
+          repository_access_level:
+            type: string
+          merge_requests_access_level:
+            type: string
+          forking_access_level:
+            type: string
+          wiki_access_level:
+            type: string
+          builds_access_level:
+            type: string
+          snippets_access_level:
+            type: string
+          pages_access_level:
+            type: string
+          security_and_compliance_access_level:
+            type: string
+          emails_disabled:
+            type: string
+          shared_runners_enabled:
+            type: boolean
+          lfs_enabled:
+            type: boolean
+          creator_id:
+            type: integer
+          import_status:
+            type: string
+          open_issues_count:
+            type: integer
+          ci_default_git_depth:
+            type: integer
+          ci_forward_deployment_enabled:
+            type: boolean
+          public_jobs:
+            type: boolean
+          build_timeout:
+            type: integer
+          auto_cancel_pending_pipelines:
+            type: string
+          ci_config_path:
+            type: string
+          shared_with_groups:
+            type: array
+            items:
+              type: object
+              properties:
+                group_id:
+                  type: integer
+                group_name:
+                  type: string
+                group_full_path:
+                  type: string
+                group_access_level:
+                  type: integer
+                expires_at:
+                  type: string
+          only_allow_merge_if_pipeline_succeeds:
+            type: boolean
+          request_access_enabled:
+            type: boolean
+          only_allow_merge_if_all_discussions_are_resolved:
+            type: boolean
+          remove_source_branch_after_merge:
+            type: boolean
+          printing_merge_request_link_enabled:
+            type: boolean
+          merge_method:
+            type: string
+          suggestion_commit_message:
+            type: string
+          auto_devops_enabled:
+            type: boolean
+          auto_devops_deploy_strategy:
+            type: string
+          autoclose_referenced_issues:
+            type: boolean
+          repository_storage:
+            type: string  
+    detailsOfAGroupResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        path:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+        avatar_url:
+          type: string
+        web_url:
+          type: string
+        request_access_enabled:
+          type: boolean
+        full_name:
+          type: string
+        full_path:
+          type: string
+        file_template_project_id:
+          type: integer
+        parent_id:
+          type: string
+        membership_lock:
+          type: boolean
+        marked_for_deletion_on:
+          type: string
+        shared_runners_minutes_limit:
+          type: integer
+        extra_shared_runners_minutes_limit:
+          type: integer
+        runners_token:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        shared_with_groups:
+          type: array
+          items:
+            type: object
+            properties:
+              group_id:
+                type: integer
+              group_name:
+                type: string
+              group_full_path:
+                type: string
+              group_access_level:
+                type: integer
+              expires_at:
+                type: string
+        prevent_sharing_groups_outside_hierarchy:
+          type: boolean
+        projects:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              description:
+                type: string
+              default_branch:
+                type: string
+              tag_list:
+                type: array
+                items: {}
+              topics:
+                type: array
+                items: {}
+              archived:
+                type: boolean
+              visibility:
+                type: string
+              ssh_url_to_repo:
+                type: string
+              http_url_to_repo:
+                type: string
+              web_url:
+                type: string
+              name:
+                type: string
+              name_with_namespace:
+                type: string
+              path:
+                type: string
+              path_with_namespace:
+                type: string
+              issues_enabled:
+                type: boolean
+              merge_requests_enabled:
+                type: boolean
+              wiki_enabled:
+                type: boolean
+              jobs_enabled:
+                type: boolean
+              snippets_enabled:
+                type: boolean
+              container_registry_enabled:
+                type: boolean
+              created_at:
+                type: string
+                format: date-time
+              last_activity_at:
+                type: string
+                format: date-time
+              shared_runners_enabled:
+                type: boolean
+              creator_id:
+                type: integer
+              namespace:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  path:
+                    type: string
+                  kind:
+                    type: string
+              avatar_url:
+                type: string
+              star_count:
+                type: integer
+              forks_count:
+                type: integer
+              open_issues_count:
+                type: integer
+              public_jobs:
+                type: boolean
+              shared_with_groups:
+                type: array
+                items: {}
+              request_access_enabled:
+                type: boolean
+        shared_projects:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              description:
+                type: string
+              default_branch:
+                type: string
+              tag_list:
+                type: array
+                items: {}
+              topics:
+                type: array
+                items: {}
+              archived:
+                type: boolean
+              visibility:
+                type: string
+              ssh_url_to_repo:
+                type: string
+              http_url_to_repo:
+                type: string
+              web_url:
+                type: string
+              name:
+                type: string
+              name_with_namespace:
+                type: string
+              path:
+                type: string
+              path_with_namespace:
+                type: string
+              issues_enabled:
+                type: boolean
+              merge_requests_enabled:
+                type: boolean
+              wiki_enabled:
+                type: boolean
+              jobs_enabled:
+                type: boolean
+              snippets_enabled:
+                type: boolean
+              container_registry_enabled:
+                type: boolean
+              created_at:
+                type: string
+                format: date-time
+              last_activity_at:
+                type: string
+                format: date-time
+              shared_runners_enabled:
+                type: boolean
+              creator_id:
+                type: integer
+              namespace:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  path:
+                    type: string
+                  kind:
+                    type: string
+              avatar_url:
+                type: string
+              star_count:
+                type: integer
+              forks_count:
+                type: integer
+              open_issues_count:
+                type: integer
+              public_jobs:
+                type: boolean
+              shared_with_groups:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    group_id:
+                      type: integer
+                    group_name:
+                      type: string
+                    group_full_path:
+                      type: string
+                    group_access_level:
+                      type: integer
+                    expires_at:
+                      type: string 
+    updateGroupResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        path:
+          type: string
+        description:
+          type: string
+        visibility:
+          type: string
+        avatar_url:
+          type: string
+        web_url:
+          type: string
+        request_access_enabled:
+          type: boolean
+        full_name:
+          type: string
+        full_path:
+          type: string
+        file_template_project_id:
+          type: integer
+        parent_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        prevent_sharing_groups_outside_hierarchy:
+          type: boolean
+        projects:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              description:
+                type: string
+              default_branch:
+                type: string
+              tag_list:
+                type: array
+                items: {}
+              topics:
+                type: array
+                items: {}
+              public:
+                type: boolean
+              archived:
+                type: boolean
+              visibility:
+                type: string
+              ssh_url_to_repo:
+                type: string
+              http_url_to_repo:
+                type: string
+              web_url:
+                type: string
+              name:
+                type: string
+              name_with_namespace:
+                type: string
+              path:
+                type: string
+              path_with_namespace:
+                type: string
+              issues_enabled:
+                type: boolean
+              merge_requests_enabled:
+                type: boolean
+              wiki_enabled:
+                type: boolean
+              jobs_enabled:
+                type: boolean
+              snippets_enabled:
+                type: boolean
+              created_at:
+                type: string
+                format: date-time
+              last_activity_at:
+                type: string
+                format: date-time
+              shared_runners_enabled:
+                type: boolean
+              creator_id:
+                type: integer
+              namespace:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  path:
+                    type: string
+                  kind:
+                    type: string
+              avatar_url:
+                type: string
+              star_count:
+                type: integer
+              forks_count:
+                type: integer
+              open_issues_count:
+                type: integer
+              public_jobs:
+                type: boolean
+              shared_with_groups:
+                type: array
+                items: {}
+              request_access_enabled:
+                type: boolean  
+    updateGroupRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        path:
+          type: string
+        auto_devops_enabled:
+          type: boolean
+        default_branch_protection:
+          type: integer
+        description:
+          type: string
+        emails_disabled:
+          type: boolean
+        lfs_enabled:
+          type: boolean
+        mentions_disabled:
+          type: boolean
+        prevent_sharing_groups_outside_hierarchy:
+          type: boolean
+        project_creation_level:
+          type: string
+        request_access_enabled:
+          type: boolean
+        require_two_factor_authentication:
+          type: boolean
+        shared_runners_setting:
+          type: string
+        share_with_group_lock:
+          type: boolean
+        subgroup_creation_level:
+          type: string
+        two_factor_grace_period:
+          type: integer
+        visibility:
+          type: string
+        extra_shared_runners_minutes_limit:
+          type: integer
+        file_template_project_id:
+          type: integer
+        membership_lock:
+          type: boolean
+        prevent_forking_outside_group:
+          type: boolean
+        shared_runners_minutes_limit:
+          type: integer
+    transferAGroupToANewParentGroupTurnASubgroupToATopLevelGroupRequest:
+      type: object
+      properties:
+        group_id:
+          type: integer   
+    listProvisionedUsersResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          username:
+            type: string
+          name:
+            type: string
+          state:
+            type: string
+          avatar_url:
+            type: string
+          web_url:
+            type: string
+          created_at:
+            type: string
+            format: date-time
+          bio:
+            type: string
+          location:
+            type: string
+          public_email:
+            type: string
+          skype:
+            type: string
+          linkedin:
+            type: string
+          twitter:
+            type: string
+          website_url:
+            type: string
+          organization:
+            type: string
+          job_title:
+            type: string
+          pronouns:
+            type: string
+          bot:
+            type: boolean
+          work_information:
+            type: string
+          followers:
+            type: integer
+          following:
+            type: integer
+          local_time:
+            type: string
+          last_sign_in_at:
+            type: string
+          confirmed_at:
+            type: string
+            format: date-time
+          last_activity_on:
+            type: string
+          email:
+            type: string
+          theme_id:
+            type: integer
+          color_scheme_id:
+            type: integer
+          projects_limit:
+            type: integer
+          current_sign_in_at:
+            type: string
+          identities:
+            type: array
+            items: {}
+          can_create_group:
+            type: boolean
+          can_create_project:
+            type: boolean
+          two_factor_enabled:
+            type: boolean
+          external:
+            type: boolean
+          private_profile:
+            type: boolean
+          commit_email:
+            type: string
+          shared_runners_minutes_limit:
+            type: string
+          extra_shared_runners_minutes_limit:
+            type: string
+    addGroupHookRequest:
+      type: object
+      properties:
+        url:
+          type: string
+        push_events:
+          type: boolean
+        issues_events:
+          type: boolean
+        confidential_issues_events:
+          type: boolean
+        merge_requests_events:
+          type: boolean
+        tag_push_events:
+          type: boolean
+        note_events:
+          type: boolean
+        confidential_note_events:
+          type: boolean
+        job_events:
+          type: boolean
+        pipeline_events:
+          type: boolean
+        wiki_page_events:
+          type: boolean
+        deployment_events:
+          type: boolean
+        releases_events:
+          type: boolean
+        subgroup_events:
+          type: boolean
+        enable_ssl_verification:
+          type: boolean
+        token:
+          type: string
+      required:
+        - url 
+    getGroupHookResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        url:
+          type: string
+        group_id:
+          type: integer
+        push_events:
+          type: boolean
+        issues_events:
+          type: boolean
+        confidential_issues_events:
+          type: boolean
+        merge_requests_events:
+          type: boolean
+        tag_push_events:
+          type: boolean
+        note_events:
+          type: boolean
+        confidential_note_events:
+          type: boolean
+        job_events:
+          type: boolean
+        pipeline_events:
+          type: boolean
+        wiki_page_events:
+          type: boolean
+        deployment_events:
+          type: boolean
+        releases_events:
+          type: boolean
+        subgroup_events:
+          type: boolean
+        enable_ssl_verification:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+    addLdapGroupLinkWithCnOrFilterRequest:
+      type: object
+      properties:
+        cn:
+          type: string
+        filter:
+          type: string
+        group_access:
+          type: integer
+        provider:
+          type: string
+      required:
+        - group_access
+        - provider     
+    createALinkToShareAGroupWithAnotherGroupRequest:
+      type: object
+      properties:
+        group_id:
+          type: integer
+        group_access:
+          type: integer
+        expires_at:
+          type: string
+      required:
+        - group_id
+        - group_access   
+    addGroupPushRuleResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        commit_message_regex:
+          type: string
+        commit_message_negative_regex:
+          type: string
+        branch_name_regex:
+          type: string
+        deny_delete_tag:
+          type: boolean
+        member_check:
+          type: boolean
+        prevent_secrets:
+          type: boolean
+        author_email_regex:
+          type: string
+        file_name_regex:
+          type: string
+        max_file_size:
+          type: integer 
+    addGroupPushRuleRequest:
+      type: object
+      properties:
+        deny_delete_tag:
+          type: boolean
+        member_check:
+          type: boolean
+        prevent_secrets:
+          type: boolean
+        commit_message_regex:
+          type: string
+        commit_message_negative_regex:
+          type: string
+        branch_name_regex:
+          type: string
+        author_email_regex:
+          type: string
+        file_name_regex:
+          type: string
+        max_file_size:
+          type: integer
+        commit_committer_check:
+          type: boolean
+        reject_unsigned_commits:
+          type: boolean    
+    createRepositoryBranchRequest:
+      type: object
+      properties:
+        branch:
+          type: string
+        ref:
+          type: string
+      required:
+        - branch
+        - ref
+    createNewIssueNoteRequest:
+      type: object
+      properties:
+        body:
+          type: string
+        confidential:
+          type: boolean
+        created_at:
+          type: string
+      required:
+        - body
+    getSingleRepositoryBranchResponse:
+      type: object
+      properties:
+        name:
+          type: string
+        merged:
+          type: boolean
+        protected:
+          type: boolean
+        default:
+          type: boolean
+        developers_can_push:
+          type: boolean
+        developers_can_merge:
+          type: boolean
+        can_push:
+          type: boolean
+        web_url:
+          type: string
+        commit:
+          type: object
+          properties:
+            author_email:
+              type: string
+            author_name:
+              type: string
+            authored_date:
+              type: string
+            committed_date:
+              type: string
+            committer_email:
+              type: string
+            committer_name:
+              type: string
+            id:
+              type: string
+            short_id:
+              type: string
+            title:
+              type: string
+            message:
+              type: string
+            parent_ids:
+              type: array
+              items:
+                type: string
+    getGroupPushRulesResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        commit_committer_check:
+          type: boolean
+        reject_unsigned_commits:
+          type: boolean
+        commit_message_regex:
+          type: string
+        commit_message_negative_regex:
+          type: string
+        branch_name_regex:
+          type: string
+        deny_delete_tag:
+          type: boolean
+        member_check:
+          type: boolean
+        prevent_secrets:
+          type: boolean
+        author_email_regex:
+          type: string
+        file_name_regex:
+          type: string
+        max_file_size:
+          type: integer
+    listRepositoryBranchesResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/getSingleRepositoryBranchResponse'          

@@ -1,0 +1,7 @@
+{
+  "specificationFileName": "resources/gitee.json",
+  "authCommand": "python3 auth/gitlab_auth.py",
+  "strategyName": "NominalAndErrorStrategy",
+  "testingSessionName": "customNameForTestingSession",
+  "outputPath": "output/gitee"
+}

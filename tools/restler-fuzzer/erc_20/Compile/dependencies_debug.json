@@ -1,0 +1,790 @@
+[
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/deploy",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "decimalUnits",
+            "fullPath": {
+              "path": [
+                "decimalUnits"
+              ]
+            }
+          }
+        },
+        "ContainerName": "deploy",
+        "PathContainerName": "deploy",
+        "CandidateTypeNames": [
+          "deploy"
+        ],
+        "AccessPath": "decimalUnits",
+        "AccessPathParts": {
+          "path": [
+            "decimalUnits"
+          ]
+        },
+        "ResourceName": "decimalUnits",
+        "ProducerParameterName": "units",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/deploy",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "initialAmount",
+            "fullPath": {
+              "path": [
+                "initialAmount"
+              ]
+            }
+          }
+        },
+        "ContainerName": "deploy",
+        "PathContainerName": "deploy",
+        "CandidateTypeNames": [
+          "deploy"
+        ],
+        "AccessPath": "initialAmount",
+        "AccessPathParts": {
+          "path": [
+            "initialAmount"
+          ]
+        },
+        "ResourceName": "initialAmount",
+        "ProducerParameterName": "amount",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/deploy",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "tokenName",
+            "fullPath": {
+              "path": [
+                "tokenName"
+              ]
+            }
+          }
+        },
+        "ContainerName": "deploy",
+        "PathContainerName": "deploy",
+        "CandidateTypeNames": [
+          "deploy"
+        ],
+        "AccessPath": "tokenName",
+        "AccessPathParts": {
+          "path": [
+            "tokenName"
+          ]
+        },
+        "ResourceName": "tokenName",
+        "ProducerParameterName": "name",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/deploy",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "tokenSymbol",
+            "fullPath": {
+              "path": [
+                "tokenSymbol"
+              ]
+            }
+          }
+        },
+        "ContainerName": "deploy",
+        "PathContainerName": "deploy",
+        "CandidateTypeNames": [
+          "deploy"
+        ],
+        "AccessPath": "tokenSymbol",
+        "AccessPathParts": {
+          "path": [
+            "tokenSymbol"
+          ]
+        },
+        "ResourceName": "tokenSymbol",
+        "ProducerParameterName": "symbol",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/allowance",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "allowance",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/allowance",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "ownerAddress"
+        },
+        "ContainerName": "allowance",
+        "PathContainerName": "allowance",
+        "CandidateTypeNames": [
+          "allowance"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "ownerAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/allowance",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "spenderAddress"
+        },
+        "ContainerName": "allowance",
+        "PathContainerName": "allowance",
+        "CandidateTypeNames": [
+          "allowance"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "spenderAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/approve",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "approve",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/approve",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "spender",
+            "fullPath": {
+              "path": [
+                "spender"
+              ]
+            }
+          }
+        },
+        "ContainerName": "approve",
+        "PathContainerName": "approve",
+        "CandidateTypeNames": [
+          "approve"
+        ],
+        "AccessPath": "spender",
+        "AccessPathParts": {
+          "path": [
+            "spender"
+          ]
+        },
+        "ResourceName": "spender",
+        "ProducerParameterName": "spender",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/approve",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "value",
+            "fullPath": {
+              "path": [
+                "value"
+              ]
+            }
+          }
+        },
+        "ContainerName": "approve",
+        "PathContainerName": "approve",
+        "CandidateTypeNames": [
+          "approve"
+        ],
+        "AccessPath": "value",
+        "AccessPathParts": {
+          "path": [
+            "value"
+          ]
+        },
+        "ResourceName": "value",
+        "ProducerParameterName": "value",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/approveAndCall",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "approveAndCall",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/balanceOf/{ownerAddress}",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "balanceOf",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/balanceOf/{ownerAddress}",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "ownerAddress",
+            "pathToParameter": [
+              "{contractAddress}",
+              "balanceOf"
+            ],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "ContainerName": "balanceOf",
+        "PathContainerName": "balanceOf",
+        "CandidateTypeNames": [
+          "balance__of"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "ownerAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/decimals",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "decimals",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/name",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "name",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/symbol",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "symbol",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/totalSupply",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "totalSupply",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/transfer",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "transfer",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/transfer",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "to",
+            "fullPath": {
+              "path": [
+                "to"
+              ]
+            }
+          }
+        },
+        "ContainerName": "transfer",
+        "PathContainerName": "transfer",
+        "CandidateTypeNames": [
+          "transfer"
+        ],
+        "AccessPath": "to",
+        "AccessPathParts": {
+          "path": [
+            "to"
+          ]
+        },
+        "ResourceName": "to",
+        "ProducerParameterName": "to",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/transfer",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "value",
+            "fullPath": {
+              "path": [
+                "value"
+              ]
+            }
+          }
+        },
+        "ContainerName": "transfer",
+        "PathContainerName": "transfer",
+        "CandidateTypeNames": [
+          "transfer"
+        ],
+        "AccessPath": "value",
+        "AccessPathParts": {
+          "path": [
+            "value"
+          ]
+        },
+        "ResourceName": "value",
+        "ProducerParameterName": "value",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "Int"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/transferFrom",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "transferFrom",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/transferFrom",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "from",
+            "fullPath": {
+              "path": [
+                "from"
+              ]
+            }
+          }
+        },
+        "ContainerName": "transferFrom",
+        "PathContainerName": "transferFrom",
+        "CandidateTypeNames": [
+          "transfer__from"
+        ],
+        "AccessPath": "from",
+        "AccessPathParts": {
+          "path": [
+            "from"
+          ]
+        },
+        "ResourceName": "from",
+        "ProducerParameterName": "from",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/transferFrom",
+          "method": "Post"
+        },
+        "ResourceReference": {
+          "BodyResource": {
+            "name": "to",
+            "fullPath": {
+              "path": [
+                "to"
+              ]
+            }
+          }
+        },
+        "ContainerName": "transferFrom",
+        "PathContainerName": "transferFrom",
+        "CandidateTypeNames": [
+          "transfer__from"
+        ],
+        "AccessPath": "to",
+        "AccessPathParts": {
+          "path": [
+            "to"
+          ]
+        },
+        "ResourceName": "to",
+        "ProducerParameterName": "to",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Body"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/{contractAddress}/version",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "PathResource": {
+            "name": "contractAddress",
+            "pathToParameter": [],
+            "responsePath": {
+              "path": []
+            }
+          }
+        },
+        "PathContainerName": "version",
+        "CandidateTypeNames": [
+          "contract"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "contractAddress",
+        "ProducerParameterName": "address",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Path"
+    }
+  }
+]

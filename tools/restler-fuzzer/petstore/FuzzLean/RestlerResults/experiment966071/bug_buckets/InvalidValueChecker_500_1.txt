@@ -1,0 +1,21 @@
+################################################################################
+ InvalidValueChecker_500
+
+ Hash: InvalidValueChecker_500_8c87cc9c7bc1c62ac94883e2a267a62771956299
+
+ To attempt to reproduce this bug using restler, run restler with the command
+ line option of --replay_log <path_to_this_log>.
+ If an authentication token is required, you must also specify the token_refresh_cmd.
+
+ This log may contain specific values for IDs or names that were generated
+ during fuzzing, using the fuzzing dictionary. Such names will be re-played
+ without modification. You must update the replay log manually with any changes
+ required to execute the requests in your environment (for example, replacing
+ pre-created account, subscription, or other resource IDs, as needed).
+################################################################################
+
+-> DELETE /api/v3/user/[] HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\n\r\n
+! producer_timing_delay 0
+! max_async_wait_time 20
+PREVIOUS RESPONSE: 'HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:13:40 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 151797b147c54d63)"}'
+

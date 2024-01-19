@@ -1,0 +1,21 @@
+################################################################################
+ InvalidValueChecker_500
+
+ Hash: InvalidValueChecker_500_db3689045968629478723ab7cf5f139f2348624a
+
+ To attempt to reproduce this bug using restler, run restler with the command
+ line option of --replay_log <path_to_this_log>.
+ If an authentication token is required, you must also specify the token_refresh_cmd.
+
+ This log may contain specific values for IDs or names that were generated
+ during fuzzing, using the fuzzing dictionary. Such names will be re-played
+ without modification. You must update the replay log manually with any changes
+ required to execute the requests in your environment (for example, replacing
+ pre-created account, subscription, or other resource IDs, as needed).
+################################################################################
+
+-> PUT /api/v4/projects/integrations/pivotaltracker HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nAUTHORIZATION TOKEN\r\n\r\n{\n    "token":"\\X5kyH4",\n    "restrict_to_branch":true}\r\n
+! producer_timing_delay 0
+! max_async_wait_time 20
+PREVIOUS RESPONSE: 'HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 10 Apr 2023 12:01:23 GMT\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 46\r\nConnection: keep-alive\r\nX-Request-Id: 45714812dd47a4b1a73cf993790c057a\r\nX-Runtime: 0.619027\r\nStrict-Transport-Security: max-age=31536000\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nRateLimit-Observed: 101\r\nRateLimit-Remaining: 1899\r\nRateLimit-Reset: 1681128142\r\nRateLimit-ResetTime: Mon, 10 Apr 2023 12:02:22 GMT\r\nRateLimit-Limit: 2000\r\nGitLab-LB: fe-04-lb-gprd\r\nGitLab-SV: localhost\r\nCF-Cache-Status: DYNAMIC\r\nReport-To: {"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=FkSL2I7qtV3Fxc8Dd%2ByPxACZtd%2F35i%2B0%2FLI7J0kAsFnKAK11HH5R9jaNzsnsiCBkr9Lw7%2BgginESJliLZ9TaM%2FirezV9QBD2VSN4vyoSRZFr2D0olBIdSpcXOE4%3D"}],"group":"cf-nel","max_age":604800}\r\nNEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}\r\nX-Content-Type-Options: nosniff\r\nSet-Cookie: _cfuvid=Rz2e3zP8uAPRJwp9uceH5pYmkcIoXjTuwPW1kqC1le0-1681128083046-0-604800000; path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None\r\nServer: cloudflare\r\nCF-RAY: 7b5ad5b18c0a1052-HKG\r\n\r\n{"status":500,"error":"Internal Server Error"}'
+

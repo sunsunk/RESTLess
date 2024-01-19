@@ -1,0 +1,144 @@
+[03/28/2023 05:22:41] Generating grammar...
+[03/28/2023 05:22:42] Getting requests...
+[03/28/2023 05:22:42] Getting dependencies...
+[03/28/2023 05:22:42] Getting path consumers...
+[03/28/2023 05:22:42] Getting query consumers...
+[03/28/2023 05:22:42] Getting header consumers...
+[03/28/2023 05:22:42] Getting body consumers...
+[03/28/2023 05:22:42] Getting producers...
+[03/28/2023 05:22:42] Done processing producers
+[03/28/2023 05:22:42] Compute dependencies
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/check"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/check"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/languages"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/check"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/check"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/languages"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words/delete"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words/delete"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words"
+  xMsPath = None
+  method = Get }[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words"
+  xMsPath = None
+  method = Get }
+
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words/add"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/languages"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/check"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words/add"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words/add"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/check"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/languages"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words/add"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/languages"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/languages"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words/delete"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/languages"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/languages"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words/delete"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/check"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/check"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words/add"
+  xMsPath = None
+  method = Post }
+found unsupported format: password
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words/add"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words/delete"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words/delete"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words"
+  xMsPath = None
+  method = Get }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words/add"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words/add"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Second pass dependencies for request { endpoint = "/words/delete"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Done dependencies for request { endpoint = "/words/delete"
+  xMsPath = None
+  method = Post }
+[03/28/2023 05:22:42] Getting ordering constraints...
+[03/28/2023 05:22:42] Dependency analysis completed.
+[03/28/2023 05:22:42] Generating request primitives...
+found unsupported format: password
+found unsupported format: password
+found unsupported format: password
+Writing new dictionary to /root/REST_Go/restler-fuzzer/languagetool/Compile/dict.json
+[03/28/2023 05:22:42] Generating python grammar...
+[03/28/2023 05:22:42] Get requests
+found unsupported format: password
+[03/28/2023 05:22:42] Done get requests
+[03/28/2023 05:22:42] Done generating python grammar.
+Workflow completed.  See /root/REST_Go/restler-fuzzer/languagetool/Compile for REST-ler grammar.

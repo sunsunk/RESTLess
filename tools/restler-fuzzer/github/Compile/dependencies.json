@@ -1,0 +1,6182 @@
+{
+  "/v3/dockerfiles/{name}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "name"
+        }
+      ]
+    }
+  },
+  "/v3/gitignores/{name}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "name"
+        }
+      ]
+    }
+  },
+  "/v3/gitlab_ci_ymls/{name}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "name"
+        }
+      ]
+    }
+  },
+  "/v3/groups": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "all_available"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "search"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "statistics"
+        }
+      ]
+    }
+  },
+  "/v3/groups/owned": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "statistics"
+        }
+      ]
+    }
+  },
+  "/v3/groups/{id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/groups/{id}/access_requests": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/groups/{id}/access_requests/{user_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/groups/{id}/access_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "user_id"
+        }
+      ]
+    }
+  },
+  "/v3/groups/{id}/access_requests/{user_id}/approve": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/groups/{id}/access_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "user_id"
+        }
+      ]
+    }
+  },
+  "/v3/groups/{id}/issues": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "labels"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "milestone"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "state"
+        }
+      ]
+    }
+  },
+  "/v3/groups/{id}/members": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "query"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/groups/{id}/members/{user_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/groups/{id}/members",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "user_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/groups/{id}/members",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "user_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/groups/{id}/members",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "user_id"
+        }
+      ]
+    }
+  },
+  "/v3/groups/{id}/notification_settings": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/groups/{id}/projects": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "archived"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "search"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "simple"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "visibility"
+        }
+      ]
+    }
+  },
+  "/v3/groups/{id}/projects/{project_id}": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/groups",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "project_id"
+        }
+      ]
+    }
+  },
+  "/v3/hooks/{id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/hooks",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/hooks",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/issues": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "labels"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "milestone"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "state"
+        }
+      ]
+    }
+  },
+  "/v3/keys/{id}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/licenses": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "popular"
+        }
+      ]
+    }
+  },
+  "/v3/licenses/{name}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "name"
+        }
+      ]
+    }
+  },
+  "/v3/namespaces": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "search"
+        }
+      ]
+    }
+  },
+  "/v3/projects": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "archived"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "search"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "simple"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "visibility"
+        }
+      ]
+    }
+  },
+  "/v3/projects/all": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "archived"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "search"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "simple"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "statistics"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "visibility"
+        }
+      ]
+    }
+  },
+  "/v3/projects/fork/{id}": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/owned": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "archived"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "search"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "simple"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "statistics"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "visibility"
+        }
+      ]
+    }
+  },
+  "/v3/projects/search/{query}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "query"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        }
+      ]
+    }
+  },
+  "/v3/projects/starred": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "archived"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "search"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "simple"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "visibility"
+        }
+      ]
+    }
+  },
+  "/v3/projects/user/{user_id}": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "user_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/visible": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "archived"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "search"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "simple"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "visibility"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/(ref/{ref}/)trigger/builds": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "ref"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/access_requests": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/access_requests/{user_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/access_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "user_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/access_requests/{user_id}/approve": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/access_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "user_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/archive": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/boards": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/boards/{board_id}/lists": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "board_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "board_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/boards/{board_id}/lists/{list_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "board_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/boards/{board_id}/lists",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "list_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "board_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/boards/{board_id}/lists",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "list_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "board_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/boards/{board_id}/lists",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "list_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/builds": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "scope"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/builds/artifacts/{ref_name}/download": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "ref_name"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "job"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/builds/{build_id}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "build_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/builds/{build_id}/artifacts": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "build_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/builds/{build_id}/artifacts/keep": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "build_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/builds/{build_id}/cancel": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "build_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/builds/{build_id}/erase": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "build_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/builds/{build_id}/play": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "build_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/builds/{build_id}/retry": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "build_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/builds/{build_id}/trace": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "build_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/deploy_keys": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/deploy_keys/{key_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/deploy_keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/deploy_keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/deploy_keys/{key_id}/disable": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/deploy_keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/deploy_keys/{key_id}/enable": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/deploy_keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/deployments": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/deployments/{deployment_id}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "deployment_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/environments": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/environments/{environment_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/environments",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "environment_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/environments",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "environment_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/events": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/fork": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/fork/{forked_from_id}": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "forked_from_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/hooks": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/hooks/{hook_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/hooks",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "hook_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/hooks",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "hook_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/hooks",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "hook_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "iid"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "labels"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "milestone"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "state"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/add_spent_time": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/award_emoji": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/award_emoji/{award_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues/{issue_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues/{issue_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/move": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji/{award_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/reset_spent_time": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/reset_time_estimate": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/time_estimate": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/time_stats": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{issue_id}/todo": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "issue_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{noteable_id}/notes": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "noteable_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{noteable_id}/notes/{note_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues/{noteable_id}/notes",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues/{noteable_id}/notes",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues/{noteable_id}/notes",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/issues/{subscribable_id}/subscription": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "subscribable_id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/issues",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "subscribable_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/keys": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/keys/{key_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/keys/{key_id}/disable": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/keys/{key_id}/enable": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/labels": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "name"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/labels/{subscribable_id}/subscription": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/labels",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "subscribable_id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/labels",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "subscribable_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/members": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "query"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/members/{user_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/members",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "user_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/members",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "user_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/members",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "user_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_request/{merge_request_id}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_request/{merge_request_id}",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "restler_custom_payload_uuid_suffix__merge_request_id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_request/{merge_request_id}/cancel_merge_when_build_succeeds": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_request/{merge_request_id}",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_request/{merge_request_id}/changes": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_request/{merge_request_id}",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_request/{merge_request_id}/closes_issues": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_request/{merge_request_id}",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "merge_request_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_request/{merge_request_id}/comments": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_request/{merge_request_id}",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "merge_request_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_request/{merge_request_id}",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_request/{merge_request_id}/commits": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_request/{merge_request_id}",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_request/{merge_request_id}/merge": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_request/{merge_request_id}",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_request/{subscribable_id}/subscription": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "subscribable_id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "subscribable_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "order_by"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sort"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "state"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/add_spent_time": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji/{award_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/cancel_merge_when_build_succeeds": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/changes": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/closes_issues": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/comments": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/commits": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/merge": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji/{award_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/reset_spent_time": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/reset_time_estimate": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/time_estimate": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/time_stats": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/todo": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/versions": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{merge_request_id}/versions/{version_id}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "merge_request_id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "version_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{noteable_id}/notes": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "noteable_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{noteable_id}/notes/{note_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests/{noteable_id}/notes",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests/{noteable_id}/notes",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests/{noteable_id}/notes",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/merge_requests/{subscribable_id}/subscription": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "subscribable_id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/merge_requests",
+          "producer_method": "POST",
+          "producer_resource_name": "assignee/id",
+          "consumer_param": "subscribable_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/milestones": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "state"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/milestones/{milestone_id}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/milestones",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "milestone_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/milestones",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "milestone_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/milestones/{milestone_id}/issues": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/milestones",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "milestone_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/notification_settings": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/pipeline": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/pipelines": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "scope"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/pipelines/{pipeline_id}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "pipeline_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/pipelines/{pipeline_id}/cancel": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "pipeline_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/pipelines/{pipeline_id}/retry": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "pipeline_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/archive": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "format"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/blobs/{sha}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "filepath"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/branches": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/branches/{branch}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "branch"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "branch"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/branches/{branch}/protect": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "branch"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/branches/{branch}/unprotect": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "branch"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/commits": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "path"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "ref_name"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "since"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "until"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/commits/{sha}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/commits/{sha}/blob": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "filepath"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/commits/{sha}/builds": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "scope"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/commits/{sha}/cherry_pick": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/commits/{sha}/comments": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/commits/{sha}/diff": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/commits/{sha}/statuses": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "all"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "name"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "ref"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "stage"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/compare": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "from"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "to"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/contributors": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/files": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "author_email"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "author_name"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "branch_name"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "commit_message"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "file_path"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "file_path"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "ref"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/merged_branches": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/raw_blobs/{sha}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/tags": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/tags/{tag_name}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/repository/tags",
+          "producer_method": "POST",
+          "producer_resource_name": "name",
+          "consumer_param": "tag_name"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/repository/tags",
+          "producer_method": "POST",
+          "producer_resource_name": "name",
+          "consumer_param": "tag_name"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/tags/{tag_name}/release": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/repository/tags",
+          "producer_method": "POST",
+          "producer_resource_name": "name",
+          "consumer_param": "tag_name"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/repository/tags",
+          "producer_method": "POST",
+          "producer_resource_name": "name",
+          "consumer_param": "tag_name"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/repository/tree": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "path"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "recursive"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "ref_name"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/runners": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "scope"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/runners/{runner_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/runners",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "runner_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/asana": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/assembla": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/bamboo": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/bugzilla": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/buildkite": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/builds-email": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/campfire": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/custom-issue-tracker": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/drone-ci": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/emails-on-push": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/external-wiki": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/flowdock": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/gemnasium": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/hipchat": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/irker": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/jira": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/kubernetes": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/mattermost": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/mattermost-slash-commands": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/mattermost_slash_commands/trigger": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/pipelines-email": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/pivotaltracker": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/pushover": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/redmine": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/slack": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/slack-slash-commands": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/slack_slash_commands/trigger": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/teamcity": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/services/{service_slug}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "service_slug"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "service_slug"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/share": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/share/{group_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/share",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "group_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/snippets": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/snippets/{noteable_id}/notes": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "noteable_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/snippets/{noteable_id}/notes/{note_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets/{noteable_id}/notes",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets/{noteable_id}/notes",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets/{noteable_id}/notes",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "noteable_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/snippets/{snippet_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/snippets/{snippet_id}/award_emoji": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/snippets/{snippet_id}/award_emoji/{award_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets/{snippet_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets/{snippet_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji/{award_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "award_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "note_id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/snippets/{snippet_id}/raw": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "snippet_id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/star": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/statuses/{sha}": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "sha"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/triggers": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/triggers/{token}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/triggers",
+          "producer_method": "POST",
+          "producer_resource_name": "token",
+          "consumer_param": "token"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/triggers",
+          "producer_method": "POST",
+          "producer_resource_name": "token",
+          "consumer_param": "token"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/unarchive": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/uploads": {
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/users": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "search"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/variables": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/projects/{id}/variables/{key}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/variables",
+          "producer_method": "POST",
+          "producer_resource_name": "key",
+          "consumer_param": "key"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/variables",
+          "producer_method": "POST",
+          "producer_resource_name": "key",
+          "consumer_param": "key"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/projects",
+          "producer_method": "POST",
+          "producer_resource_name": "forked_from_project/id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/projects/{id}/variables",
+          "producer_method": "POST",
+          "producer_resource_name": "key",
+          "consumer_param": "key"
+        }
+      ]
+    }
+  },
+  "/v3/runners": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "scope"
+        }
+      ]
+    }
+  },
+  "/v3/runners/all": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "scope"
+        }
+      ]
+    }
+  },
+  "/v3/runners/{id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/runners/{id}",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/runners/{id}",
+          "producer_method": "PUT",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "restler_custom_payload_uuid_suffix__id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/snippets": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    }
+  },
+  "/v3/snippets/public": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    }
+  },
+  "/v3/snippets/{id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/snippets/{id}/raw": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/snippets",
+          "producer_method": "POST",
+          "producer_resource_name": "author/id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/templates/dockerfiles/{name}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "name"
+        }
+      ]
+    }
+  },
+  "/v3/templates/gitignores/{name}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "name"
+        }
+      ]
+    }
+  },
+  "/v3/templates/gitlab_ci_ymls/{name}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "name"
+        }
+      ]
+    }
+  },
+  "/v3/templates/licenses": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "popular"
+        }
+      ]
+    }
+  },
+  "/v3/templates/licenses/{name}": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "name"
+        }
+      ]
+    }
+  },
+  "/v3/todos": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    }
+  },
+  "/v3/todos/{id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/user/emails/{email_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/user/emails",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "email_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/user/emails",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "email_id"
+        }
+      ]
+    }
+  },
+  "/v3/user/keys/{key_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/user/keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/user/keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    }
+  },
+  "/v3/users": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "active"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "blocked"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "external"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "search"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "username"
+        }
+      ]
+    }
+  },
+  "/v3/users/{id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/users/{id}/block": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/users/{id}/emails": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/users/{id}/emails/{email_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users/{id}/emails",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "email_id"
+        },
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/users/{id}/events": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ],
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "page"
+        },
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "per_page"
+        }
+      ]
+    }
+  },
+  "/v3/users/{id}/keys": {
+    "GET": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    },
+    "POST": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  },
+  "/v3/users/{id}/keys/{key_id}": {
+    "DELETE": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        },
+        {
+          "producer_endpoint": "/v3/users/{id}/keys",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "key_id"
+        }
+      ]
+    }
+  },
+  "/v3/users/{id}/unblock": {
+    "PUT": {
+      "Path": [
+        {
+          "producer_endpoint": "/v3/users",
+          "producer_method": "POST",
+          "producer_resource_name": "id",
+          "consumer_param": "id"
+        }
+      ]
+    }
+  }
+}

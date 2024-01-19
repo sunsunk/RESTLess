@@ -1,0 +1,132 @@
+[
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/words",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "username"
+        },
+        "ContainerName": "words",
+        "PathContainerName": "words",
+        "CandidateTypeNames": [
+          "word"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "username",
+        "ProducerParameterName": "username",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/words",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "dicts"
+        },
+        "ContainerName": "words",
+        "PathContainerName": "words",
+        "CandidateTypeNames": [
+          "word"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "dicts",
+        "ProducerParameterName": "dicts",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/words",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "limit"
+        },
+        "ContainerName": "words",
+        "PathContainerName": "words",
+        "CandidateTypeNames": [
+          "word"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "limit",
+        "ProducerParameterName": "limit",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/words",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "apiKey"
+        },
+        "ContainerName": "words",
+        "PathContainerName": "words",
+        "CandidateTypeNames": [
+          "word"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "apiKey",
+        "ProducerParameterName": "key",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/words",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "offset"
+        },
+        "ContainerName": "words",
+        "PathContainerName": "words",
+        "CandidateTypeNames": [
+          "word"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "offset",
+        "ProducerParameterName": "offset",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  }
+]

@@ -1,0 +1,175 @@
+This file contains the failing requests, ordered by the number of blocked dependent requests.
+To improve coverage, fix the failing requests in the order listed in this file.
+
+Note: some requests are labeled as 'sequence failure'.
+This means the request depends on another request that is failing intermittently.
+For example, a DELETE request for a resource may be skipped because the resource
+PUT request failed due to exceeding quota.  The same PUT request succeeded earlier (and may
+succeed later depending on the resource clean-up behavior in the service), so it is
+considered an intermittent failure.
+
+-----------------------------------------------
+Request: Put /pet
+Number of blocked dependent requests: 4
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /api/v3/pet HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "name":"doggie",\n    "category":\n        {\n            "id":1,\n            "name":"Dogs"\n        }\n    ,\n    "photoUrls":\n    [\n        "fuzzstring"\n    ],\n    "tags":\n    [\n        {\n            "id":1,\n            "name":"fuzzstring"\n        }\n    ],\n    "status":"available"}\r\n
+	< HTTP/1.1 200 OK\r\nDate: Mon, 27 Mar 2023 02:14:56 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 145\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"id":10,"category":{"id":1,"name":"Dogs"},"name":"doggie","photoUrls":["fuzzstring"],"tags":[{"id":1,"name":"fuzzstring"}],"status":"available"}
+
+	> PUT /api/v3/pet HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "name":"doggie",\n    "category":\n        {\n            "id":1,\n            "name":"Dogs"\n        }\n    ,\n    "photoUrls":fuzzstring,\n    "tags":\n    [\n        {\n            "id":1,\n            "name":"fuzzstring"\n        }\n    ],\n    "status":"available"}\r\n
+	< HTTP/1.1 400 Bad Request\r\nDate: Mon, 27 Mar 2023 02:15:58 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 94\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":400,"message":"Input error: unable to convert input to io.swagger.petstore.model.Pet"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /api/v3/pet HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "name":"doggie",\n    "category":\n        {\n            "id":1,\n            "name":"Dogs"\n        }\n    ,\n    "photoUrls":\n    [\n        "fuzzstring"\n    ],\n    "tags":\n    [\n        {\n            "id":1,\n            "name":"fuzzstring"\n        }\n    ],\n    "status":"available"}\r\n
+	< HTTP/1.1 200 OK\r\nDate: Mon, 27 Mar 2023 02:14:56 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 145\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"id":10,"category":{"id":1,"name":"Dogs"},"name":"doggie","photoUrls":["fuzzstring"],"tags":[{"id":1,"name":"fuzzstring"}],"status":"available"}
+
+	> PUT /api/v3/pet HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "name":"doggie",\n    "category":\n        {\n            "id":1,\n            "name":"fuzzstring"\n        }\n    ,\n    "photoUrls":fuzzstring,\n    "tags":\n    [\n        {\n            "id":1,\n            "name":"fuzzstring"\n        }\n    ],\n    "status":"available"}\r\n
+	< HTTP/1.1 400 Bad Request\r\nDate: Mon, 27 Mar 2023 02:16:13 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 94\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":400,"message":"Input error: unable to convert input to io.swagger.petstore.model.Pet"}
+
+
+	+++ Combination 3 +++:
+	Request sequence: 
+	> POST /api/v3/pet HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "name":"doggie",\n    "category":\n        {\n            "id":1,\n            "name":"Dogs"\n        }\n    ,\n    "photoUrls":\n    [\n        "fuzzstring"\n    ],\n    "tags":\n    [\n        {\n            "id":1,\n            "name":"fuzzstring"\n        }\n    ],\n    "status":"available"}\r\n
+	< HTTP/1.1 200 OK\r\nDate: Mon, 27 Mar 2023 02:14:56 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 145\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"id":10,"category":{"id":1,"name":"Dogs"},"name":"doggie","photoUrls":["fuzzstring"],"tags":[{"id":1,"name":"fuzzstring"}],"status":"available"}
+
+	> PUT /api/v3/pet HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{"name":"doggie","photoUrls":["fuzzstring"]}
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:16:13 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: e9b7555f3bed3762)"}
+
+
+-----------------------------------------------
+Request: Delete /user/{username}
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> DELETE /api/v3/user/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\n\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:13:40 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 8d892724154af9c5)"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> DELETE /api/v3/user/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\n\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:13:43 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 9adfb9067d8a4369)"}
+
+
+-----------------------------------------------
+Request: Post /user/createWithList
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /api/v3/user/createWithList HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n[\n    {\n        "id":10,\n        "username":"theUser",\n        "firstName":"John",\n        "lastName":"James",\n        "email":"john@email.com",\n        "password":"12345",\n        "phone":"12345",\n        "userStatus":1\n    }]\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:13:43 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 06bbe04bda8758f1)"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /api/v3/user/createWithList HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n[\n    {\n        "id":10,\n        "username":"theUser",\n        "firstName":"John",\n        "lastName":"James",\n        "email":"john@email.com",\n        "password":"12345",\n        "phone":"fuzzstring",\n        "userStatus":1\n    }]\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:14:09 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: f12bef88f7e255df)"}
+
+
+	+++ Combination 3 +++:
+	Request sequence: 
+	> POST /api/v3/user/createWithList HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n[\n    {\n        "id":10,\n        "username":"theUser",\n        "firstName":"John",\n        "lastName":"James",\n        "email":"john@email.com",\n        "password":"fuzzstring",\n        "phone":"12345",\n        "userStatus":1\n    }]\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:14:09 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: ed488bf9c37fef60)"}
+
+
+	+++ Combination 4 +++:
+	Request sequence: 
+	> POST /api/v3/user/createWithList HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n[\n    {\n        "id":10,\n        "username":"theUser",\n        "firstName":"John",\n        "lastName":"James",\n        "email":"john@email.com",\n        "password":"fuzzstring",\n        "phone":"fuzzstring",\n        "userStatus":1\n    }]\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:14:09 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: d5065c3b40ecc8a9)"}
+
+
+	+++ Combination 5 +++:
+	Request sequence: 
+	> POST /api/v3/user/createWithList HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n[\n    {\n        "id":10,\n        "username":"theUser",\n        "firstName":"John",\n        "lastName":"James",\n        "email":"fuzzstring",\n        "password":"12345",\n        "phone":"12345",\n        "userStatus":1\n    }]\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:14:09 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 1b3e5702b8fbf211)"}
+
+
+-----------------------------------------------
+Request: Post /user
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /api/v3/user HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "username":"theUser",\n    "firstName":"John",\n    "lastName":"James",\n    "email":"john@email.com",\n    "password":"12345",\n    "phone":"12345",\n    "userStatus":1}\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:14:11 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 4a8366e696ff0cdd)"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /api/v3/user HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "username":"theUser",\n    "firstName":"John",\n    "lastName":"James",\n    "email":"john@email.com",\n    "password":"12345",\n    "phone":"fuzzstring",\n    "userStatus":1}\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:14:38 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 273d6b7c2796680b)"}
+
+
+	+++ Combination 3 +++:
+	Request sequence: 
+	> POST /api/v3/user HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "username":"theUser",\n    "firstName":"John",\n    "lastName":"James",\n    "email":"john@email.com",\n    "password":"fuzzstring",\n    "phone":"12345",\n    "userStatus":1}\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:14:38 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 7d77244c28ae8bdb)"}
+
+
+	+++ Combination 4 +++:
+	Request sequence: 
+	> POST /api/v3/user HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "username":"theUser",\n    "firstName":"John",\n    "lastName":"James",\n    "email":"john@email.com",\n    "password":"fuzzstring",\n    "phone":"fuzzstring",\n    "userStatus":1}\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:14:38 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 247ab26e67cd958e)"}
+
+
+	+++ Combination 5 +++:
+	Request sequence: 
+	> POST /api/v3/user HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "username":"theUser",\n    "firstName":"John",\n    "lastName":"James",\n    "email":"fuzzstring",\n    "password":"12345",\n    "phone":"12345",\n    "userStatus":1}\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:14:38 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 45004a8219228c32)"}
+
+
+-----------------------------------------------
+Request: Get /user/{username}
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /api/v3/user/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\n\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:15:22 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: ac02d6cd6553cc6a)"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /api/v3/user/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\n\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:15:26 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: b4b071402f9efe6f)"}
+
+
+-----------------------------------------------
+Request: Put /user/{username}
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> PUT /api/v3/user/username0c288132e0 HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "username":"theUser",\n    "firstName":"John",\n    "lastName":"James",\n    "email":"john@email.com",\n    "password":"12345",\n    "phone":"12345",\n    "userStatus":1}\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:15:26 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 70107d865c6ebdd7)"}
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> PUT /api/v3/user/usernamed1f426b472 HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "username":"theUser",\n    "firstName":"John",\n    "lastName":"James",\n    "email":"john@email.com",\n    "password":"12345",\n    "phone":"fuzzstring",\n    "userStatus":1}\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:15:55 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 443860396e3f7ca8)"}
+
+
+	+++ Combination 3 +++:
+	Request sequence: 
+	> PUT /api/v3/user/username67b37d4e5f HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "username":"theUser",\n    "firstName":"John",\n    "lastName":"James",\n    "email":"john@email.com",\n    "password":"fuzzstring",\n    "phone":"12345",\n    "userStatus":1}\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:15:55 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 1c35062f4f6ec4ef)"}
+
+
+	+++ Combination 4 +++:
+	Request sequence: 
+	> PUT /api/v3/user/username85a28b4fa2 HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "username":"theUser",\n    "firstName":"John",\n    "lastName":"James",\n    "email":"john@email.com",\n    "password":"fuzzstring",\n    "phone":"fuzzstring",\n    "userStatus":1}\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:15:55 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 1ebf4437d525eed7)"}
+
+
+	+++ Combination 5 +++:
+	Request sequence: 
+	> PUT /api/v3/user/usernamee05c40350e HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8080\r\nContent-Type: application/json\r\n\r\n{\n    "id":10,\n    "username":"theUser",\n    "firstName":"John",\n    "lastName":"James",\n    "email":"fuzzstring",\n    "password":"12345",\n    "phone":"12345",\n    "userStatus":1}\r\n
+	< HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 27 Mar 2023 02:15:55 GMT\r\nAccess-Control-Allow-Origin: *\r\nAccess-Control-Allow-Methods: GET, POST, DELETE, PUT\r\nAccess-Control-Allow-Headers: Content-Type, api_key, Authorization\r\nAccess-Control-Expose-Headers: Content-Disposition\r\nContent-Type: application/json\r\nContent-Length: 110\r\nServer: Jetty(9.4.9.v20180320)\r\n\r\n{"code":500,"message":"There was an error processing your request. It has been logged (ID: 3c495ce45e9f1c0e)"}
+
+

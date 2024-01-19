@@ -1,0 +1,21 @@
+################################################################################
+ InvalidValueChecker_500
+
+ Hash: InvalidValueChecker_500_d4d24bd7305471fa001932e4b346c5bdb4ee85fd
+
+ To attempt to reproduce this bug using restler, run restler with the command
+ line option of --replay_log <path_to_this_log>.
+ If an authentication token is required, you must also specify the token_refresh_cmd.
+
+ This log may contain specific values for IDs or names that were generated
+ during fuzzing, using the fuzzing dictionary. Such names will be re-played
+ without modification. You must update the replay log manually with any changes
+ required to execute the requests in your environment (for example, replacing
+ pre-created account, subscription, or other resource IDs, as needed).
+################################################################################
+
+-> PUT /api/v4/projects/integrations/custom-issue-tracker HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nAUTHORIZATION TOKEN\r\n\r\n{\n    "new_issue_url":"C{Q\';Q".",\n    "issues_url":"fuzzstring",\n    "project_url":"fuzzstring"}\r\n
+! producer_timing_delay 0
+! max_async_wait_time 20
+PREVIOUS RESPONSE: 'HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 10 Apr 2023 18:03:20 GMT\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 75\r\nConnection: keep-alive\r\nStrict-Transport-Security: max-age=31536000\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nRateLimit-Observed: 129\r\nRateLimit-Remaining: 1871\r\nRateLimit-Reset: 1681149860\r\nRateLimit-ResetTime: Mon, 10 Apr 2023 18:04:20 GMT\r\nRateLimit-Limit: 2000\r\nGitLab-LB: fe-17-lb-gprd\r\nGitLab-SV: localhost\r\nCF-Cache-Status: DYNAMIC\r\nReport-To: {"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=Cn5S3%2FygGZdQ784byz%2F8R9yKzx2zRfRcARZj6eDlClSORZublVNqAWsT4OJQSq%2BOheeOvL2aGuOHNKopXDriga2Rs7YP8CfuRM3%2F206I4QVMhJVe7o2znrg9ZQc%3D"}],"group":"cf-nel","max_age":604800}\r\nNEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}\r\nX-Content-Type-Options: nosniff\r\nSet-Cookie: _cfuvid=mO4qrE8_FyKiPytpVtPiRk7KmkrGU_fq07PAmX59BBo-1681149800662-0-604800000; path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None\r\nServer: cloudflare\r\nCF-RAY: 7b5ce7ec8992043c-HKG\r\n\r\nAn error has occurred and reported in the system\'s low-level error handler.'
+

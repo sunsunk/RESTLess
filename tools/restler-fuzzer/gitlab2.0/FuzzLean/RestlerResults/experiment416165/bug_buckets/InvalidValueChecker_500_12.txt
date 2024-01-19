@@ -1,0 +1,21 @@
+################################################################################
+ InvalidValueChecker_500
+
+ Hash: InvalidValueChecker_500_be4a5f5102a9e20d978d29d0d5a0b56dd946dfcd
+
+ To attempt to reproduce this bug using restler, run restler with the command
+ line option of --replay_log <path_to_this_log>.
+ If an authentication token is required, you must also specify the token_refresh_cmd.
+
+ This log may contain specific values for IDs or names that were generated
+ during fuzzing, using the fuzzing dictionary. Such names will be re-played
+ without modification. You must update the replay log manually with any changes
+ required to execute the requests in your environment (for example, replacing
+ pre-created account, subscription, or other resource IDs, as needed).
+################################################################################
+
+-> PUT /api/v4/admin/clusters/clusteridd7148a21b3 HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nAUTHORIZATION TOKEN\r\n\r\n{\n    "name":"bodlz\x0bD4rCl",\n    "domain":"fuzzstring",\n    "environment_scope":"fuzzstring",\n    "management_project_id":1,\n    "enabled":true,\n    "managed":true,\n    "platform_kubernetes_attributes[api_url]":"fuzzstring",\n    "platform_kubernetes_attributes[token]":"fuzzstring",\n    "platform_kubernetes_attributes[ca_cert]":"fuzzstring",\n    "platform_kubernetes_attributes[namespace]":"fuzzstring"}\r\n
+! producer_timing_delay 0
+! max_async_wait_time 20
+PREVIOUS RESPONSE: 'HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 10 Apr 2023 13:05:46 GMT\r\nContent-Type: text/plain; charset=utf-8\r\nContent-Length: 75\r\nConnection: keep-alive\r\nStrict-Transport-Security: max-age=31536000\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nRateLimit-Observed: 90\r\nRateLimit-Remaining: 1910\r\nRateLimit-Reset: 1681132006\r\nRateLimit-ResetTime: Mon, 10 Apr 2023 13:06:46 GMT\r\nRateLimit-Limit: 2000\r\nGitLab-LB: fe-22-lb-gprd\r\nGitLab-SV: localhost\r\nCF-Cache-Status: DYNAMIC\r\nReport-To: {"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=rynJ6KxHtbgutspjwijEbtmTi%2FSV%2Brp4G2Ddg%2F8fTdiPdB4B%2FCJulukx12k%2FYGzAo1aDf7%2FjF2pXQ4CIq5VQ9teQpl50y%2FV8k4GOCuCcSiX9Wyuk3F6P4qBE3y8%3D"}],"group":"cf-nel","max_age":604800}\r\nNEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}\r\nX-Content-Type-Options: nosniff\r\nSet-Cookie: _cfuvid=mn_bfD3J5v84JQjqE43V8Yvb9oVJezDcugKIK.OupdA-1681131946608-0-604800000; path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None\r\nServer: cloudflare\r\nCF-RAY: 7b5b34061c141062-HKG\r\n\r\nAn error has occurred and reported in the system\'s low-level error handler.'
+

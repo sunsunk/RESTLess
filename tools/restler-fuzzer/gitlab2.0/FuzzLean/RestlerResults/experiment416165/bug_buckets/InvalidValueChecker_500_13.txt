@@ -1,0 +1,21 @@
+################################################################################
+ InvalidValueChecker_500
+
+ Hash: InvalidValueChecker_500_6cf67bd1173c1202f4ba9b59e84c5fb8542d9620
+
+ To attempt to reproduce this bug using restler, run restler with the command
+ line option of --replay_log <path_to_this_log>.
+ If an authentication token is required, you must also specify the token_refresh_cmd.
+
+ This log may contain specific values for IDs or names that were generated
+ during fuzzing, using the fuzzing dictionary. Such names will be re-played
+ without modification. You must update the replay log manually with any changes
+ required to execute the requests in your environment (for example, replacing
+ pre-created account, subscription, or other resource IDs, as needed).
+################################################################################
+
+-> PUT /api/v4/projects/integrations/emails-on-push HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nAUTHORIZATION TOKEN\r\n\r\n{\n    "recipients":"]\\#M",\n    "disable_diffs":true,\n    "send_from_committer_email":true,\n    "push_events":true,\n    "tag_push_events":true,\n    "branches_to_be_notified":"fuzzstring"}\r\n
+! producer_timing_delay 0
+! max_async_wait_time 20
+PREVIOUS RESPONSE: 'HTTP/1.1 500 Internal Server Error\r\nDate: Mon, 10 Apr 2023 13:18:46 GMT\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: 46\r\nConnection: keep-alive\r\nX-Request-Id: 01d04c5d11f188d818d2b2e7f7abe34b\r\nX-Runtime: 0.792959\r\nStrict-Transport-Security: max-age=31536000\r\nReferrer-Policy: strict-origin-when-cross-origin\r\nRateLimit-Observed: 103\r\nRateLimit-Remaining: 1896\r\nRateLimit-Reset: 1681132786\r\nRateLimit-ResetTime: Mon, 10 Apr 2023 13:19:46 GMT\r\nRateLimit-Limit: 2000\r\nGitLab-LB: fe-22-lb-gprd\r\nGitLab-SV: localhost\r\nCF-Cache-Status: DYNAMIC\r\nReport-To: {"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=vnOeQd2EFDIZxs%2BYtn%2FBP8boTz%2B542jLc87Fdt1f4UWjl1TPin81HsCNmF6JlcdutxK5W1gdrTxMgzLa1iIIm0QtrtJ%2B8U9gmk%2BbIJLKumAToYpq4pri3MS3e%2BU%3D"}],"group":"cf-nel","max_age":604800}\r\nNEL: {"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}\r\nX-Content-Type-Options: nosniff\r\nSet-Cookie: _cfuvid=o6HmieOAlebT1bDZ9Vim7.1vYJ7fIiZ6VyMB2nxwoNw-1681132726992-0-604800000; path=/; domain=.gitlab.com; HttpOnly; Secure; SameSite=None\r\nServer: cloudflare\r\nCF-RAY: 7b5b4710eeed0f14-HKG\r\n\r\n{"status":500,"error":"Internal Server Error"}'
+

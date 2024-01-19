@@ -1,0 +1,202 @@
+This file contains the failing requests, ordered by the number of blocked dependent requests.
+To improve coverage, fix the failing requests in the order listed in this file.
+
+Note: some requests are labeled as 'sequence failure'.
+This means the request depends on another request that is failing intermittently.
+For example, a DELETE request for a resource may be skipped because the resource
+PUT request failed due to exceeding quota.  The same PUT request succeeded earlier (and may
+succeed later depending on the resource clean-up behavior in the service), so it is
+considered an intermittent failure.
+
+-----------------------------------------------
+Request: Post /deploy
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /deploy HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\nprivateFor: fuzzstring\r\nContent-Type: application/json\r\n\r\n{\n    "decimalUnits":1,\n    "initialAmount":1,\n    "tokenName":"fuzzstring",\n    "tokenSymbol":"fuzzstring"}\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:08:27 GMT\r\nConnection: close\r\n\r\nc0\r\n{"timestamp":"2023-03-29T06:08:27.061+00:00","status":500,"error":"Internal Server Error","message":"java.net.ConnectException: Failed to connect to localhost/127.0.0.1:8545","path":"/deploy"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /deploy HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\nContent-Type: application/json\r\n\r\n{}
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:08:47 GMT\r\nConnection: close\r\n\r\n8c\r\n{"timestamp":"2023-03-29T06:08:47.271+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/deploy"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Get /{contractAddress}/totalSupply
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /fuzzstring/totalSupply HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:08:47 GMT\r\nConnection: close\r\n\r\nd5\r\n{"timestamp":"2023-03-29T06:08:47.457+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/totalSupply"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /fuzzstring/totalSupply HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:08:51 GMT\r\nConnection: close\r\n\r\nd5\r\n{"timestamp":"2023-03-29T06:08:51.870+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/totalSupply"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Get /{contractAddress}/decimals
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /fuzzstring/decimals HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:08:51 GMT\r\nConnection: close\r\n\r\nd2\r\n{"timestamp":"2023-03-29T06:08:52.089+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/decimals"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /fuzzstring/decimals HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:08:56 GMT\r\nConnection: close\r\n\r\nd2\r\n{"timestamp":"2023-03-29T06:08:56.382+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/decimals"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Post /{contractAddress}/transfer
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /fuzzstring/transfer HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\nprivateFor: fuzzstring\r\nContent-Type: application/json\r\n\r\n{\n    "to":"fuzzstring",\n    "value":1}\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:08:56 GMT\r\nConnection: close\r\n\r\nd2\r\n{"timestamp":"2023-03-29T06:08:56.548+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/transfer"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /fuzzstring/transfer HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\nContent-Type: application/json\r\n\r\n{}
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:09:11 GMT\r\nConnection: close\r\n\r\nd2\r\n{"timestamp":"2023-03-29T06:09:12.458+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/transfer"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Get /{contractAddress}/version
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /fuzzstring/version HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:09:15 GMT\r\nConnection: close\r\n\r\nd1\r\n{"timestamp":"2023-03-29T06:09:16.099+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/version"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /fuzzstring/version HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:09:19 GMT\r\nConnection: close\r\n\r\nd1\r\n{"timestamp":"2023-03-29T06:09:19.589+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/version"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Post /{contractAddress}/approve
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /fuzzstring/approve HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\nprivateFor: fuzzstring\r\nContent-Type: application/json\r\n\r\n{\n    "spender":"fuzzstring",\n    "value":1}\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:09:19 GMT\r\nConnection: close\r\n\r\nd1\r\n{"timestamp":"2023-03-29T06:09:19.753+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/approve"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /fuzzstring/approve HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\nContent-Type: application/json\r\n\r\n{}
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:09:35 GMT\r\nConnection: close\r\n\r\nd1\r\n{"timestamp":"2023-03-29T06:09:35.646+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/approve"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Get /{contractAddress}/balanceOf/{ownerAddress}
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /fuzzstring/balanceOf/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:09:38 GMT\r\nConnection: close\r\n\r\nde\r\n{"timestamp":"2023-03-29T06:09:39.185+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/balanceOf/fuzzstring"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /fuzzstring/balanceOf/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:09:44 GMT\r\nConnection: close\r\n\r\nde\r\n{"timestamp":"2023-03-29T06:09:44.978+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/balanceOf/fuzzstring"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Post /{contractAddress}/approveAndCall
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /fuzzstring/approveAndCall HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\nprivateFor: fuzzstring\r\nContent-Type: application/json\r\n\r\n{ "fuzz": false }\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:09:44 GMT\r\nConnection: close\r\n\r\nd8\r\n{"timestamp":"2023-03-29T06:09:45.182+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/approveAndCall"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /fuzzstring/approveAndCall HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\nContent-Type: application/json\r\n\r\n{ "fuzz": false }
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:09:58 GMT\r\nConnection: close\r\n\r\nd8\r\n{"timestamp":"2023-03-29T06:09:58.493+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/approveAndCall"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Get /{contractAddress}/symbol
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /fuzzstring/symbol HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:10:04 GMT\r\nConnection: close\r\n\r\nd0\r\n{"timestamp":"2023-03-29T06:10:04.925+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/symbol"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /fuzzstring/symbol HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:10:07 GMT\r\nConnection: close\r\n\r\nd0\r\n{"timestamp":"2023-03-29T06:10:08.299+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/symbol"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Get /{contractAddress}/name
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /fuzzstring/name HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:10:08 GMT\r\nConnection: close\r\n\r\nce\r\n{"timestamp":"2023-03-29T06:10:08.791+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/name"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /fuzzstring/name HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:10:11 GMT\r\nConnection: close\r\n\r\nce\r\n{"timestamp":"2023-03-29T06:10:12.838+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/name"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Post /{contractAddress}/transferFrom
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> POST /fuzzstring/transferFrom HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\nprivateFor: fuzzstring\r\nContent-Type: application/json\r\n\r\n{\n    "from":"fuzzstring",\n    "to":"fuzzstring"}\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:10:11 GMT\r\nConnection: close\r\n\r\nd6\r\n{"timestamp":"2023-03-29T06:10:12.918+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/transferFrom"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> POST /fuzzstring/transferFrom HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\nContent-Type: application/json\r\n\r\n{}
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:10:31 GMT\r\nConnection: close\r\n\r\nd6\r\n{"timestamp":"2023-03-29T06:10:32.454+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/transferFrom"}\r\n0\r\n\r\n
+
+
+-----------------------------------------------
+Request: Get /{contractAddress}/allowance
+Number of blocked dependent requests: 0
+
+	+++ Combination 1 +++:
+	Request sequence: 
+	> GET /fuzzstring/allowance?ownerAddress=fuzzstring&spenderAddress=fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:10:36 GMT\r\nConnection: close\r\n\r\nd3\r\n{"timestamp":"2023-03-29T06:10:36.839+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/allowance"}\r\n0\r\n\r\n
+
+
+	+++ Combination 2 +++:
+	Request sequence: 
+	> GET /fuzzstring/allowance?ownerAddress=fuzzstring&spenderAddress=fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: localhost:8081\r\n\r\n
+	< HTTP/1.1 500 \r\nContent-Type: application/json;charset=UTF-8\r\nTransfer-Encoding: chunked\r\nDate: Wed, 29 Mar 2023 06:10:48 GMT\r\nConnection: close\r\n\r\nd3\r\n{"timestamp":"2023-03-29T06:10:49.119+00:00","status":500,"error":"Internal Server Error","message":"org.web3j.ens.EnsResolutionException: Unable to determine sync status of node","path":"/fuzzstring/allowance"}\r\n0\r\n\r\n
+
+

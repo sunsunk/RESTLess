@@ -1,0 +1,433 @@
+{
+  "0": {},
+  "400": {
+    "15e76d74-38bc-40ac-82bc-9fee0e922312": [
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=zJDB8AFZ9Zjepwpd0CkQFZr9F6gDqLdpou3V7rL0KBG2jXnZcZK1WwZ&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "<h1>400 Bad Request</h1>URISyntaxException thrown",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "",
+            "path": "",
+            "query": "",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "<h1>400 Bad Request</h1>URISyntaxException thrown",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=orhr2JfklxO8vbQ0JYpUMPyFJaSHkXIoKe57eItILuouuw6vTq1H6&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "<h1>400 Bad Request</h1>URISyntaxException thrown",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "={v-q_\\x0bNcH0Cbe7t&^XNDkdlP\\x0buQO:j=%F) Wo4Y&apiKey=:3Lt\",a=YnZr&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "<h1>400 Bad Request</h1>URISyntaxException thrown",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=8iD@o#Pa2\\;%xl`~\"=c6{pU8|Q/\\x0b>C\t7 gJ}_8\"3KM]d(~W&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "<h1>400 Bad Request</h1>URISyntaxException thrown",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=,h\n(,t^YQ9T}tflb(\n2:flsFRYebI6QW[\\x0bGRso@Wugcf&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "<h1>400 Bad Request</h1>URISyntaxException thrown",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "",
+            "path": "",
+            "query": "",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "<h1>400 Bad Request</h1>URISyntaxException thrown",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "",
+            "path": "",
+            "query": "",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "<h1>400 Bad Request</h1>URISyntaxException thrown",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=coYSdWuplPXvxIeZ5peRgaQlaq2jIaT3zXvpM1GrJ2aQ&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "<h1>400 Bad Request</h1>URISyntaxException thrown",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=MSJM119JgET72DNwEFqg2C7XZRZf7y3R7kd42xIe&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "<h1>400 Bad Request</h1>URISyntaxException thrown",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      }
+    ],
+    "d62df22f-298c-4455-ac17-a26dc121abae": [
+      {
+        "request": {
+          "RequestData": {
+            "method": "POST",
+            "path": "/v2/words/delete",
+            "query": "",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "Error: This end point needs a user id",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "POST",
+            "path": "/v2/words/delete",
+            "query": "",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "Error: This end point needs a user id",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "POST",
+            "path": "/v2/words/add",
+            "query": "",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "Error: This end point needs a user id",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "POST",
+            "path": "/v2/words/add",
+            "query": "",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "Bad Request",
+            "content": "Error: This end point needs a user id",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      }
+    ]
+  },
+  "500": {
+    "7918355a-9e6d-48d8-81dd-b893963e11d7": [
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 500,
+            "codeDescription": "Internal Server Error",
+            "content": "Error: Internal Error: apiKey must be set",
+            "isFailure": true,
+            "isBug": true
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=sAeURAPsjgxGf5z5JLdnGYlR7qd21DyYrmtlhbY5n8g&dicts=fuzzstring&limit=1&offset=1&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 500,
+            "codeDescription": "Internal Server Error",
+            "content": "Error: Internal Error: apiKey must be set",
+            "isFailure": true,
+            "isBug": true
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=g62iMwT7LwQ4nHmtkZZThIrY0&dicts=fuzzstring&limit=1&offset=1&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 500,
+            "codeDescription": "Internal Server Error",
+            "content": "Error: Internal Error: apiKey must be set",
+            "isFailure": true,
+            "isBug": true
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "",
+            "path": "",
+            "query": "",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 500,
+            "codeDescription": "Internal Server Error",
+            "content": "Error: Internal Error: apiKey must be set",
+            "isFailure": true,
+            "isBug": true
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=&dicts=fuzzstring&limit=1&offset=1&username=fuzzstring",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 500,
+            "codeDescription": "Internal Server Error",
+            "content": "Error: Internal Error: apiKey must be set",
+            "isFailure": true,
+            "isBug": true
+          }
+        }
+      }
+    ],
+    "d7401489-653f-4d06-a60a-fb1ab9263375": [
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=fuzzstring&username=",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 500,
+            "codeDescription": "Internal Server Error",
+            "content": "Error: Internal Error: username must be set",
+            "isFailure": true,
+            "isBug": true
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=fuzzstring&dicts=fuzzstring&limit=1&offset=1&username=",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 500,
+            "codeDescription": "Internal Server Error",
+            "content": "Error: Internal Error: username must be set",
+            "isFailure": true,
+            "isBug": true
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "GET",
+            "path": "/v2/words",
+            "query": "apiKey=fuzzstring&dicts=fuzzstring&limit=1&offset=1&username=",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 500,
+            "codeDescription": "Internal Server Error",
+            "content": "Error: Internal Error: username must be set",
+            "isFailure": true,
+            "isBug": true
+          }
+        }
+      }
+    ]
+  }
+}

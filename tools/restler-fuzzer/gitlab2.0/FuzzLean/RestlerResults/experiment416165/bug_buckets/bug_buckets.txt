@@ -1,0 +1,294 @@
+InvalidValueChecker_500: 64
+PayloadBodyChecker_500: 7
+InvalidValueChecker_timeout: 1
+Total Buckets: 72
+-------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_1.txt
+Hash: InvalidValueChecker_500_88a22934c3a8d51547a355690a918e73dbece580
+POST /api/v4/groups/1/repository_storage_moves HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "destination_storage_name":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_2.txt
+Hash: InvalidValueChecker_500_245f46ed72145356b8f5301517a5668d49e58618
+POST /api/v4/groups HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "name":fuzzstring,\n    "path":fuzzstring,\n    "auto_devops_enabled":true,\n    "default_branch_protection":1,\n    "description":fuzzstring,\n    "emails_disabled":true,\n    "lfs_enabled":true,\n    "mentions_disabled":true,\n    "parent_id":1,\n    "project_creation_level":fuzzstring,\n    "request_access_enabled":true,\n    "require_two_factor_authentication":true,\n    "share_with_group_lock":true,\n    "subgroup_creation_level":fuzzstring,\n    "two_factor_grace_period":1,\n    "visibility":fuzzstring,\n    "membership_lock":true,\n    "extra_shared_runners_minutes_limit":1,\n    "shared_runners_minutes_limit":1}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_3.txt
+Hash: InvalidValueChecker_500_d9089533ebf01288b2ff21233c66d6497128325d
+PUT /api/v4/projects/integrations/discord HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "webhook":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_4.txt
+Hash: InvalidValueChecker_500_fa1f9b3d6c2c2086a3c42ccb20b6707a0a621bbb
+PUT /api/v4/projects/integrations/packagist HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "username":fuzzstring,\n    "token":fuzzstring,\n    "server":true,\n    "push_events":true,\n    "merge_requests_events":true,\n    "tag_push_events":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_5.txt
+Hash: InvalidValueChecker_500_db3689045968629478723ab7cf5f139f2348624a
+PUT /api/v4/projects/integrations/pivotaltracker HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "token":fuzzstring,\n    "restrict_to_branch":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_6.txt
+Hash: InvalidValueChecker_500_d3030b21d9ed4bc22e1c9a635231c73123ed263c
+PUT /api/v4/projects/integrations/microsoft-teams HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "webhook":fuzzstring,\n    "notify_only_broken_pipelines":true,\n    "notify_only_default_branch":true,\n    "branches_to_be_notified":fuzzstring,\n    "push_events":true,\n    "issues_events":true,\n    "confidential_issues_events":true,\n    "merge_requests_events":true,\n    "tag_push_events":true,\n    "note_events":true,\n    "confidential_note_events":true,\n    "pipeline_events":true,\n    "wiki_page_events":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_7.txt
+Hash: InvalidValueChecker_500_d1e8b77fbb4b0ea4c5d3da1e86e7a99a5837a99a
+POST /api/v4/license HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "license":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_8.txt
+Hash: InvalidValueChecker_500_8d1d8ade1d8c065f4cb2b9f8e6bda39c840935c6
+POST /api/v4/admin/ci/variables HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "key":fuzzstring,\n    "variable_type":fuzzstring,\n    "value":fuzzstring,\n    "protected":true,\n    "masked":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_9.txt
+Hash: InvalidValueChecker_500_736c6f5beb7516925f4f58f6487c71e16a040547
+POST /api/v4/users HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{ "fuzz": false }\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_10.txt
+Hash: InvalidValueChecker_500_6d79a09db0fc20479dc1d227d3d7a95637063423
+PUT /api/v4/projects/integrations/slack HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "webhook":fuzzstring,\n    "username":fuzzstring,\n    "channel":fuzzstring,\n    "notify_only_broken_pipelines":true,\n    "notify_only_default_branch":true,\n    "branches_to_be_notified":fuzzstring,\n    "commit_events":true,\n    "confidential_issue_channel":fuzzstring,\n    "confidential_issues_events":true,\n    "confidential_note_channel":fuzzstring,\n    "confidential_note_events":true,\n    "deployment_channel":fuzzstring,\n    "deployment_events":true,\n    "issue_channel":fuzzstring,\n    "issues_events":true,\n    "job_events":true,\n    "merge_request_channel":fuzzstring,\n    "merge_requests_events":true,\n    "note_channel":fuzzstring,\n    "note_events":true,\n    "pipeline_channel":fuzzstring,\n    "pipeline_events":true,\n    "push_channel":fuzzstring,\n    "push_events":true,\n    "tag_push_channel":fuzzstring,\n    "tag_push_events":true,\n    "wiki_page_channel":fuzzstring,\n    "wiki_page_events":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_11.txt
+Hash: InvalidValueChecker_500_032dea8ee3cb11d1677d612e275ffbcc31b96d9d
+PUT /api/v4/projects/integrations/mattermost-slash-commands HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "token":fuzzstring,\n    "username":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_12.txt
+Hash: InvalidValueChecker_500_be4a5f5102a9e20d978d29d0d5a0b56dd946dfcd
+PUT /api/v4/admin/clusters/cluster_id HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "name":fuzzstring,\n    "domain":fuzzstring,\n    "environment_scope":fuzzstring,\n    "management_project_id":1,\n    "enabled":true,\n    "managed":true,\n    "platform_kubernetes_attributes[api_url]":fuzzstring,\n    "platform_kubernetes_attributes[token]":fuzzstring,\n    "platform_kubernetes_attributes[ca_cert]":fuzzstring,\n    "platform_kubernetes_attributes[namespace]":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_13.txt
+Hash: InvalidValueChecker_500_6cf67bd1173c1202f4ba9b59e84c5fb8542d9620
+PUT /api/v4/projects/integrations/emails-on-push HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "recipients":fuzzstring,\n    "disable_diffs":true,\n    "send_from_committer_email":true,\n    "push_events":true,\n    "tag_push_events":true,\n    "branches_to_be_notified":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_14.txt
+Hash: InvalidValueChecker_500_f6bda7b6d90032079efe348f84e615e6b1e7c811
+POST /api/v4/hooks HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "url":fuzzstring,\n    "token":fuzzstring,\n    "push_events":true,\n    "tag_push_events":true,\n    "merge_requests_events":true,\n    "repository_update_events":true,\n    "enable_ssl_verification":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_15.txt
+Hash: InvalidValueChecker_500_17597ab8d195988e7b9626e145f5e6eeff9e1d0e
+PUT /api/v4/groups/id HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "name":fuzzstring,\n    "path":fuzzstring,\n    "auto_devops_enabled":true,\n    "default_branch_protection":1,\n    "description":fuzzstring,\n    "emails_disabled":true,\n    "lfs_enabled":true,\n    "mentions_disabled":true,\n    "prevent_sharing_groups_outside_hierarchy":true,\n    "project_creation_level":fuzzstring,\n    "request_access_enabled":true,\n    "require_two_factor_authentication":true,\n    "shared_runners_setting":fuzzstring,\n    "share_with_group_lock":true,\n    "subgroup_creation_level":fuzzstring,\n    "two_factor_grace_period":1,\n    "visibility":fuzzstring,\n    "extra_shared_runners_minutes_limit":1,\n    "file_template_project_id":1,\n    "membership_lock":true,\n    "prevent_forking_outside_group":true,\n    "shared_runners_minutes_limit":1}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_16.txt
+Hash: InvalidValueChecker_500_7fb67d312095fe16f8123fbd86cb9281f4644415
+PUT /api/v4/projects/integrations/prometheus HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "api_url":fuzzstring,\n    "google_iap_audience_client_id":fuzzstring,\n    "google_iap_service_account_json":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_17.txt
+Hash: InvalidValueChecker_500_3eee28da1102522f09efb5b9fd2084a1d2692509
+PUT /api/v4/projects/integrations/flowdock HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "token":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_18.txt
+Hash: InvalidValueChecker_500_2dbd5fee5ddc1aaab41e5b7beab5eab762744f39
+POST /api/v4/runners/verify HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "token":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_19.txt
+Hash: InvalidValueChecker_500_12dfafc0ad75aca65a55f825d204fed59baef13f
+PUT /api/v4/projects/integrations/youtrack HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "issues_url":fuzzstring,\n    "project_url":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_20.txt
+Hash: InvalidValueChecker_500_29f5aa97e54f6bce201a28ac4aaa06313f6574e3
+PUT /api/v4/users/id HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{ "fuzz": false }\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_21.txt
+Hash: InvalidValueChecker_500_d63193155278240c985e13411cbcfe64b679dc7f
+PUT /api/v4/projects/integrations/slack-slash-commands HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "token":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_22.txt
+Hash: InvalidValueChecker_500_0def9c81ef7e20c0cfae78aff67a96ec36923cc9
+POST /api/v4/import/bitbucket_server HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "bitbucket_server_url":fuzzstring,\n    "bitbucket_server_username":fuzzstring,\n    "personal_access_token":fuzzstring,\n    "bitbucket_server_project":fuzzstring,\n    "bitbucket_server_repo":fuzzstring,\n    "new_name":fuzzstring,\n    "target_namespace":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_23.txt
+Hash: InvalidValueChecker_500_3cfe9ee4b389e49b30d7eb87d63ec6f04396714e
+PUT /api/v4/projects/integrations/unify-circuit HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "webhook":fuzzstring,\n    "notify_only_broken_pipelines":true,\n    "branches_to_be_notified":fuzzstring,\n    "push_events":true,\n    "issues_events":true,\n    "confidential_issues_events":true,\n    "merge_requests_events":true,\n    "tag_push_events":true,\n    "note_events":true,\n    "confidential_note_events":true,\n    "pipeline_events":true,\n    "wiki_page_events":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_24.txt
+Hash: InvalidValueChecker_500_1248ecd404083b4e3f15933a77ad54374b6f9108
+POST /api/v4/projects/1/repository_storage_moves HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "destination_storage_name":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_25.txt
+Hash: InvalidValueChecker_500_13a952f916f316a2bc2a297deb8e80a008f6adf4
+PUT /api/v4/projects/integrations/teamcity HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "teamcity_url":fuzzstring,\n    "enable_ssl_verification":true,\n    "build_type":fuzzstring,\n    "username":fuzzstring,\n    "password":fuzzstring,\n    "push_events":true,\n    "merge_requests_events":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_26.txt
+Hash: InvalidValueChecker_500_5e8164de38c0d4f9693406a200d9e87decac3c94
+POST /api/v4/runners/reset_authentication_token HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "token":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_27.txt
+Hash: InvalidValueChecker_500_9dd24840611786fab60ac416dd9d050f8ec5ccc7
+PUT /api/v4/users/1/custom_attributes/key HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "value":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_28.txt
+Hash: InvalidValueChecker_500_fa39b725805dd0acf1bf82e5095e95dbfc11e99d
+PUT /api/v4/projects/integrations/mattermost HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "webhook":fuzzstring,\n    "username":fuzzstring,\n    "channel":fuzzstring,\n    "notify_only_broken_pipelines":true,\n    "notify_only_default_branch":true,\n    "branches_to_be_notified":fuzzstring,\n    "push_events":true,\n    "issues_events":true,\n    "confidential_issues_events":true,\n    "merge_requests_events":true,\n    "tag_push_events":true,\n    "note_events":true,\n    "confidential_note_events":true,\n    "pipeline_events":true,\n    "wiki_page_events":true,\n    "push_channel":fuzzstring,\n    "issue_channel":fuzzstring,\n    "confidential_issue_channel":fuzzstring,\n    "merge_request_channel":fuzzstring,\n    "note_channel":fuzzstring,\n    "confidential_note_channel":fuzzstring,\n    "tag_push_channel":fuzzstring,\n    "pipeline_channel":fuzzstring,\n    "wiki_page_channel":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_29.txt
+Hash: InvalidValueChecker_500_099dc354bc1cc62919f63829df31c548ad7e0f33
+PUT /api/v4/projects/integrations/drone-ci HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "token":fuzzstring,\n    "drone_url":fuzzstring,\n    "enable_ssl_verification":true,\n    "push_events":true,\n    "merge_requests_events":true,\n    "tag_push_events":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_30.txt
+Hash: InvalidValueChecker_500_7c7ff10203e71af6f8748e80943414c2e56ade61
+POST /api/v4/projects/ci/lint HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "content":fuzzstring,\n    "dry_run":true,\n    "include_jobs":true,\n    "ref":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_31.txt
+Hash: InvalidValueChecker_500_975b1ad0005c26f77bf88cd72439f7920546537a
+POST /api/v4/admin/clusters/add HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "name":fuzzstring,\n    "domain":fuzzstring,\n    "environment_scope":fuzzstring,\n    "management_project_id":1,\n    "enabled":true,\n    "managed":true,\n    "platform_kubernetes_attributes[api_url]":fuzzstring,\n    "platform_kubernetes_attributes[token]":fuzzstring,\n    "platform_kubernetes_attributes[ca_cert]":fuzzstring,\n    "platform_kubernetes_attributes[namespace]":fuzzstring,\n    "platform_kubernetes_attributes[authorization_type]":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_32.txt
+Hash: InvalidValueChecker_500_0ba82d07e8d33006ab6a24f9ba9627b21c53aa34
+PUT /api/v4/projects/integrations/redmine HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "new_issue_url":fuzzstring,\n    "issues_url":fuzzstring,\n    "project_url":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_33.txt
+Hash: InvalidValueChecker_500_a986825c47d45e485ad92229ef9e0dc22973c44e
+PUT /api/v4/projects/integrations/bugzilla HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "new_issue_url":fuzzstring,\n    "issues_url":fuzzstring,\n    "project_url":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_34.txt
+Hash: InvalidValueChecker_500_a4284df1351055561f1bbfcf0613bcf9e7871982
+POST /api/v4/broadcast_messages HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "message":fuzzstring,\n    "starts_at":2019-06-26T20:20:39+00:00,\n    "ends_at":2019-06-26T20:20:39+00:00,\n    "color":fuzzstring,\n    "font":fuzzstring,\n    "target_access_levels":\n    [\n        1\n    ],\n    "target_path":fuzzstring,\n    "broadcast_type":fuzzstring,\n    "dismissable":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_35.txt
+Hash: InvalidValueChecker_500_d1973c6933634afe704cb47a672f6eb6f708948d
+POST /api/v4/group_repository_storage_moves HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "source_storage_name":fuzzstring,\n    "destination_storage_name":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_36.txt
+Hash: InvalidValueChecker_500_a022d86ef38c39a652e761dcb9316f38918e1564
+POST /api/v4/features/fuzzstring HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "value":\n        { "fuzz": false }\n    ,\n    "key":fuzzstring,\n    "feature_group":fuzzstring,\n    "user":fuzzstring,\n    "group":fuzzstring,\n    "namespace":fuzzstring,\n    "project":fuzzstring,\n    "force":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_37.txt
+Hash: InvalidValueChecker_500_3e11585a4d3c17d95712fd16a1253dc52364db86
+POST /api/v4/geo_nodes HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "primary":true,\n    "enabled":true,\n    "name":fuzzstring,\n    "url":fuzzstring,\n    "internal_url":fuzzstring,\n    "files_max_capacity":1,\n    "repos_max_capacity":1,\n    "verification_max_capacity":1,\n    "container_repositories_max_capacity":1,\n    "sync_object_storage":true,\n    "selective_sync_type":fuzzstring,\n    "selective_sync_shards":\n    [\n        fuzzstring\n    ],\n    "selective_sync_namespace_ids":\n    [\n        fuzzstring\n    ],\n    "minimum_reverification_interval":1}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_38.txt
+Hash: InvalidValueChecker_500_031bb5b99b15e113dc5fec68e8bca938936fe979
+PUT /api/v4/projects/integrations/hangouts-chat HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "webhook":fuzzstring,\n    "notify_only_broken_pipelines":true,\n    "notify_only_default_branch":true,\n    "branches_to_be_notified":fuzzstring,\n    "push_events":true,\n    "issues_events":true,\n    "confidential_issues_events":true,\n    "merge_requests_events":true,\n    "tag_push_events":true,\n    "note_events":true,\n    "confidential_note_events":true,\n    "pipeline_events":true,\n    "wiki_page_events":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_39.txt
+Hash: InvalidValueChecker_500_c4a321538b181142071d60696c7645fe0b983fb7
+POST /api/v4/snippets HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "title":fuzzstring,\n    "file_name":fuzzstring,\n    "content":fuzzstring,\n    "description":fuzzstring,\n    "visibility":fuzzstring,\n    "files":\n    [\n        fuzzstring\n    ],\n    "files:file_path":fuzzstring,\n    "files:content":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_40.txt
+Hash: InvalidValueChecker_500_e1deb9c6db61c9f9a0ae57ef0e9fa825a94a1ae1
+PUT /api/v4/projects/integrations/ewm HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "new_issue_url":fuzzstring,\n    "issues_url":fuzzstring,\n    "project_url":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_41.txt
+Hash: InvalidValueChecker_500_a14e3d123b1421e3829ed39be82a7e04702c4e57
+POST /api/v4/environments/metrics_dashboard/annotations HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "dashboard_path":fuzzstring,\n    "starting_at":fuzzstring,\n    "ending_at":fuzzstring,\n    "description":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_42.txt
+Hash: InvalidValueChecker_500_d7dcc8034c253169c81105e7ba7cf7a11bf2bb83
+PUT /api/v4/projects/integrations/datadog HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "api_key":fuzzstring,\n    "api_url":fuzzstring,\n    "datadog_env":fuzzstring,\n    "datadog_service":fuzzstring,\n    "datadog_site":fuzzstring,\n    "datadog_tags":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_43.txt
+Hash: InvalidValueChecker_500_2e84228d2153f3ef91d566943af5bfe702c18b5a
+POST /api/v4/import/github HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "personal_access_token":fuzzstring,\n    "repo_id":1,\n    "new_name":fuzzstring,\n    "target_namespace":fuzzstring,\n    "github_hostname":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_44.txt
+Hash: InvalidValueChecker_500_5afbcfa1bf429fa16082bc8c8e8c4bc2dfb90c58
+PUT /api/v4/projects/integrations/asana HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "api_key":fuzzstring,\n    "restrict_to_branch":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_45.txt
+Hash: InvalidValueChecker_500_fffd721cd0687475931b4a7fe74ba547bf47ac30
+POST /api/v4/projects/remote_mirrors HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "url":fuzzstring,\n    "enabled":true,\n    "only_protected_branches":true,\n    "keep_divergent_refs":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_46.txt
+Hash: InvalidValueChecker_500_3f89ec3ad7dcb296c58c454d996e55969ce5a08b
+PUT /api/v4/projects/integrations/campfire HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "token":fuzzstring,\n    "subdomain":fuzzstring,\n    "room":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_47.txt
+Hash: InvalidValueChecker_500_b050b422a1d68dfbd5a3d12b06f288c278f22a1f
+PUT /api/v4/projects/integrations/jenkins HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "jenkins_url":fuzzstring,\n    "enable_ssl_verification":true,\n    "project_name":fuzzstring,\n    "username":fuzzstring,\n    "password":fuzzstring,\n    "push_events":true,\n    "merge_requests_events":true,\n    "tag_push_events":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_48.txt
+Hash: InvalidValueChecker_500_2a9123d06eb100bd7b96aa9f9ab6755254f2fec4
+PUT /api/v4/projects/integrations/assembla HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "token":fuzzstring,\n    "subdomain":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_49.txt
+Hash: InvalidValueChecker_500_ce82c7b8616353460594737c266e5b813c80d059
+PUT /api/v4/projects/integrations/confluence HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "confluence_url":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_50.txt
+Hash: InvalidValueChecker_500_37d536dd9f667deb6d84c836d02f01036b6b9b28
+POST /api/v4/project_repository_storage_moves HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "source_storage_name":fuzzstring,\n    "destination_storage_name":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_51.txt
+Hash: InvalidValueChecker_500_d4d24bd7305471fa001932e4b346c5bdb4ee85fd
+PUT /api/v4/projects/integrations/custom-issue-tracker HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "new_issue_url":fuzzstring,\n    "issues_url":fuzzstring,\n    "project_url":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_52.txt
+Hash: InvalidValueChecker_500_aa2c81f427dc0bd373c5accbad35f13163657086
+PUT /api/v4/projects/integrations/mock-ci HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "mock_service_url":fuzzstring,\n    "enable_ssl_verification":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_53.txt
+Hash: InvalidValueChecker_500_95ee77bb31dcc7a17bf84734ae8add9ab35f049a
+POST /api/v4/ci/lint HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "content":fuzzstring,\n    "include_merged_yaml":true,\n    "include_jobs":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_54.txt
+Hash: InvalidValueChecker_500_08dd8d126fbf1b221bbfb6eba92e6553e7a52d0b
+PUT /api/v4/projects/integrations/irker HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "recipients":fuzzstring,\n    "default_irc_uri":fuzzstring,\n    "server_host":fuzzstring,\n    "server_port":1,\n    "colorize_messages":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_55.txt
+Hash: InvalidValueChecker_500_0ecd122ba2b18b513268ea6a7b02f6ca4de6eb73
+POST /api/v4/markdown HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "text":fuzzstring,\n    "gfm":true,\n    "project":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_56.txt
+Hash: InvalidValueChecker_500_60bf2be84d7ac37cb0d3b28f86a7b81c57d906e2
+PUT /api/v4/application/plan_limits HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "plan_name":fuzzstring,\n    "ci_pipeline_size":1,\n    "ci_active_jobs":1,\n    "ci_active_pipelines":1,\n    "ci_project_subscriptions":1,\n    "ci_pipeline_schedules":1,\n    "ci_needs_size_limit":1,\n    "ci_registered_group_runners":1,\n    "ci_registered_project_runners":1,\n    "conan_max_file_size":1,\n    "generic_packages_max_file_size":1,\n    "helm_max_file_size":1,\n    "maven_max_file_size":1,\n    "npm_max_file_size":1,\n    "nuget_max_file_size":1,\n    "pypi_max_file_size":1,\n    "terraform_module_max_file_size":1,\n    "storage_size_limit":1}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_57.txt
+Hash: InvalidValueChecker_500_32d42f85f77a9a8386a64b2d4f256481b0b56ba5
+PUT /api/v4/notification_settings HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "level":fuzzstring,\n    "notification_email":fuzzstring,\n    "new_note":true,\n    "new_issue":true,\n    "reopen_issue":true,\n    "close_issue":true,\n    "reassign_issue":true,\n    "issue_due":true,\n    "new_merge_request":true,\n    "push_to_merge_request":true,\n    "reopen_merge_request":true,\n    "close_merge_request":true,\n    "reassign_merge_request":true,\n    "merge_merge_request":true,\n    "failed_pipeline":true,\n    "fixed_pipeline":true,\n    "success_pipeline":true,\n    "moved_project":true,\n    "merge_when_pipeline_succeeds":true,\n    "new_epic":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_58.txt
+Hash: InvalidValueChecker_500_2d35b8069cb26f500c84b7476bcddcc44d1d1e00
+PUT /api/v4/projects/integrations/buildkite HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "token":fuzzstring,\n    "project_url":fuzzstring,\n    "enable_ssl_verification":true,\n    "push_events":true,\n    "merge_requests_events":true,\n    "tag_push_events":true}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_59.txt
+Hash: InvalidValueChecker_500_dff2b14630b49c7c337b2ab7b020c162c63e3050
+POST /api/v4/user/emails HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "email":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_60.txt
+Hash: InvalidValueChecker_500_ba836f2fa5fa4b989a41a083d5ae803ab270befb
+POST /api/v4/projects/repository/changelog HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "version":fuzzstring,\n    "from":fuzzstring,\n    "to":fuzzstring,\n    "date":2019-06-26T20:20:39+00:00,\n    "branch":fuzzstring,\n    "trailer":fuzzstring,\n    "file":fuzzstring,\n    "message":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_61.txt
+Hash: InvalidValueChecker_500_41f8315371cd975aaf9625b3e2a7a72b43034cc2
+POST /api/v4/topics HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "name":fuzzstring,\n    "title":fuzzstring,\n    "avatar":fuzzstring,\n    "description":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_62.txt
+Hash: InvalidValueChecker_500_b3d6d26c898ca7de58234e8029ef94f9d70b21ee
+PUT /api/v4/projects/integrations/pushover HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "api_key":fuzzstring,\n    "user_key":fuzzstring,\n    "priority":fuzzstring,\n    "device":fuzzstring,\n    "sound":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_63.txt
+Hash: InvalidValueChecker_500_0adc6412c2456739ef3024d6ed17801330c7ccb5
+PUT /api/v4/projects/id HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "container_registry_access_level":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+InvalidValueChecker_500 - Bug was reproduced - InvalidValueChecker_500_64.txt
+Hash: InvalidValueChecker_500_0adc6412c2456739ef3024d6ed17801330c7ccb5
+PUT /api/v4/projects/id HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{\n    "avatar":fuzzstring}\r\n
+--------------------------------------------------------------------------------
+PayloadBodyChecker_500 - Bug was reproduced - PayloadBodyChecker_500_1.txt
+Hash: PayloadBodyChecker_500_cd3c4a879e223b8c99db14df2c5ea4613c576516
+PUT /api/v4/projects/integrations/pivotaltracker HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{"token":{ "fuzz" : false },"restrict_to_branch":false}
+--------------------------------------------------------------------------------
+PayloadBodyChecker_500 - Bug was reproduced - PayloadBodyChecker_500_2.txt
+Hash: PayloadBodyChecker_500_2af0a11ce43ec22739666036ab742acd1bf94394
+PUT /api/v4/projects/integrations/mattermost-slash-commands HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{"token":{ "fuzz" : false },"username":"fuzzstring"}
+--------------------------------------------------------------------------------
+PayloadBodyChecker_500 - Bug was reproduced - PayloadBodyChecker_500_3.txt
+Hash: PayloadBodyChecker_500_566a6d835b6ee9beae8452d4a3c5cec9062be737
+PUT /api/v4/projects/integrations/flowdock HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{"token":{ "fuzz" : false }}
+--------------------------------------------------------------------------------
+PayloadBodyChecker_500 - Bug was reproduced - PayloadBodyChecker_500_4.txt
+Hash: PayloadBodyChecker_500_0708f949c575536dd508f1f8a5af49e2d9154c1a
+POST /api/v4/runners/verify HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{"token":{ "fuzz" : false }}
+--------------------------------------------------------------------------------
+PayloadBodyChecker_500 - Bug was reproduced - PayloadBodyChecker_500_5.txt
+Hash: PayloadBodyChecker_500_cafd62ff2bf6ef8e3724aaa3ab4b21be1e66db36
+PUT /api/v4/projects/integrations/slack-slash-commands HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{"token":{ "fuzz" : false }}
+--------------------------------------------------------------------------------
+PayloadBodyChecker_500 - Bug was reproduced - PayloadBodyChecker_500_6.txt
+Hash: PayloadBodyChecker_500_54e387128cf99aae696b43fcf60597e09de6de12
+POST /api/v4/runners/reset_authentication_token HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{"token":{ "fuzz" : false }}
+--------------------------------------------------------------------------------
+PayloadBodyChecker_500 - Bug was reproduced - PayloadBodyChecker_500_7.txt
+Hash: PayloadBodyChecker_500_a09478d424de407365bb5d39cda0470626eaecca
+PUT /api/v4/projects/integrations/assembla HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{"token":{ "fuzz" : false },"subdomain":"fuzzstring"}
+--------------------------------------------------------------------------------
+InvalidValueChecker_timeout - Unable to reproduce bug - InvalidValueChecker_timeout_1.txt
+Attempted to reproduce 1 time(s); Reproduced 0 time(s)
+Hash: InvalidValueChecker_timeout_29f5aa97e54f6bce201a28ac4aaa06313f6574e3
+PUT /api/v4/users/id HTTP/1.1\r\nAccept: application/json\r\nHost: gitlab.com\r\nContent-Type: application/json\r\nauthentication_token_tag\r\n{ "fuzz": false }\r\n
+--------------------------------------------------------------------------------
