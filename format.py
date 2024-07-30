@@ -2,26 +2,26 @@ import json
 from collections import defaultdict
 
 def extract_key_value_pairs(file_path):
-# 用于存储提取出的键值对
+    # Used to store the extracted key-value pairs
     pairs = {}
-    # 读取文件中的每一行并解析为Python对象
+    # Read each line in the file and parse it as a Python object
     with open(file_path, "r") as f:
         for line in f:
             try:
                 data = json.loads(line)
-                # 提取每个对象中的键值对
+                # Extract key-value pairs from each object
                 if type(data) == list:
                     data = data[0]
                 if data != None:
-                    # 递归函数，用于处理嵌套结构
+                    # Recursive function to handle nested structures
                     def process_object(obj):
                         if isinstance(obj, dict):
                             for key, value in obj.items():
-                                # 如果值是一个嵌套结构，则递归处理
+                                # If the value is a nested structure, recursively process it
                                 if isinstance(value, (dict, list)):
                                     process_object(value)
                                 else:
-                                    # 否则将键值对添加到字典中
+                                    # Otherwise, add the key-value pair to the dictionary
                                     if key in pairs:
                                         pairs[key].add(value)
                                     else:
@@ -30,14 +30,10 @@ def extract_key_value_pairs(file_path):
                         elif isinstance(obj, list):
                             for item in obj:
                                 process_object(item)
-                    # 处理JSON对象
+                    # Process the JSON object
                     process_object(data)
             except json.decoder.JSONDecodeError:
-                # 如果遇到JSONDecodeError异常，说明该行数据不符合JSON格式，跳过该行数据继续读取下一行数据
+                # If a JSONDecodeError exception is encountered, it means that the line data does not conform to JSON format, skip the line and continue reading the next line
                 continue
     return pairs
 
-if __name__ == "__main__":
-    pairs = extract_key_value_pairs("/root/REST_Go/RestTestGen/output/response_bodies.txt")
-    with open("result.json", "w") as f:
-        json.dump({key: list(values) for key, values in pairs.items()}, f)
