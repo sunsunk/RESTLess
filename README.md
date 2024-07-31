@@ -18,3 +18,5 @@ The format file is used to format the parameters and the trained parameter value
 format_file.json shows the results of the format.py file, i.e. the trained parameters and their values. Used to enhance API documentation
 ## merged.py
 Adds the trained parameter values to the openapi documentation in the form of an 'enum' field, enhancing the subsequent parameter generation process.
+
+For some commercial reasons, we are unable to disclose all the source code at this time. We welcome readers who are interested in restless to communicate with us at zhengtao20@stu.scu.edu.cn, chenxsh@scu.edu.cn; we also welcome readers to come to Sichuan University to meet us face-to-face. Address: Multidisciplinary Building, Sichuan University, Chuanda Road, Shuangliu District, Chengdu, Sichuan, China. We promise to publish a runnable version as well as related data and code as soon as possible.
